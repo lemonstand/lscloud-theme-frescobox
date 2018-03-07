@@ -3,7 +3,7 @@
 
 .minicart-items {
     @include list-unstyled;
-    margin-bottom: 0;        
+    margin-bottom: 0;
 
     .minicart-item {
         align-items: center;
@@ -46,10 +46,10 @@
     .minicart-body {
         padding: map-get($spacers, 3) map-get($spacers, 3);
 
-        p:last-child { 
+        p:last-child {
             margin-bottom: 0;
         }
-    }    
+    }
 
     .minicart-footer-group {
         align-items: center;
@@ -61,7 +61,7 @@
             flex: 1;
             font-size: $font-size-sm;
         }
-        
+
         .btn {
             margin-left: auto;
         }
@@ -76,11 +76,11 @@
         box-shadow: 0px 3px 30px 0px rgba($gray-900, 0.25);
         opacity: 0.0;
         pointer-events: none;
-        position: absolute;  
+        position: absolute;
         right: 0;
         top: 0;
         transition: all 0.5s ease;
-        visibility: hidden;        
+        visibility: hidden;
         width: 18.75rem;
         z-index: $zindex-sticky;
     }
@@ -92,4 +92,17 @@
             visibility: visible;
         }
     }
+}
+
+.icon-group.icon-group-badge .count {
+    background-color: #494c50;
+    border-radius: 50%;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 0.875rem;
+    height: 1.3rem;
+    line-height: 1.5rem;
+    margin-left: 0.5rem;
+    text-align: center;
+    width: 1.3rem;
 }
