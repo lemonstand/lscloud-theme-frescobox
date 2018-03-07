@@ -4247,16 +4247,6 @@ tbody.collapse.show {
   display: block;
 }
 
-.tab-content h6 {
-	color: #494c50;
-	padding-bottom: .5rem;
-}
-
-.tab-content th,
-.tab-content strong {
-
-}
-
 .navbar {
   position: relative;
   display: -webkit-box;
@@ -4926,11 +4916,6 @@ tbody.collapse.show {
   margin-bottom: 15px;
 }
 
-#profile-addresses .sidebar-card {
-	border-right: 2px solid #e5e5e5;
-	margin-right: 40px;
-	padding-right: 40px;
-}
 
 @media (min-width: 576px) {
   .card-deck {
@@ -5192,18 +5177,6 @@ tbody.collapse.show {
   border-bottom-right-radius: 0;
 }
 
-.pagination p {
-	position: relative;
-	display: block;
-	padding: 0.5rem 0.75rem;
-	margin-left: -2px;
-	line-height: 1.25;
-	color: #494c50;
-	background-color: #ffffff;
-	border: 2px solid #e0e0e0;
-	margin-bottom: 0;
-	font-size: 16px;
-}
 
 .badge {
   display: inline-block;
@@ -13206,19 +13179,19 @@ Plugin URI: http://manos.malihu.gr/jquery-custom-content-scroller
 */
 
 /*
-CONTENTS: 
-	1. BASIC STYLE - Plugin's basic/essential CSS properties (normally, should not be edited). 
-	2. VERTICAL SCROLLBAR - Positioning and dimensions of vertical scrollbar. 
+CONTENTS:
+	1. BASIC STYLE - Plugin's basic/essential CSS properties (normally, should not be edited).
+	2. VERTICAL SCROLLBAR - Positioning and dimensions of vertical scrollbar.
 	3. HORIZONTAL SCROLLBAR - Positioning and dimensions of horizontal scrollbar.
-	4. VERTICAL AND HORIZONTAL SCROLLBARS - Positioning and dimensions of 2-axis scrollbars. 
-	5. TRANSITIONS - CSS3 transitions for hover events, auto-expanded and auto-hidden scrollbars. 
-	6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS 
+	4. VERTICAL AND HORIZONTAL SCROLLBARS - Positioning and dimensions of 2-axis scrollbars.
+	5. TRANSITIONS - CSS3 transitions for hover events, auto-expanded and auto-hidden scrollbars.
+	6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS
 		6.1 THEMES - Scrollbar colors, opacity, dimensions, backgrounds etc. via ready-to-use themes.
 */
 
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-1. BASIC STYLE  
+1. BASIC STYLE
 ------------------------------------------------------------------------------------------------------------------------
 */
 
@@ -13251,9 +13224,9 @@ CONTENTS:
   height: auto;
 }
 
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-2. VERTICAL SCROLLBAR 
+2. VERTICAL SCROLLBAR
 y-axis
 ------------------------------------------------------------------------------------------------------------------------
 */
@@ -13377,9 +13350,9 @@ y-axis
   bottom: 0;
 }
 
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-3. HORIZONTAL SCROLLBAR 
+3. HORIZONTAL SCROLLBAR
 x-axis
 ------------------------------------------------------------------------------------------------------------------------
 */
@@ -13471,10 +13444,10 @@ x-axis
   right: 0;
 }
 
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-4. VERTICAL AND HORIZONTAL SCROLLBARS 
-yx-axis 
+4. VERTICAL AND HORIZONTAL SCROLLBARS
+yx-axis
 ------------------------------------------------------------------------------------------------------------------------
 */
 
@@ -13557,9 +13530,9 @@ yx-axis
   margin-bottom: 0;
 }
 
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-5. TRANSITIONS  
+5. TRANSITIONS
 ------------------------------------------------------------------------------------------------------------------------
 */
 
@@ -13577,25 +13550,25 @@ yx-axis
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail,
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar,
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail {
-  -webkit-transition: width .2s ease-out .2s, height .2s ease-out .2s, 
- margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+  -webkit-transition: width .2s ease-out .2s, height .2s ease-out .2s,
+ margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,
  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
  opacity .2s ease-in-out, background-color .2s ease-in-out;
-  transition: width .2s ease-out .2s, height .2s ease-out .2s, 
- margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+  transition: width .2s ease-out .2s, height .2s ease-out .2s,
+ margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,
  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
  opacity .2s ease-in-out, background-color .2s ease-in-out;
 }
 
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS  
+6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS
 ------------------------------------------------------------------------------------------------------------------------
 */
 
-/* 
+/*
 	----------------------------------------
-	6.1 THEMES 
+	6.1 THEMES
 	----------------------------------------
 	*/
 
@@ -13668,8 +13641,8 @@ yx-axis
 
 .mCSB_scrollTools .mCSB_buttonUp {
   background-position: 0 0;
-  /* 
-		sprites locations 
+  /*
+		sprites locations
 		light: 0 0, -16px 0, -32px 0, -48px 0, 0 -72px, -16px -72px, -32px -72px
 		dark: -80px 0, -96px 0, -112px 0, -128px 0, -80px -72px, -96px -72px, -112px -72px
 		*/
@@ -13677,7 +13650,7 @@ yx-axis
 
 .mCSB_scrollTools .mCSB_buttonDown {
   background-position: 0 -20px;
-  /* 
+  /*
 		sprites locations
 		light: 0 -20px, -16px -20px, -32px -20px, -48px -20px, 0 -92px, -16px -92px, -32px -92px
 		dark: -80px -20px, -96px -20px, -112px -20px, -128px -20px, -80px -92px, -96px -92px, -112 -92px
@@ -13686,8 +13659,8 @@ yx-axis
 
 .mCSB_scrollTools .mCSB_buttonLeft {
   background-position: 0 -40px;
-  /* 
-		sprites locations 
+  /*
+		sprites locations
 		light: 0 -40px, -20px -40px, -40px -40px, -60px -40px, 0 -112px, -20px -112px, -40px -112px
 		dark: -80px -40px, -100px -40px, -120px -40px, -140px -40px, -80px -112px, -100px -112px, -120px -112px
 		*/
@@ -13695,8 +13668,8 @@ yx-axis
 
 .mCSB_scrollTools .mCSB_buttonRight {
   background-position: 0 -56px;
-  /* 
-		sprites locations 
+  /*
+		sprites locations
 		light: 0 -56px, -20px -56px, -40px -56px, -60px -56px, 0 -128px, -20px -128px, -40px -128px
 		dark: -80px -56px, -100px -56px, -120px -56px, -140px -56px, -80px -128px, -100px -128px, -120px -128px
 		*/
@@ -16278,14 +16251,6 @@ a.link-muted:hover {
   margin-right: 1.5rem;
 }
 
-.volume-pricing-table {
-	margin-bottom: 20px;
-}
-
-.volume-pricing-table td {
-	padding-right: 15px;
-}
-
 .review .review-header p {
   font-size: 0.875rem;
 }
@@ -16361,109 +16326,4 @@ a.link-muted:hover {
   display: flex;
 }
 
-.icon-group.icon-group-badge .count {
-  background-color: #494c50;
-	border-radius: 50%;
-	color: #ffffff;
-	display: inline-block;
-	font-size: 0.875rem;
-	height: 1.3rem;
-	line-height: 1.5rem;
-	margin-left: 0.5rem;
-	text-align: center;
-	width: 1.3rem;
-}
 
-.table-responsive .active,
-.table-responsive .paused,
-.table-responsive .cancelled {
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 12px;
-	color: #28a745;
-}
-
-.table-responsive .paused {
-	color: #494c50;
-}
-
-.table-responsive .cancelled {
-	color: #f81111;
-}
-
-.table-responsive .total {
-	font-size: 14px;
-	color: #494c50;
-}
-
-.subscription_pause p,
-.subscriiption_activate p,
-.subscription_cancel p {
-	display: none;
-}
-
-.subscription_pause,
-.subscription_activate {
-	padding: 0.375rem 0.75rem;
-	text-transform: uppercase;
-	margin: 0 10px 0 0;
-	display: inline;
-}
-
-.subscription_pause {
-	background: #cbcbcb;
-	color: #212121;
-	border: 1px solid #c9c7c7;
-}
-
-.subscription_pause:hover {
-	background: #c9c7c7;
-}
-
-.subscription_activate {
-	color: #fff;
-	background-color: #58c358;
-	border: 1px solid #53b853;
-}
-
-.subscription_activate:hover {
-	color: #fff;
-	background-color: #53b853;
-}
-
-.subscription_cancel {
-	color: #f81111;
-	text-transform: capitalize;
-	display: inline;
-	border: none;
-	font-size: 14px;
-}
-
-.subscription_cancel:hover,
-.subscription_cancel:focus {
-	color: #ce1111;
-	border: none;
-}
-
-.subscription_status_block {
-	margin-bottom: 40px;
-}
-
-.subscription_status_block h6 {
-	margin: 0px 0 30px 0;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 12px;
-}
-
-.subscription_status_block.active h6 span {
-	color: #28a745;
-}
-
-.subscription_status_block.paused h6 span {
-	color: #494c50;
-}
-
-.subscription_status_block.cancelled h6 span {
-	color: #f81111;
-}
