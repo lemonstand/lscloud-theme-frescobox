@@ -17,3 +17,26 @@
         vertical-align: top;
     }
 }
+
+
+.table-responsive .active,
+.table-responsive .paused,
+.table-responsive .cancelled {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 12px;
+	color: #28a745;
+}
+
+.table-responsive .paused {
+	color: #494c50;
+}
+
+.table-responsive .cancelled {
+	color: #f81111;
+}
+
+.table-responsive .total {
+	font-size: 14px;
+	color: #494c50;
+}
