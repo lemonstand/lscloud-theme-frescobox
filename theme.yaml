@@ -11,35 +11,50 @@ customFields:
     socialInstagramUrl: { type: text, title: 'Social: Instagram URL', default: '' }
     socialPinterestUrl: { type: text, title: 'Social: Pinterest URL', default: '' }
     socialTwitterUrl: { type: text, title: 'Social: Twitter URL', default: '' }
-    storeCopyright: { type: text, title: 'Store: Copyright', default: '&copy; %current_year% %store_title%' }
-    logo: { type: image, title: 'Store: Logo (Default)', default: '@/images/fresco-logo-black.png' }
-    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg' }
-    logoLight: { type: image, title: 'Store: Logo (White)', default: '@/images/fresco-logo-white.png' }
-    comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
-    enableSearch: { type: checkbox, title: 'Store: Enable Search', default: '1' }
-    enableMinicart: { type: checkbox, title: 'Store: Enable Minicart', default: '1' }
-    featuredQuoteContent: { type: text, title: 'Home: Featured Quote Content', default: 'Great coffee brews and even better customer service! Love being able to try a variety of flavors every month.' }
-    featuredQuoteAuthor: { type: text, title: 'Home: Featured Quote Author', default: 'Danny Halarewitch' }
-    featuredQuoteAuthorTitle: { type: text, title: 'Home: Featured Quote Author Title', default: 'LemonStand' }
-    stickyHeader: { type: checkbox, title: 'Header: Enable Sticky', default: '1' }
-    transparentHeader: { type: checkbox, title: 'Header: Transparent', default: '1' }
-    enableReviews: { type: checkbox, title: 'Store: Enable Reviews', default: '1' }
+    imageHomeBanner: { type: image, title: 'Home: Banner Image', default: '' }
+    textHomeBannerHeading: { type: text, title: 'Home: Banner Heading', default: 'THE BEST COFFEE BLENDS DELIVERED MONTHLY' }
+    textHomeBannerContent: { type: text, title: 'Home: Banner Content', default: 'Fresh and better tasting coffee roasted and personalized for you. Order today to get 30% off your first month.' }
+    homeBannerButtonText: { type: text, title: 'Home Banner Button Text', default: 'Get Started' }
+    homeHeading: { type: text, title: 'First Heading Home Page', default: 'How FrescoBox Works' }
+    homeFeaturedHeader: { type: text, title: 'Home: Featured Products Header', default: 'Our Plans' }
     calloutButtonUrl: { type: text, title: 'Callout: Button URL', default: /shop }
     calloutButtonText: { type: text, title: 'Callout: Button Text', default: 'Shop Now' }
     calloutTitle: { type: text, title: 'Callout: Title', default: 'Ready to get started?' }
     calloutContent: { type: text, title: 'Callout: Content', default: '' }
-    enableCallout: { type: checkbox, title: 'Home: Enable Callout', default: '1' }
+    addToCart: { type: text, title: 'Add To Cart Text', default: 'Add To Cart' }
+    mailchimpSubscribeUrl: { type: text, title: 'MailChimp: Subscribe URL', default: '', comment: 'Find the URL by going to List > Signup Forms > General Forms in Mailchimp. Visit the eepurl link and it will redirect to an URL like yourcompany.us5.list-manage1.com/subscribe?u=123456a78912&id=9z87654 - that is the URL to enter here. Leave this blank to not show form in footr' }
+    storeCopyright: { type: text, title: 'Store: Copyright', default: '&copy; %current_year% %store_title%' }
+    logo: { type: image, title: 'Store: Logo (Default)', default: '@/images/fresco-logo-black.png' }
+    faviconImage: { type: image, title: 'Store: Favicon Image', default: '@/images/favicon.png' }
+    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg' }
+    logoLight: { type: image, title: 'Store: Logo (White)', default: '@/images/fresco-logo-white.png' }
+    comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
+    imageAbout1: { type: image, title: 'About: Image #1', default: '@/images/about-1.jpg' }
+    imageHomeFeatureIcon1: { type: image, title: 'Home: Feature Icon #1', default: '@/images/home-icon-1.png' }
+    imageHomeFeatureIcon2: { type: image, title: 'Home: Feature Icon #2', default: '@/images/home-icon-2.png' }
+    imageHomeFeatureIcon3: { type: image, title: 'Home: Feature Icon #3', default: '@/images/home-icon-3.png' }
+    imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg' }
+    imageShopHeader: { type: image, title: 'Shop: Header Image', default: '' }
+    imageAboutHeader: { type: image, title: 'About: Header Image', default: '' }
+    imageContactHeader: { type: image, title: 'Contact: Header Image', default: '' }
+    imagePageHeader: { type: image, title: 'Page: Header Image', default: '' }
+    imageBlogHeader: { type: image, title: 'Blog: Header Image', default: '' }
+    imageCartHeader: { type: image, title: 'Cart: Header Image', default: '' }
+    imageCheckoutHeader: { type: image, title: 'Checkout: Header Image', default: '' }
+    imageLoginHeader: { type: image, title: 'Login: Header Image', default: '' }
+    homeBannerAlign: { type: dropdown, title: 'Home: banner text alignment', default: center, options: { left: 'Align left', center: 'Align center', right: 'Align right'  } }
     enableFeaturedProducts: { type: checkbox, title: 'Home: Enable Featured Products', default: '1' }
     enableFeaturedBlogPosts: { type: checkbox, title: 'Home: Enable Latest Blog Posts', default: '0' }
+    enableCallout: { type: checkbox, title: 'Home: Enable Callout', default: '1' }
     enableHowItWorks: { type: checkbox, title: 'Home: Enable How It Works Section', default: '1' }
     enableFeaturedTestimonial: { type: checkbox, title: 'Home: Enable Featured Testinomial', default: '1' }
-    imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg' }
-    footerMinimalMode: { type: checkbox, title: 'Footer: Minimal Mode', default: '0' }
-    footerNewsletter: { type: checkbox, title: 'Footer: Newsletter', default: '0' }
-    mailchimpSubscribeUrl: { type: text, title: 'MailChimp: Subscribe URL', default: '' }
-    enableMinicartCounter: { type: checkbox, title: 'Store: Enable Minicart Counter', default: '1' }
-    enableMinicartCounterBadge: { type: checkbox, title: 'Store: Minicart Counter Badge Mode', default: '1' }
-    minicartBadgeColor: { type: color, title: 'Minicart badge color', default: '#494c50'}
+    enableSearch: { type: checkbox, title: 'Header: Enable Search', default: '1' }
+    enableMinicart: { type: checkbox, title: 'Header: Enable Minicart', default: '1' }
+    enableMinicartCounter: { type: checkbox, title: 'Header: Enable Minicart Counter', default: '1', comment: 'Shows the number of items in the cart' }
+    enableMinicartCounterBadge: { type: checkbox, title: 'Header: Minicart Counter Badge Mode', default: '1', comment: 'Display number of cart items within a badge (see color setting)' }
+    stickyHeader: { type: checkbox, title: 'Header: Enable Sticky', default: '1', comment: 'Sticks header to top of page as you scroll' }
+    transparentHeader: { type: checkbox, title: 'Header: Transparent', default: '1' }
+    enableReviews: { type: checkbox, title: 'Store: Enable Reviews', default: '1' }
     enableShopSidebar: { type: checkbox, title: 'Store: Enable Sidebar', default: '1' }
     enableCategories: { type: checkbox, title: 'Store: Enable Categories', default: '1' }
     enableDimensions: { type: checkbox, title: 'Store: Enable Dimensions', default: '1' }
@@ -49,43 +64,12 @@ customFields:
     enableBlogCallout: { type: checkbox, title: 'Blog: Enable Callout', default: '1' }
     blogEnableAuthor: { type: checkbox, title: 'Blog: Enable Author', default: '1' }
     enableProductOverlay: { type: checkbox, title: 'Store: Enable Product Overlay', default: '1' }
-    faviconImage: { type: image, title: 'Store: Favicon Image', default: '@/images/favicon.png' }
-    # enableProductShortDescription: { type: checkbox, title: 'Shop: Enable Short Descriptions', default: '1' }
-    # enableLongDescAboveFold: { type: checkbox, title: 'Shop: Enable Long Description Under Price', default: '0' }
-    # enableDescriptionTab: { type: checkbox, title: 'Shop: Enable Description Tab', default: '1' }
-    descriptionsDropdown: { type: dropdown, title: 'Product Description', default: first, options: { first: 'Enable Short Description and Long Description Tab', second: 'Enable Long Description and Disable Short Description and Description Tab' } }
-    enableQuantity: { type: checkbox, title: 'Shop: Enable ProductQuantity', default: '1' }
-    allowOptionChanges: { type: checkbox, title: 'Subscriptions: Allow Product Option Changes', default: '1' }
-    imageShopHeader: { type: image, title: 'Shop: Header Image', default: '' }
-    imageAboutHeader: { type: image, title: 'About: Header Image', default: '' }
-    imageContactHeader: { type: image, title: 'Contact: Header Image', default: '' }
-    imagePageHeader: { type: image, title: 'Page: Header Image', default: '' }
-    imageBlogHeader: { type: image, title: 'Blog: Header Image', default: '' }
-    # imagePostHeader: { type: image, title: 'Post: Header Image', default: '' }
-    # imageAccountHeader: { type: image, title: 'Account: Header Image', default: '' }
-    imageHomeBanner: { type: image, title: 'Home: Banner Image', default: '' }
-    textHomeBannerHeading: { type: text, title: 'Home: Banner Heading', default: 'THE BEST COFFEE BLENDS DELIVERED MONTHLY' }
-    textHomeBannerContent: { type: text, title: 'Home: Banner Content', default: 'Fresh and better tasting coffee roasted and personalized for you. Order today to get 30% off your first month.' }
-    # image404Header: { type: image, title: 'Error 404: Header Image', default: '' }
-    imageAbout1: { type: image, title: 'About: Image #1', default: '@/images/about-1.jpg' }
-    imageHomeFeatureIcon1: { type: image, title: 'Home: Feature Icon #1', default: '@/images/home-icon-1.png' }
-    imageHomeFeatureIcon2: { type: image, title: 'Home: Feature Icon #2', default: '@/images/home-icon-2.png' }
-    imageHomeFeatureIcon3: { type: image, title: 'Home: Feature Icon #3', default: '@/images/home-icon-3.png' }
-    homeHeading: { type: text, title: 'First Heading Home Page', default: 'How Coffree Works' }
-    homeFeaturedHeader: { type: text, title: 'Home: Featured Products Header', default: 'Our Plans' }
-    # imageOrdersHeader: { type: image, title: 'Order List:  Header Image', default: '' }
-    # imageOrderHeader: { type: image, title: 'Order Details: Header Image', default: '' }
-    # imageChangePasswordHeader: { type: image, title: 'Change Password: Header Image', default: '' }
-    # imageProfileHeader: { type: image, title: 'Profile: Header Image', default: '' }
-    # imageSubscriptionHeader: { type: image, title: 'Subscription: Header Image', default: '' }
-    # imageSubscriptionsHeader: { type: image, title: 'Subscriptions List: Header Image', default: '' }
-    # imageCategoriesHeader: { type: image, title: 'Categories: Header Image', default: '' }
-    imageCartHeader: { type: image, title: 'Cart: Header Image', default: '' }
-    imageCheckoutHeader: { type: image, title: 'Checkout: Header Image', default: '' }
-    imageLoginHeader: { type: image, title: 'Login: Header Image', default: '' }
-    # imageManufacturersHeader: { type: image, title: 'Manufacturers: Header Image', default: '' }
-    # imagePasswordRestoreHeader: { type: image, title: 'Password Restore: Header Image', default: '' }
-    imageRegisterHeader: { type: image, title: 'Register: Header Image', default: '' }
+    descriptionsDropdown: { type: dropdown, title: 'Store: Product Description', default: first, options: { first: 'Enable Short Description and Long Description Tab', second: 'Enable Long Description and Disable Short Description and Description Tab' } }
+    enableQuantity: { type: checkbox, title: 'Store: Enable Product Quantity', default: '1' }
+    allowOptionChanges: { type: checkbox, title: 'Subscriptions: Allow Product Option Changes', default: '1', comment: 'Select this to allow customers to change the product options of their active subscriptions from the My Account area' }
+    footerMinimalMode: { type: checkbox, title: 'Footer: Minimal Mode', default: '0', comment: 'Do not show navigation, contact info, social links or newsletter' }
+    homeBannerColor: { type: color, title: 'Home: Banner Color', default: '#494c50', comment: 'Home Banner Color' }
+    minicartBadgeColor: { type: color, title: 'Header Minicart badge color', default: '#494c50'}
     primaryColor: { type: color, title: 'Primary Theme Color', default: '#494c50', comment: 'Primary Theme Color' }
     secondaryColor: { type: color, title: 'Secondary Theme Color', default: '#f5f5f5', comment: 'Secondary Theme Color' }
     textColor: { type: color, title: 'Text Color', default: '#212121', comment: 'Theme Primary Text Color' }
@@ -93,11 +77,23 @@ customFields:
     linkColor: { type: color, title: 'Link Color', default: '#ffffff', comment: 'Secondary Text Color - Banner Text' }
     buttonColor: { type: color, title: 'Button Color', default: '#494c50', comment: 'Color used for Add To Cart and Checkout buttons.' }
     buttonHoverColor: { type: color, title: 'Button Hover Color', default: '##37393c', comment: 'Button hover color used for Add To Cart and Checkout buttons.' }
-    buttonBorderColor: { type: color, title: 'Button Hover Color', default: '#494c50', comment: 'Button border color when you hover your mouse cursor over.' }
-    homeBannerColor: { type: color, title: 'Home Banner Color', default: '#494c50', comment: 'Home Banner Color' }
-    homeBannerAlign: { type: dropdown, title: 'Home: banner text alignment', default: center, options: { left: 'Align left', center: 'Align center', right: 'Align right'  } }
+    # buttonBorderColor: { type: color, title: 'Button Hover Color', default: '#494c50', comment: 'Button border color when you hover your mouse cursor over.' }
+    # enableProductShortDescription: { type: checkbox, title: 'Shop: Enable Short Descriptions', default: '1' }
+    # enableLongDescAboveFold: { type: checkbox, title: 'Shop: Enable Long Description Under Price', default: '0' }
+    # enableDescriptionTab: { type: checkbox, title: 'Shop: Enable Description Tab', default: '1' }
+    # imagePostHeader: { type: image, title: 'Post: Header Image', default: '' }
+    # imageAccountHeader: { type: image, title: 'Account: Header Image', default: '' }
+    # image404Header: { type: image, title: 'Error 404: Header Image', default: '' }
+    # imageOrdersHeader: { type: image, title: 'Order List:  Header Image', default: '' }
+    # imageOrderHeader: { type: image, title: 'Order Details: Header Image', default: '' }
+    # imageChangePasswordHeader: { type: image, title: 'Change Password: Header Image', default: '' }
+    # imageProfileHeader: { type: image, title: 'Profile: Header Image', default: '' }
+    # imageSubscriptionHeader: { type: image, title: 'Subscription: Header Image', default: '' }
+    # imageSubscriptionsHeader: { type: image, title: 'Subscriptions List: Header Image', default: '' }
+    # imageCategoriesHeader: { type: image, title: 'Categories: Header Image', default: '' }
+    # imageManufacturersHeader: { type: image, title: 'Manufacturers: Header Image', default: '' }
+    # imagePasswordRestoreHeader: { type: image, title: 'Password Restore: Header Image', default: '' }
+    # imageRegisterHeader: { type: image, title: 'Register: Header Image', default: '' }
     # bannerAlignRight: { type: checkbox, title: 'Home Banner Text: Align Right', default: '0' }
     # bannerAlignLeft: { type: checkbox, title: 'Home Banner Text: Align Left', default: '0' }
-    addToCart: { type: text, title: 'Add To Cart Text', default: 'Add To Cart' }
-    homeBannerButtonText: { type: text, title: 'Home Banner Button Text', default: 'Get Started' }
 ---

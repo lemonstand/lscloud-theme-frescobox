@@ -1,0 +1,69 @@
+#header-sticky-wrapper:not(.is-sticky) #header.header-transparent .navbar ul li a {
+    color: #ffffff;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.navbar ul li {
+    display: inline-block;
+}
+  
+.navbar ul li a {
+    padding: .5rem .75rem;
+    color: #000;
+    display: block;
+}
+
+
+#offcanvas-bar .offcanvas-bar-content nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+#offcanvas-bar .offcanvas-bar-content nav ul li {
+    display: block;
+}
+
+#offcanvas-bar .offcanvas-bar-content nav ul li:nth-child(n+2) {
+    border-top: 1px solid #eeeeee;
+}
+
+#offcanvas-bar .offcanvas-bar-content nav ul li a {
+    display: block;
+    font-size: 1.125rem;
+    padding: 1.25rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+#offcanvas-bar .offcanvas-bar-content nav ul li a::after {
+    content: '\F054';
+    font-family: "FontAwesome";
+    font-size: 0.75rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+/* homepage testimonial */
+
+.testimonial blockquote::before, .testimonial blockquote::after {
+    content: none;
+}
+
+.testimonial blockquote p::before {
+    content: open-quote;
+}
+
+.testimonial blockquote p::after {
+    content: close-quote;
+}
