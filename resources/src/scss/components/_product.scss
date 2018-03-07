@@ -24,8 +24,8 @@
     margin-bottom: map-get($spacers, 4);
     position: relative;
 
-    .product-image-overlay {   
-        align-items: center;     
+    .product-image-overlay {
+        align-items: center;
         background-color: rgba($white, 0.8);
         display: flex;
         flex-direction: column;
@@ -37,8 +37,8 @@
         pointer-events: none;
         position: absolute;
         right: 0;
-        top: 0; 
-        transition: all 0.5s ease;        
+        top: 0;
+        transition: all 0.5s ease;
         width: 100%;
         z-index: 1;
 
@@ -50,11 +50,11 @@
                 margin-top: map-get($spacers, 2);
             }
         }
-    }    
+    }
 
     &:hover .product-image-overlay {
         opacity: 1.0;
-        pointer-events: auto;        
+        pointer-events: auto;
     }
 }
 
@@ -72,7 +72,7 @@
     del {
         color: $gray-600;
     }
-    
+
     ins {
         text-decoration: none;
     }
@@ -95,6 +95,7 @@
     display: flex;
     justify-content: center;
     width: 7.5rem;
+    float: right;
 
     .form-control {
         background-color: $white;
@@ -126,3 +127,24 @@
     }
 }
 
+
+.volume-pricing-table {
+    margin-bottom: 20px;
+
+    td {
+        padding-right: 15px;
+    }
+}
+
+
+
+.tab-content {
+    h6 {
+        color: #494c50;
+        padding-bottom: .5rem;
+    }
+
+    th,
+    strong {
+    }
+}

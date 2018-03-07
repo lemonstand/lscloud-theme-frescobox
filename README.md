@@ -11,3 +11,20 @@ You can try this theme out yourself by installing it from the admin panel of you
 * It has many customization options for colors, header images, layout options and more!
 * It's designed specifically with subscription businesses in mind, and supports all of LemonStand's powerful subscription features
 
+
+
+## Automated build scripts
+
+
+### Rebuild js/css for development
+
+```bash
+npm update
+npm run dev
+```
+
+### Other actions
+
+- `dev` - build development files (not minified)
+- `watch` - watch files and rebuild as needed
+- `prod` - build produciton files (minified)
