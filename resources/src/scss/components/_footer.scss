@@ -28,7 +28,6 @@ $footer-bottom-padding-y:               $spacer * 1.25;
 
 .widget-footer {
     .widget-title {
-        color: $gray-600;
         font-size: 1rem;
         margin-bottom: map-get($spacers, 4);
     }
