@@ -24156,18 +24156,22 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }, options));
     });
 
-    $(".owl-stage").imagesLoaded(function () {
-      $(".owl-stage #owl-item active").owlCarousel({
-        items: 1,
-        nav: false,
-        pagination: false,
-        autoHeight: true,
-        loop: true,
-        lazyLoad: true,
-        animateOut: "slideOutRight",
-        animateIn: "pulse"
+    var disabled = true;
+    if (!disabled) {
+      /* disabled as not working ATM */
+      $(".owl-carousel").imagesLoaded(function () {
+        $(".owl-carousel #owl-item active").owlCarousel({
+          items: 1,
+          nav: false,
+          pagination: false,
+          autoHeight: true,
+          loop: true,
+          lazyLoad: true,
+          animateOut: "slideOutRight",
+          animateIn: "pulse"
+        });
       });
-    });
+    }
   });
 }(jQuery);
 
