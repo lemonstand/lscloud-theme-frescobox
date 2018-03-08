@@ -1,4 +1,4 @@
-<ul class="minicart-items">  
+<ul class="minicart-items">
     {% for item in cart.listitems %}
         <li class="minicart-item">
             <img src="{{ item.product.images.first.thumbnail(40, 40) }}" alt="{{ item.product.name }}">
@@ -8,10 +8,9 @@
             </div>
             {% if edit_cart %}
                 <a class="btn link-muted" href="#" title="Remove Item"
-                    data-ajax-handler="shop:cart" 
+                    data-ajax-handler="shop:cart"
                     data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart-content, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content"
-                    data-ajax-extra-fields="delete_item='{{ item.key }}'"
-                    data-toggle="tooltip">
+                    data-ajax-extra-fields="delete_item='{{ item.key }}'"></a>
                     <span class="fa fa-trash"></span>
                 </a>
             {% endif %}
