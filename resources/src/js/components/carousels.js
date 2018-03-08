@@ -21,7 +21,8 @@
       );
     });
 
-    if (disabled) {
+    var disabled = true;
+    if (!disabled) {
       /* disabled as not working ATM */
       $(".owl-carousel").imagesLoaded(function() {
         $(".owl-carousel #owl-item active").owlCarousel({
