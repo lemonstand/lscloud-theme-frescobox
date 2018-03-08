@@ -23,7 +23,13 @@ url: /
 {% endif %}
 
 {% if theme.enableFeaturedTestimonial %}
-	{{ partial('home-featured-testimonial') }}
+	<div class="block block-primary">
+		<div class="block-content">
+			<div class="container text-center testimonial">
+				{{ content_block('home-featured-testimonial') }} 
+			</div>
+		</div>
+	</div>		
 {% endif %}
 
 {% if theme.enableFeaturedProducts %}
