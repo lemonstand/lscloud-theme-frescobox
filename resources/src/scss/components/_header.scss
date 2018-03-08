@@ -86,7 +86,7 @@
 
 #header.header-transparent:not(.header-sticky),
 #header-sticky-wrapper.header-sticky-wrapper-transparent {
-    margin-bottom: -$header-height;
+    margin-bottom: -($header-height + $header-padding-y + $header-padding-y);
 }
 
 // Header Search Form
