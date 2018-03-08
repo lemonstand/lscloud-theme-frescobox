@@ -24156,7 +24156,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }, options));
     });
 
-    if (disabled) {
+    var disabled = true;
+    if (!disabled) {
+      /* disabled as not working ATM */
       $(".owl-carousel").imagesLoaded(function () {
         $(".owl-carousel #owl-item active").owlCarousel({
           items: 1,
