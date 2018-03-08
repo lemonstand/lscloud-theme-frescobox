@@ -1,18 +1,30 @@
-#header-sticky-wrapper:not(.is-sticky) #header.header-transparent .navbar ul li a {
+#header.header-transparent:not(.header-sticky), #header-sticky-wrapper.header-sticky-wrapper-transparent {
+    margin-bottom: -5rem;
+}
+
+#header {
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem;
+    position: relative;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#header:not(.header-sticky).header-transparent .main-nav ul li a, #header-sticky-wrapper:not(.is-sticky) #header.header-transparent .main-nav ul li a {
     color: #ffffff;
 }
 
-.navbar ul {
+.main-nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
   
-.navbar ul li {
+.main-nav ul li {
     display: inline-block;
 }
   
-.navbar ul li a {
+.main-nav ul li a {
     padding: .5rem .75rem;
     color: #000;
     display: block;
@@ -53,6 +65,21 @@
     transform: translateY(-50%);
 }
 
+/* minicart item count badge */
+
+.icon-group.icon-group-badge .count {
+    background-color: #494c50;
+    border-radius: 50%;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 0.875rem;
+    height: 1.3rem;
+    line-height: 1.5rem;
+    margin-left: 0.5rem;
+    text-align: center;
+    width: 1.3rem;
+}
+
 
 /* homepage testimonial */
 
@@ -66,4 +93,15 @@
 
 .testimonial blockquote p::after {
     content: close-quote;
+}
+
+
+/* button border override */
+
+.btn-primary, .btn-outline-primary {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover, .btn-outline-primary:hover {
+    border-color: rgba(0, 0, 0, 0.5);
 }

@@ -74,8 +74,9 @@
                 {% if not theme.headerDesktopOffcanvas %}
                 
                     <div class="navbar-nav d-none d-lg-flex d-xl-flex">
-
-                        {{ partial('navigation') }}
+                        <div class="main-nav">
+                            {{ partial('navigation') }}
+                        </div>
 
                         {% if theme.enableSearch %}
                             <a class="nav-item nav-link" href="#" data-toggle="search">

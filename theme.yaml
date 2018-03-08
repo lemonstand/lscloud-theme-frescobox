@@ -11,7 +11,6 @@ customFields:
     socialInstagramUrl: { type: text, title: 'Social: Instagram URL', default: '' }
     socialPinterestUrl: { type: text, title: 'Social: Pinterest URL', default: '' }
     socialTwitterUrl: { type: text, title: 'Social: Twitter URL', default: '' }
-    imageHomeBanner: { type: image, title: 'Home: Banner Image', default: '' }
     textHomeBannerHeading: { type: text, title: 'Home: Banner Heading', default: 'THE BEST COFFEE BLENDS DELIVERED MONTHLY' }
     textHomeBannerContent: { type: text, title: 'Home: Banner Content', default: 'Fresh and better tasting coffee roasted and personalized for you. Order today to get 30% off your first month.' }
     homeBannerButtonText: { type: text, title: 'Home Banner Button Text', default: 'Get Started' }
@@ -25,23 +24,24 @@ customFields:
     mailchimpSubscribeUrl: { type: text, title: 'MailChimp: Subscribe URL', default: '', comment: 'Find the URL by going to List > Signup Forms > General Forms in Mailchimp. Visit the eepurl link and it will redirect to an URL like yourcompany.us5.list-manage1.com/subscribe?u=123456a78912&id=9z87654 - that is the URL to enter here. Leave this blank to not show form in footr' }
     storeCopyright: { type: text, title: 'Store: Copyright', default: '&copy; %current_year% %store_title%' }
     logo: { type: image, title: 'Store: Logo (Default)', default: '@/images/fresco-logo-black.png' }
+    logoLight: { type: image, title: 'Store: Logo (White)', default: '@/images/fresco-logo-white.png', comment: 'used when navigation has dark or transparent background' }
     faviconImage: { type: image, title: 'Store: Favicon Image', default: '@/images/favicon.png' }
-    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg' }
-    logoLight: { type: image, title: 'Store: Logo (White)', default: '@/images/fresco-logo-white.png' }
-    comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
-    imageAbout1: { type: image, title: 'About: Image #1', default: '@/images/about-1.jpg' }
+    imageHomeBanner: { type: image, title: 'Home: Banner Image', default: '' }
     imageHomeFeatureIcon1: { type: image, title: 'Home: Feature Icon #1', default: '@/images/home-icon-1.png' }
     imageHomeFeatureIcon2: { type: image, title: 'Home: Feature Icon #2', default: '@/images/home-icon-2.png' }
     imageHomeFeatureIcon3: { type: image, title: 'Home: Feature Icon #3', default: '@/images/home-icon-3.png' }
-    imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg' }
+    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg' }
+    comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
+    imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg', comment: 'Callout is used on homepage, and optionally the Blog.' }
     imageShopHeader: { type: image, title: 'Shop: Header Image', default: '' }
     imageAboutHeader: { type: image, title: 'About: Header Image', default: '' }
+    imageAbout1: { type: image, title: 'About: Image #1', default: '@/images/about-1.jpg' }
     imageContactHeader: { type: image, title: 'Contact: Header Image', default: '' }
     imagePageHeader: { type: image, title: 'Page: Header Image', default: '' }
     imageBlogHeader: { type: image, title: 'Blog: Header Image', default: '' }
     imageCartHeader: { type: image, title: 'Cart: Header Image', default: '' }
     imageCheckoutHeader: { type: image, title: 'Checkout: Header Image', default: '' }
-    imageLoginHeader: { type: image, title: 'Login: Header Image', default: '' }
+    # imageLoginHeader: { type: image, title: 'Login: Header Image', default: '' }
     homeBannerAlign: { type: dropdown, title: 'Home: banner text alignment', default: center, options: { left: 'Align left', center: 'Align center', right: 'Align right'  } }
     enableFeaturedProducts: { type: checkbox, title: 'Home: Enable Featured Products', default: '1' }
     enableFeaturedBlogPosts: { type: checkbox, title: 'Home: Enable Latest Blog Posts', default: '0' }
