@@ -15022,11 +15022,11 @@ a.link-muted:hover {
   font-size: 1.5rem;
 }
 
-.testimonial blockquote::before {
+.testimonial blockquote p::before {
   content: open-quote;
 }
 
-.testimonial blockquote::after {
+.testimonial blockquote p::after {
   content: close-quote;
 }
 
@@ -15142,6 +15142,16 @@ a.link-muted:hover {
 
 .btn {
   text-transform: uppercase;
+}
+
+.btn-primary,
+.btn-outline-primary {
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover {
+  border-color: rgba(0, 0, 0, 0.5);
 }
 
 .btn-group-expand {
@@ -15592,11 +15602,16 @@ a.link-muted:hover {
 }
 
 .widget-footer .widget-content {
-  color: #9e9e9e;
+  color: #757575;
 }
 
 .widget-footer .widget-content a {
   color: inherit;
+}
+
+.widget-footer .widget-content a:hover,
+.widget-footer .widget-content a:hover span.fa {
+  color: #212121;
 }
 
 .widget-footer-navigation .nav .nav-link {
@@ -16486,32 +16501,6 @@ a.link-muted:hover {
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   text-align: center;
-}
-
-.icon-group {
-  position: relative;
-}
-
-.icon-group.icon-group-badge {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.icon-group.icon-group-badge .count {
-  background-color: #494c50;
-  border-radius: 50%;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 0.875rem;
-  height: 1.25rem;
-  line-height: 1.25rem;
-  margin-left: 0.5rem;
-  text-align: center;
-  width: 1.25rem;
 }
 
 body {

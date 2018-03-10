@@ -5,6 +5,16 @@
     text-transform: uppercase;
 }
 
+
+.btn-primary,
+.btn-outline-primary {
+    border-color: rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
 // Expanding Button Groups
 // ***************************************************************************
 

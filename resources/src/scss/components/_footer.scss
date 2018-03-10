@@ -33,10 +33,15 @@ $footer-bottom-padding-y:               $spacer * 1.25;
     }
 
     .widget-content {
-        color: $gray-500;
+        color: $gray-600;
 
         a {
             color: inherit;
+
+            &:hover,
+            &:hover span.fa {
+                color: $gray-900;
+            }
         }
     }
 }
@@ -45,7 +50,7 @@ $footer-bottom-padding-y:               $spacer * 1.25;
     .nav {
         .nav-link {
             padding-left: 0;
-            padding-right: 0;
+            padding-right: 0;            
         }
     }
 }
