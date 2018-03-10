@@ -5,7 +5,7 @@
     <div class="big-image col-md-12">
       <img src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.name }}"/>
     </div>
-    
+
     {% if product.images.count > 1 %}
     <ul class="product-thumbnails">
       {% for image in product.images %}
@@ -19,12 +19,12 @@
 <div class="col-md-5">
     {{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
     <div class="col-md-12">
-        <h2 class="uppercase">{{ product.name }}</h2> 
-        
+        <h2 class="uppercase">{{ product.name }}</h2>
+
         <h3 id="why">{{ product.price|currency }}</h3>
         {% if on_sale %}
             <small class="previous-price">{{ product.fullPrice|currency }}</small>
-        {% endif %} 
+        {% endif %}
         <p>{{product.description|unescape}}</p>
     </div>
     {{ partial('shop-product-attributes') }}
@@ -46,8 +46,8 @@
                 <div class="product-options col-md-12">
                     <p class="title" for="product_billing_plan">Billing plan</p>
                         <span class="col-md-12 custom-dropdown option-dropdown" style="width: 100%">
-                        <select id="product_billing_plan" class="select_option" name="product_billing_plan"> 
-                            {% for plan in product.subscriptionPlans %}
+                        <select id="product_billing_plan" class="select_option" name="product_billing_plan">
+                            {% for plan in product.subscription|extended_sort('name', false) %}
                                 <option value="{{ plan.id }}" {{ option_state(plan.id, cart_billing_plan) }}>{{ plan.name }}</option>
                             {% endfor %}
                         </select>
@@ -55,7 +55,7 @@
                 </div>
             {% endif %}
 
-            
+
 
             <div class="add-cart-holder form-group col-md-12">
                 {{ flash() }}
@@ -63,16 +63,16 @@
             </div>
         {% else %}
             <div class="not-available">
-                <h5>This product is temporarily unavailable</h5> 
+                <h5>This product is temporarily unavailable</h5>
             </div>
         {% endif %}
-        
+
     {% else %}
         <div class="not-available">
           <h5>This product is not available</h5>
         </div>
     {% endif %}
-    
+
     <div class="jumbotron">
         {% if product.upsells.isEmpty() == false %}
             <h1 class="col-md-12">You Might Also be Interested in These:</h1>
@@ -104,7 +104,7 @@
               {% endfor %}
             </ul>
         {% endif %}
-    </div>  
+    </div>
 {{ close_form() }}
 
 {% if theme.productReview %}
@@ -147,7 +147,7 @@
                         <div class="review-body">★★☆☆☆</div>
                     {% endif %}
                     {% if review.item_rating == 1 %}
-                        <div class="review-body">★☆☆☆☆</div>  
+                        <div class="review-body">★☆☆☆☆</div>
                     {% endif %}
                     <div class="review-body" >
                         <p><strong>{{ review.title }}</strong></p>
