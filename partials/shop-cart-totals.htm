@@ -6,7 +6,7 @@
             	<input class="form-control mr-md-2" name="coupon" id="coupon" type="text" value="{{ coupon_code }}">
               <a class="btn btn-outline-dark" data-ajax-handler="shop:cart" data-ajax-update="">Apply Coupon</a>
 
-            </div> 
+            </div>
         </div>
 
         <div class="col-md-4 align-self-center">
@@ -23,7 +23,7 @@
             		            {% if totals.setupFee > 0 %}
             		                <div><strong>Subscription Setup:</strong> {{ totals.setupFee|currency }}</div>
             		            {% endif %}
-            		        {% endif %}    
+            		        {% endif %}
             		    {% endfor %}
             		{% endif %}
 
@@ -34,20 +34,16 @@
           		      </div>
             		{% endif %}
 
+					{% if item.x_billing_plan_id %}
             		<div><strong>Next Renewal Date:</strong>
-            			{% if item.x_billing_plan_id %}
-    			            {% for plan in billingPlans %}
-    			              {% if item.x_billing_plan_id == plan.id %}
-    			                <p><em>{{ plan.schedule_type | capitalize }} subscription: <strong>{{ plan.name }} </strong></em></p>
-    			              {% endif %}
-    			            {% endfor %}
-    			          {% endif %}
-    			          
-    			          item: <pre>{{ item }}</pre>
-
-    			          {{ order }}order
+						{% for plan in billingPlans %}
+							{% if item.x_billing_plan_id == plan.id %}
+							<p><em>{{ plan.schedule_type | capitalize }} subscription: <strong>{{ plan.name }} </strong></em></p>
+							{% endif %}
+						{% endfor %}
             		</div>
-            		
+					{% endif %}
+
 
             		{% if totals.discountTotal > 0 %}
             			 <div class="cart-total text-center text-md-right">
@@ -62,13 +58,13 @@
 
     <div class="btn-group-expand-md mt-4">
         <a class="btn btn-outline-primary mr-md-auto" href="{{ site_url('/shop') }}">Continue Shopping</a>
-        <a class="btn btn-outline-dark" href="#" 
+        <a class="btn btn-outline-dark" href="#"
             data-ajax-handler="shop:cart"
             data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart-content, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content">
             Update Cart
-        </a>                
-        <a class="btn btn-primary" href="{{ site_url('/checkout') }}">Checkout</a>                
-    </div>    
+        </a>
+        <a class="btn btn-primary" href="{{ site_url('/checkout') }}">Checkout</a>
+    </div>
 </div>
 
 
