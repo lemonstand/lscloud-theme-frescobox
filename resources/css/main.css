@@ -15687,6 +15687,22 @@ a.link-muted:hover {
   padding-right: 0.75rem;
 }
 
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav ul li {
+  display: inline-block;
+}
+
+.main-nav ul li a {
+  padding: .5rem .75rem;
+  color: #000;
+  display: block;
+}
+
 #header:not(.header-transparent),
 #header-sticky-wrapper.is-sticky #header {
   background-color: #ffffff;
@@ -15716,6 +15732,11 @@ a.link-muted:hover {
 
 #header:not(.header-sticky).header-transparent .navbar .navbar-nav .nav-link,
 #header-sticky-wrapper:not(.is-sticky) #header.header-transparent .navbar .navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+#header:not(.header-sticky).header-transparent .navbar .navbar-nav .main-nav ul li a,
+#header-sticky-wrapper:not(.is-sticky) #header.header-transparent .navbar .navbar-nav .main-nav ul li a {
   color: #ffffff;
 }
 
@@ -16033,6 +16054,41 @@ a.link-muted:hover {
   opacity: 1.0;
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+
+/* Off canvas menu using UL structure */
+
+#offcanvas-bar .offcanvas-bar-content nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#offcanvas-bar .offcanvas-bar-content nav ul li {
+  display: block;
+}
+
+#offcanvas-bar .offcanvas-bar-content nav ul li:nth-child(n+2) {
+  border-top: 1px solid #eeeeee;
+}
+
+#offcanvas-bar .offcanvas-bar-content nav ul li a {
+  display: block;
+  font-size: 1.125rem;
+  padding: 1.25rem;
+  position: relative;
+  text-transform: uppercase;
+}
+
+#offcanvas-bar .offcanvas-bar-content nav ul li a:after {
+  content: '\F054';
+  font-family: "FontAwesome";
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .pagination {
