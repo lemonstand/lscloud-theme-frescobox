@@ -16311,6 +16311,24 @@ a.link-muted:hover {
   color: #212121;
 }
 
+.post-excerpt {
+  border-bottom: solid 2px #9e9e9e;
+  margin-bottom: 1.5rem;
+}
+
+.post-excerpt p {
+  color: #9e9e9e;
+  font-size: 1.25rem;
+}
+
+.post-content a {
+  text-decoration: underline;
+}
+
+.post-content a:hover {
+  color: black;
+}
+
 .product {
   display: block;
   margin-bottom: 1rem;

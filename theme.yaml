@@ -74,9 +74,9 @@ customFields:
     secondaryColor: { type: color, title: 'Secondary Theme Color', default: '#f5f5f5', comment: 'Secondary Theme Color' }
     textColor: { type: color, title: 'Text Color', default: '#212121', comment: 'Theme Primary Text Color' }
     secondaryTextColor: { type: color, title: 'Secondary Text Color', default: '#ffffff', comment: 'Secondary Text Color - Banner Text' }
-    linkColor: { type: color, title: 'Link Color', default: '#ffffff', comment: 'Secondary Text Color - Banner Text' }
     buttonColor: { type: color, title: 'Button Color', default: '#494c50', comment: 'Color used for Add To Cart and Checkout buttons.' }
     buttonHoverColor: { type: color, title: 'Button Hover Color', default: '##37393c', comment: 'Button hover color used for Add To Cart and Checkout buttons.' }
+    # linkColor: { type: color, title: 'Link Color', default: '#ffffff', comment: 'Secondary Text Color - Banner Text' }
     # buttonBorderColor: { type: color, title: 'Button Hover Color', default: '#494c50', comment: 'Button border color when you hover your mouse cursor over.' }
     # enableProductShortDescription: { type: checkbox, title: 'Shop: Enable Short Descriptions', default: '1' }
     # enableLongDescAboveFold: { type: checkbox, title: 'Shop: Enable Long Description Under Price', default: '0' }

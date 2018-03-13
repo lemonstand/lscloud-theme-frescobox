@@ -72,3 +72,23 @@
     }
 
 }
+
+.post-excerpt {
+    border-bottom: solid $border-width $gray-500;
+    margin-bottom: map-get($spacers, 4);
+
+    p {
+        color: $gray-500;
+        font-size: $font-size-lg;
+    }
+}
+
+.post-content {
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            color: darken($primary, 60%)
+        }
+    }
+}
