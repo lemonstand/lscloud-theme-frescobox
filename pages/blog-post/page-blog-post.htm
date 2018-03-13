@@ -29,6 +29,12 @@ url: '/blog/:slug'
                             </figure>
                         {% endif %}
 
+                        {% if post.excerpt %}
+                            <div class="post-excerpt">                                
+                                {{ post.excerpt|unescape }}
+                            </div>
+                        {% endif %}
+
                         <div class="post-content"> 
                             {{ post.body|unescape }}
                         </div>
