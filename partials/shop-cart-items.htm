@@ -40,13 +40,17 @@
                                 {% endif %}
 
                                 {% if cart_billing_plan and (item.product.subscriptionPlans.count > 0) %}
-                                
+
                                     <div style="margin-top: 10px;">
                                         <span class="custom-dropdown option-dropdown" style="width: 100%">
-                                            <select class="form-control custom-select" id="billing_plan" name="item_subscription_plan[{{ item.key }}]" 
-                                            data-ajax-handler="shop:cart" 
-                                            data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart-totals"> 
+                                            <select class="form-control custom-select" id="billing_plan" name="item_subscription_plan[{{ item.key }}]"
+                                            data-ajax-handler="shop:cart"
+                                            data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart-totals">
                                                 {% for plan in item.product.subscriptionPlans %}
+                                                    {% if not product.is_subscription_only %}
+                                                        <option value="">No subscription</option>
+                                                    {% endif %}
+
                                                     <option value="{{ plan.id }}" {{ option_state(plan.id, item.x_billing_plan_id) }}>{{ plan.name }}</option>
                                                 {% endfor %}
                                             </select>
@@ -57,13 +61,13 @@
                                     {% else %}
 
                                     {% endif %}
-                                
+
                                 {% if item.is_trial_product %}
                                     <span class="small">* This item is a trial product and is only included in the first order.</span><br>
                                 {% endif %}
-                                
+
                                 {% if billingPlan.trial_period_enabled %}
-                                    <span class="small">* Trial Period lasts {{ billingPlans.find(cart_billing_plan).trial_period }} days.</span>                    
+                                    <span class="small">* Trial Period lasts {{ billingPlans.find(cart_billing_plan).trial_period }} days.</span>
                                 {% endif %}
 
                                 {% if item.x_billing_plan_id == billingPlan.id and billingPlan.first_order_discount_enabled %}
@@ -71,9 +75,9 @@
                                     <p class="small">* The first order will be discounted by {{ discount matches '/%$/' ? discount : discount|currency }}.</p>
                                 {% endif %}
 
-                                
 
-																	
+
+
 
                             </div>
                         </div>
@@ -97,27 +101,27 @@
                         {% if not item.is_trial_product %}
 
                             {% if item.product.onSale() %}
-    
+
                                 <del>{{ item.product.fullPrice()|currency }}</del>
                                 <ins>{{ item.price()|currency }}</ins>
-    
+
                             {% else %}
-    
+
                                 {{ item.price()|currency }}
-    
+
                             {% endif %}
 
-    
+
                             {% if cart.getDiscountTotal() > 0 %}
-    
+
                                 <span class="discount">(-{{ item.totalDiscount()|currency }})</span>
-    
+
                             {% endif %}
-    
+
                         {% else %}
-    
+
                             {{ 0|currency }}
-    
+
                         {% endif %}
                     </td>
 
@@ -133,7 +137,7 @@
                     {% if edit_cart %}
                         <td class="cart-item-actions">
                             <a class="link-muted" href="#" data-toggle="tooltip" title="Remove Item"
-                                data-ajax-handler="shop:cart" 
+                                data-ajax-handler="shop:cart"
                                 data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart-content, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content"
                                 data-ajax-extra-fields="delete_item='{{ item.key }}'">
                                 <span class="fa fa-trash"></span>
@@ -148,7 +152,7 @@
 </div>
 {#
 <div class="table-responsive">
-    <table class="table cart-table">    
+    <table class="table cart-table">
         <thead>
             <tr>
                 <th>Product Name</th>
@@ -168,12 +172,12 @@
 
                     <td>
                         <div class="cart-item">
-                            
+
                             <a class="cart-item-thumb" href="{{ product_url }}">
                                 <img class="img-fluid" src="{{ item.product.images.first.thumbnail(80, 80) }}" alt="{{ item.product.name }}">
                             </a>
 
-                            <div class="cart-item-info">                            
+                            <div class="cart-item-info">
 
                             </div>
 

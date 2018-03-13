@@ -42,11 +42,14 @@
                 </div>
             </div>
 
-            {% if product.subscriptionPlans|length %}
+            {% if product.subscriptionPlans | length %}
                 <div class="product-options col-md-12">
                     <p class="title" for="product_billing_plan">Billing plan</p>
                         <span class="col-md-12 custom-dropdown option-dropdown" style="width: 100%">
                         <select id="product_billing_plan" class="select_option" name="product_billing_plan">
+                            {% if not product.is_subscription_only %}
+                                <option value="">No subscription</option>
+                            {% endif %}
                             {% for plan in product.subscription|extended_sort('name', false) %}
                                 <option value="{{ plan.id }}" {{ option_state(plan.id, cart_billing_plan) }}>{{ plan.name }}</option>
                             {% endfor %}
