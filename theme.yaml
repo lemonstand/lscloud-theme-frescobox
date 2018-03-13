@@ -24,23 +24,23 @@ customFields:
     socialTwitterUrl: { type: text, title: 'Social: Twitter URL', default: '', comment: 'Leave empty to hide'  }
     storeCopyright: { type: text, title: 'Store: Copyright', default: '&copy; %current_year% %store_title%' }
     logo: { type: image, title: 'Store: Logo (Default)', default: '@/images/fresco-logo-black.png' }
-    logoLight: { type: image, title: 'Store: Logo (White)', default: '@/images/fresco-logo-white.png', comment: 'used when navigation has dark or transparent background' }
-    faviconImage: { type: image, title: 'Store: Favicon Image', default: '@/images/favicon.png' }
+    logoLight: { type: image, title: 'Store: Logo (White)', default: '@/images/fresco-logo-white.png', comment: 'Used when navigation has dark or transparent background and on Coming Soon page' }
+    faviconImage: { type: image, title: 'Store: Favicon Image', default: '@/images/favicon.png', comment: 'Small square icon image used in most web browsers. A simple square logo image is commonly used.' }
     imageHomeBanner: { type: image, title: 'Home: Banner Image', default: '' }
     imageHomeFeatureIcon1: { type: image, title: 'Home: Feature Icon #1', default: '@/images/home-icon-1.png' }
     imageHomeFeatureIcon2: { type: image, title: 'Home: Feature Icon #2', default: '@/images/home-icon-2.png' }
     imageHomeFeatureIcon3: { type: image, title: 'Home: Feature Icon #3', default: '@/images/home-icon-3.png' }
-    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg' }
-    comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
-    imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg', comment: 'Callout is used on homepage, and optionally the Blog.' }
-    imageShopHeader: { type: image, title: 'Shop: Header Image', default: '' }
+    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg', comment: 'The image used on pages which don't have their own specific header image below }
     imageAboutHeader: { type: image, title: 'About: Header Image', default: '' }
     imageAbout1: { type: image, title: 'About: Image #1', default: '@/images/about-1.jpg' }
-    imageContactHeader: { type: image, title: 'Contact: Header Image', default: '' }
-    imagePageHeader: { type: image, title: 'Page: Header Image', default: '' }
-    imageBlogHeader: { type: image, title: 'Blog: Header Image', default: '' }
+    comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
+    imageShopHeader: { type: image, title: 'Shop: Header Image', default: '' }
     imageCartHeader: { type: image, title: 'Cart: Header Image', default: '' }
     imageCheckoutHeader: { type: image, title: 'Checkout: Header Image', default: '' }
+    imageContactHeader: { type: image, title: 'Contact: Header Image', default: '' }
+    imagePageHeader: { type: image, title: 'Page: Header Image', default: '', comment: 'Header image for pages created that use the basic page template' }
+    imageBlogHeader: { type: image, title: 'Blog: Header Image', default: '' }
+    imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg', comment: 'Callout is used on homepage, and optionally the Blog.' }
     homeBannerAlign: { type: dropdown, title: 'Home: banner text alignment', default: center, options: { left: 'Align left', center: 'Align center', right: 'Align right'  } }
     enableFeaturedProducts: { type: checkbox, title: 'Home: Enable Featured Products', default: '1' }
     enableFeaturedBlogPosts: { type: checkbox, title: 'Home: Enable Latest Blog Posts', default: '0' }
@@ -75,5 +75,5 @@ customFields:
     textColor: { type: color, title: 'Text Color', default: '#212121', comment: 'Theme Primary Text Color' }
     secondaryTextColor: { type: color, title: 'Secondary Text Color', default: '#ffffff', comment: 'Secondary Text Color - Banner Text' }
     buttonColor: { type: color, title: 'Button Color', default: '#494c50', comment: 'Color used for Add To Cart and Checkout buttons.' }
-    buttonHoverColor: { type: color, title: 'Button Hover Color', default: '##37393c', comment: 'Button hover color used for Add To Cart and Checkout buttons.' }
+    buttonHoverColor: { type: color, title: 'Button Hover Color', default: '#37393c', comment: 'Button hover color used for Add To Cart and Checkout buttons.' }
 ---
