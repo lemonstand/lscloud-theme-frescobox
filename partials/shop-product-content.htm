@@ -33,7 +33,11 @@
 
                     <div class="form-group col-md-6">
                         <label class="control-label" for="option-{{ loop.index }}">{{ option.name }}</label>
-                        <select id="option-{{ loop.index }}" class="form-control custom-select" name="options[{{ option.id }}]">
+                        <select id="option-{{ loop.index }}"
+                                class="form-control custom-select"
+                                name="options[{{ option.id }}]"
+                                data-ajax-handler="shop:product"
+                                data-ajax-update="#product-content=shop-product-content">
 
                             {% for key, value in option.values %}
 
