@@ -20,8 +20,8 @@
           options
         )
       );
-    });
 
-    carousel.trigger("refresh.owl.carousel"); // reflow carousel, fixes 1px preload bug
+      carousel.trigger("refresh.owl.carousel"); // reflow carousel, fixes 1px preload bug
+    });
   });
 })(jQuery);

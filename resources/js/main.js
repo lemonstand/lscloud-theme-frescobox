@@ -24155,9 +24155,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         nav: false,
         navText: ['<span class="fa fa-chevron-left"></span>', '<span class="fa fa-chevron-right"></span>']
       }, options));
-    });
 
-    carousel.trigger("refresh.owl.carousel"); // reflow carousel, fixes 1px preload bug
+      carousel.trigger("refresh.owl.carousel"); // reflow carousel, fixes 1px preload bug
+    });
   });
 }(jQuery);
 
