@@ -15,9 +15,9 @@ customFields:
     calloutTitle: { type: text, title: 'Callout: Title', default: 'Ready to get started?', comment: 'The callout section can optionally appear on the homepage and blog post pages (see checkboxes to enable/disable)' }
     calloutContent: { type: text, title: 'Callout: Content', default: '' }
     calloutButtonText: { type: text, title: 'Callout: Button Text', default: 'Shop Now' }
-    calloutButtonUrl: { type: text, title: 'Callout: Button URL', default: /shop }
+    calloutButtonUrl: { type: text, title: 'Callout: Button URL', default: '/shop' }
     addToCart: { type: text, title: 'Add To Cart Text', default: 'Add To Cart' }
-    mailchimpSubscribeUrl: { type: text, title: 'MailChimp: Subscribe URL', default: '', comment: 'Find the URL by going to List > Signup Forms > General Forms in Mailchimp. Visit the eepurl link and it will redirect to an URL like yourcompany.us5.list-manage1.com/subscribe?u=123456a78912&id=9z87654 - that is the URL to enter here. Leave this blank to not show form in footr' }
+    mailchimpSubscribeUrl: { type: text, title: 'MailChimp: Subscribe URL', default: '', comment: 'Find the URL by going to List > Signup Forms > General Forms in Mailchimp. Visit the eepurl link and it will redirect to an URL like yourcompany.us5.list-manage1.com/subscribe?u=123456a78912&id=9z87654 - that is the URL to enter here. Leave this blank to not show form in footer' }
     socialFacebookUrl: { type: text, title: 'Social: Facebook URL', default: '', comment: 'Leave empty to hide' }
     socialInstagramUrl: { type: text, title: 'Social: Instagram URL', default: '', comment: 'Leave empty to hide' }
     socialPinterestUrl: { type: text, title: 'Social: Pinterest URL', default: '', comment: 'Leave empty to hide' }
@@ -26,12 +26,12 @@ customFields:
     logo: { type: image, title: 'Store: Logo (Default)', default: '@/images/fresco-logo-black.png' }
     logoLight: { type: image, title: 'Store: Logo (White)', default: '@/images/fresco-logo-white.png', comment: 'Used when navigation has dark or transparent background and on Coming Soon page' }
     faviconImage: { type: image, title: 'Store: Favicon Image', default: '@/images/favicon.png', comment: 'Small square icon image used in most web browsers. A simple square logo image is commonly used.' }
-    imageHomeBanner: { type: image, title: 'Home: Banner Image', default: '' }
+    imageHomeBanner: { type: image, title: 'Home: Banner Image',  default: '@/images/home-banner.jpg' }
     imageHomeFeatureIcon1: { type: image, title: 'Home: Feature Icon #1', default: '@/images/home-icon-1.png' }
     imageHomeFeatureIcon2: { type: image, title: 'Home: Feature Icon #2', default: '@/images/home-icon-2.png' }
     imageHomeFeatureIcon3: { type: image, title: 'Home: Feature Icon #3', default: '@/images/home-icon-3.png' }
-    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg', comment: 'The image used on pages which don't have their own specific header image below' }
-    imageAboutHeader: { type: image, title: 'About: Header Image', default: '' }
+    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg', comment: 'The image used on pages which do not have their own specific header image below' }
+    imageAboutHeader: { type: image, title: 'About: Header Image', default: '@/images/about-header.jpg' }
     imageAbout1: { type: image, title: 'About: Image #1', default: '@/images/about-1.jpg' }
     comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
     imageShopHeader: { type: image, title: 'Shop: Header Image', default: '' }

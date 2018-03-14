@@ -408,7 +408,7 @@ sub{
 		Credit Card
 ======================================================*/
 .credit-card-input{
-  background-image: url(../img/cards.jpg);
+  background-image: url(../images/cards.jpg);
   background-position:2px 2px;
   background-size:45px 280px;
   background-repeat:no-repeat;
