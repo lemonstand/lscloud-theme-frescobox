@@ -18,20 +18,20 @@
     <input id="next_step" type="hidden" name="nextStep" value="shipping_method">
     <input id="billing_country_id" type="hidden" name="billingInfo[countryId]" value="1">
     <input id="shipping_country_id" type="hidden" name="shippingInfo[countryId]" value="1">
-    
+
     <div id="shipping-fields">
-        
+
         <div class="row mb-4">
             <div class="form-group col-sm-12">
                 <h4>Customer Information</h4>
             </div>
-            
+
             <div class="form-group col-sm-6">
                 <label class="control-label" for="shipping-first-name">First Name</label>
                 <input class="form-control" id="shipping-first-name" name="shippingInfo[firstName]" type="text" value="{{ shippingInfo.firstName }}" data-mirror="#billing-first-name">
                 <span class="error small text-danger"></span>
             </div>
-            
+
             <div class="form-group col-sm-6">
                 <label class="control-label" for="shipping-last-name">Last Name</label>
                 <input class="form-control" id="shipping-last-name" name="shippingInfo[lastName]" type="text" value="{{ shippingInfo.lastName }}" data-mirror="#billing-last-name">
@@ -50,7 +50,7 @@
                     <input class="form-control" id="shipping-password" name="billingInfo[password]" type="password">
                     <span class="error small text-danger"></span>
                 </div>
-                
+
                 <div class="form-group col-sm-6">
                     <label class="control-label" for="shipping-password-confirmation">Password (Confirmation)</label>
                     <input class="form-control" id="shipping-password-confirmation" name="billingInfo[password_confirmation]" type="password">
@@ -63,9 +63,9 @@
             {% endif %}
 
         </div>
-        
+
         <div class="row mb-4">
-            
+
             <div class="form-group col-sm-12">
                 <h4>Where should we ship your order?</h4>
             </div>
@@ -117,12 +117,12 @@
                 <span class="error small text-danger"></span>
             </div>
 
-        </div>        
+        </div>
 
     </div>
 
     <div class="row mb-4">
-        <div class="col-sm-12">            
+        <div class="col-sm-12">
             <div class="custom-control custom-checkbox">
                 <input id="billing-same" class="custom-control-input" type="checkbox" checked>
                 <label class="custom-control-label" for="billing-same">My billing address and shipping address are the same.</label>
@@ -141,7 +141,7 @@
                 <input class="form-control" id="billing-first-name" name="billingInfo[firstName]" type="text" value="{{ billingInfo.firstName }}">
                 <span class="error small text-danger"></span>
             </div>
-            
+
             <div class="form-group col-sm-6">
                 <label class="control-label" for="billing-last-name">Last Name</label>
                 <input class="form-control" id="billing-last-name" name="billingInfo[lastName]" type="text" value="{{ billingInfo.lastName }}">
@@ -179,13 +179,15 @@
                     {% for state in states %}
                         <option value="{{ state.id }}" {{ state.id == billingInfo.state.id ? 'selected="selected"' : '' }}>{{ state.name }}</option>
                     {% endfor %}
-                </select>        
+                </select>
                 <span class="error small text-danger"></span>
             </div>
             <div class="form-group col-sm-6">
-            		<label class="control-label" for="shipping-state">State</label>
-                <select class="form-control custom-select" id="billing_state" name="billingInfo[stateId]" data-ajax-refresh >
-                    {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billingInfo.stateId}) }}
+            		<label class="control-label" for="shipping-state">Country</label>
+                <select class="form-control custom-select" id="billing_state" name="billingInfo[countryId]" data-ajax-refresh >
+                    {% for country in countries %}
+                    <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                    {% endfor %}
                 </select>
                 <span class="error"></span>
             </div>

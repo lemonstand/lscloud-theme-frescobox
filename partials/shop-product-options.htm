@@ -5,7 +5,7 @@
       <span class="col-md-12 custom-dropdown option-dropdown">
       <select id="{{ 'option-'~index }}" name="options[{{ option.id }}]" class="select-option" data-ajax-handler="shop:product" data-ajax-update="#shop-product=shop-product">
         {% for key, value in option.values %}
-          <option value="{{ key }}" {{ option_state(postedOptions[option.id], key) }}>{{ value }}</option>
+          <option value="{{ key }}" {{ option_state(postedOptions[option.id], key) }}>{ value }}</option>
         {% endfor %}
       </select>
       </span>

@@ -46,7 +46,7 @@ customFields:
     enableFeaturedBlogPosts: { type: checkbox, title: 'Home: Enable Latest Blog Posts', default: '0' }
     enableCallout: { type: checkbox, title: 'Home: Enable Callout', default: '1' }
     enableHowItWorks: { type: checkbox, title: 'Home: Enable How It Works Section', default: '1' }
-    enableFeaturedTestimonial: { type: checkbox, title: 'Home: Enable Featured Testinomial', default: '1' }    
+    enableFeaturedTestimonial: { type: checkbox, title: 'Home: Enable Featured Testinomial', default: '1' }
     comingSoonSubscribe: { type: checkbox, title: 'Coming Soon: Enable newsletter sign up', default: '1', comment: 'The form uses the Mailchimp subscribe URL' }
     enableSearch: { type: checkbox, title: 'Header: Enable Search', default: '1' }
     enableMinicart: { type: checkbox, title: 'Header: Enable Minicart', default: '1' }

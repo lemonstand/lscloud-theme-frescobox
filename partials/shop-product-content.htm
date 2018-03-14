@@ -14,8 +14,8 @@
     	1111
 
     	{% endif %}
-        
-            
+
+
             <p class="small">{{ product.short_description }}</p>
 
     </div>
@@ -33,17 +33,21 @@
 
                     <div class="form-group col-md-6">
                         <label class="control-label" for="option-{{ loop.index }}">{{ option.name }}</label>
-                        <select id="option-{{ loop.index }}" class="form-control custom-select" name="options[{{ option.id }}]">
-        
+                        <select id="option-{{ loop.index }}"
+                                class="form-control custom-select"
+                                name="options[{{ option.id }}]"
+                                data-ajax-handler="shop:product"
+                                data-ajax-update="#product-content=shop-product-content">
+
                             {% for key, value in option.values %}
-        
+
                                 <option value="{{ key }}" {{ option_state(postedOptions[option.id], key) }}>{{ value }}</option>
-        
+
                             {% endfor %}
-        
+
                         </select>
                     </div>
-        
+
                 {% endfor %}
 
             </div>
@@ -53,17 +57,20 @@
 
 
     {% if product.enabled %}
-        
-        {% if not product.isOutOfStock() or product.allow_preorder %}
-        
-            <input name="productId" type="hidden" value="{{ product.id }}">                    
 
-            {% if product.subscriptionPlans|length %}
+        {% if not product.isOutOfStock() or product.allow_preorder %}
+
+            <input name="productId" type="hidden" value="{{ product.id }}">
+
+            {% if product.subscriptionPlans | length %}
                 <div class="row">
-                    <div class="form-group col-lg-6">                    
+                    <div class="form-group col-lg-6">
                         <label class="control-label" for="product_billing_plan">Billing Plan</label>
                         <select class="form-control custom-select" name="product_billing_plan">
-                            {% for plan in product.subscriptionPlans %}
+                            {% if not product.is_subscription_only %}
+                                <option value="">No subscription</option>
+                            {% endif %}
+                            {% for plan in product.subscriptionPlans | extended_sort('name', true) %}
                                 <option value="{{ plan.id }}" {{ option_state(plan.id, cart_billing_plan) }}>{{ plan.name }}</option>
                             {% endfor %}
                         </select>
@@ -73,7 +80,7 @@
 
             <hr>
 
-            <div class="product-actions">        
+            <div class="product-actions">
 
                 {% if theme.enableQuantity %}
 
@@ -88,15 +95,15 @@
                     <input name="quantity" type="hidden" value="1">
 
                 {% endif %}
-                
-                <a class="btn btn-primary" href="{{ root_url('/cart') }}" 
+
+                <a class="btn btn-primary" href="{{ root_url('/cart') }}"
                     data-ajax-handler="shop:onAddToCart"
                     data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart-content, .minicart-counter=shop-minicart-counter,#product-content=shop-product-content">
                     {{ theme.addToCart }}
                 </a>
 
-	                                 
-            </div>  
+
+            </div>
 
 	      		{% if theme.showStockAmount and product.in_stock_amount %}
 		      		<div class="">
@@ -106,7 +113,7 @@
 
 
         {% else %}
-            
+
             <p class="alert alert-light">Sorry! This product is temporarily unavailable.</p>
 
         {% endif %}
