@@ -7,13 +7,17 @@
         transform: translateY(-50%);
     }
 
+    .owl-stage-outer {
+        min-height: 400px;
+    }
+
     .owl-dots {
         align-items: center;
         display: flex;
-        justify-content: center;        
+        justify-content: center;
         padding-bottom: map-get($spacers, 3);
         padding-top: map-get($spacers, 3);
-        
+
         .owl-dot {
             display: block;
 
@@ -39,9 +43,9 @@
 }
 
 @include media-breakpoint-up(lg) {
-    .owl-carousel {    
-        .owl-dots {         
-            .owl-dot {  
+    .owl-carousel {
+        .owl-dots {
+            .owl-dot {
                 span {
                     height: 0.875rem;
                     width: 0.875rem;

@@ -15429,6 +15429,10 @@ a.link-muted:hover {
           transform: translateY(-50%);
 }
 
+.owl-carousel .owl-stage-outer {
+  min-height: 400px;
+}
+
 .owl-carousel .owl-dots {
   -webkit-box-align: center;
       -ms-flex-align: center;
