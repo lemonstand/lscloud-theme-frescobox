@@ -46,12 +46,13 @@
                                             <select class="form-control custom-select" id="billing_plan" name="item_subscription_plan[{{ item.key }}]"
                                             data-ajax-handler="shop:cart"
                                             data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart-totals">
-                                                {% for plan in item.product.subscriptionPlans %}
-                                                    {% if not product.is_subscription_only %}
-                                                        <option value="">No subscription</option>
-                                                    {% endif %}
-
-                                                    <option value="{{ plan.id }}" {{ option_state(plan.id, item.x_billing_plan_id) }}>{{ plan.name }}</option>
+                                                {% if not product.is_subscription_only %}
+                                                    <option value="">No subscription</option>
+                                                {% endif %}
+                                                {% for plan in item.product.subscriptionPlans | extended_sort('name', true)  %}
+                                                    <option value="{{ plan.id }}" {{ option_state(plan.id, item.x_billing_plan_id) }}>
+                                                        {{ plan.name }}
+                                                    </option>
                                                 {% endfor %}
                                             </select>
                                         </span>
