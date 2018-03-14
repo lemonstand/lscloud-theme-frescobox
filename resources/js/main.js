@@ -24145,9 +24145,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 !function ($) {
   $(document).ready(function () {
     $(".owl-carousel").each(function (index, element) {
-      var options = $(element).data("options");
+      var options = $(element).data("options"),
+          carousel = $(element);
 
-      $(element).owlCarousel($.extend({}, {
+      carousel.owlCarousel($.extend({}, {
         autoHeight: true,
         dots: true,
         items: 1,
@@ -24156,22 +24157,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }, options));
     });
 
-    var disabled = true;
-    if (!disabled) {
-      /* disabled as not working ATM */
-      $(".owl-carousel").imagesLoaded(function () {
-        $(".owl-carousel #owl-item active").owlCarousel({
-          items: 1,
-          nav: false,
-          pagination: false,
-          autoHeight: true,
-          loop: true,
-          lazyLoad: true,
-          animateOut: "slideOutRight",
-          animateIn: "pulse"
-        });
-      });
-    }
+    carousel.trigger("refresh.owl.carousel"); // reflow carousel, fixes 1px preload bug
   });
 }(jQuery);
 

@@ -1,9 +1,10 @@
 !(function($) {
   $(document).ready(function() {
     $(".owl-carousel").each(function(index, element) {
-      var options = $(element).data("options");
+      var options = $(element).data("options"),
+        carousel = $(element);
 
-      $(element).owlCarousel(
+      carousel.owlCarousel(
         $.extend(
           {},
           {
@@ -21,21 +22,6 @@
       );
     });
 
-    var disabled = true;
-    if (!disabled) {
-      /* disabled as not working ATM */
-      $(".owl-carousel").imagesLoaded(function() {
-        $(".owl-carousel #owl-item active").owlCarousel({
-          items: 1,
-          nav: false,
-          pagination: false,
-          autoHeight: true,
-          loop: true,
-          lazyLoad: true,
-          animateOut: "slideOutRight",
-          animateIn: "pulse"
-        });
-      });
-    }
+    carousel.trigger("refresh.owl.carousel"); // reflow carousel, fixes 1px preload bug
   });
 })(jQuery);
