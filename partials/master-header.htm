@@ -49,7 +49,7 @@
 <header id="header" class="{{ header_classes|join(' ') }}" role="banner">
     <div class="{{ theme.headerEnableFluid ? 'container-fluid' : 'container' }}">
         <nav class="navbar navbar-expand-lg navbar-light">
-            
+
             <a class="navbar-brand" href="{{ site_url('/') }}">
                 <img class="navbar-logo navbar-logo-dark" src="{{ theme.logo.thumbnail('auto', 'auto') }}" alt="{{ theme.siteTitle }}">
                 <img class="navbar-logo navbar-logo-light" src="{{ theme.logoLight.thumbnail('auto', 'auto') }}" alt="{{ theme.siteTitle }}">
@@ -68,11 +68,11 @@
                     <a class="btn" href="#" data-toggle="offcanvas">
                         <span class="fa fa-bars"></span>
                     </a>
-                    
+
                 </div>
 
                 {% if not theme.headerDesktopOffcanvas %}
-                
+
                     <div class="navbar-nav d-none d-lg-flex d-xl-flex">
                         <div class="main-nav">
                             {{ partial('navigation') }}
@@ -83,13 +83,13 @@
                                 <span class="fa fa-search"></span>
                             </a>
                         {% endif %}
-                        
+
                         {% if theme.enableMinicart %}
-                            
+
                             <div class="nav-item nav-link">
 
                                 <div class="minicart header-minicart">
-                                    
+
                                     {{ partial('shop-minicart') }}
 
                                 </div>
@@ -101,7 +101,7 @@
                             <a class="nav-item nav-link minicart-counter" href="{{ site_url('/cart') }}">
 
                                 {{ partial('shop-minicart-counter') }}
-                                
+
                             </a>
 
                         {% endif %}
@@ -115,7 +115,7 @@
                         {{ partial('search-form', { close_button: true }) }}
                     </div>
                 {% endif %}
-                
+
             </div>
 
         </nav>
