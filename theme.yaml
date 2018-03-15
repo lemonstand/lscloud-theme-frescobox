@@ -31,7 +31,7 @@ customFields:
     imageHomeFeatureIcon1: { type: image, title: 'Home: Feature Icon #1', default: '@/images/home-icon-1.png' }
     imageHomeFeatureIcon2: { type: image, title: 'Home: Feature Icon #2', default: '@/images/home-icon-2.png' }
     imageHomeFeatureIcon3: { type: image, title: 'Home: Feature Icon #3', default: '@/images/home-icon-3.png' }
-    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/coming-soon-default.jpg', comment: 'The image used on pages which do not have their own specific header image below' }
+    defaultBanner: { type: image, title: 'Banner Image: Default', default: '@/images/home-banner.jpg', comment: 'The image used on pages which do not have their own specific header image below' }
     imageAboutHeader: { type: image, title: 'About: Header Image', default: '@/images/about-header.jpg' }
     imageAbout1: { type: image, title: 'About: Image #1', default: '@/images/about-1.jpg' }
     comingSoonBackgroundImage: { type: image, title: 'Coming Soon: Background Image', default: '@/images/coming-soon-default.jpg' }
