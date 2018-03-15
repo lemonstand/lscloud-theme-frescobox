@@ -12,7 +12,7 @@ customFields:
     homeBannerButtonText: { type: text, title: 'Home: Banner Button Text', default: 'Get Started' }
     homeHeading: { type: text, title: 'Home: How it works section heading', default: 'How FrescoBox Works' }
     homeFeaturedHeader: { type: text, title: 'Home: Featured Products Header', default: 'Our Plans' }
-    calloutTitle: { type: text, title: 'Callout: Title', default: 'Ready to get started?', comment: 'The callout section can optionally appear on the homepage and blog post pages (see checkboxes to enable/disable)' }
+    calloutTitle: { type: text, title: 'Callout: Title', default: 'Ready to subscribe?', comment: 'The callout section can optionally appear on the homepage and blog post pages (see checkboxes to enable/disable)' }
     calloutContent: { type: text, title: 'Callout: Content', default: '' }
     calloutButtonText: { type: text, title: 'Callout: Button Text', default: 'Shop Now' }
     calloutButtonUrl: { type: text, title: 'Callout: Button URL', default: '/shop' }
@@ -37,7 +37,7 @@ customFields:
     imageShopHeader: { type: image, title: 'Shop: Header Image', default: '' }
     imageCartHeader: { type: image, title: 'Cart: Header Image', default: '' }
     imageCheckoutHeader: { type: image, title: 'Checkout: Header Image', default: '' }
-    imageContactHeader: { type: image, title: 'Contact: Header Image', default: '' }
+    imageContactHeader: { type: image, title: 'Contact: Header Image', default: '@/images/contact-header.jpg' }
     imagePageHeader: { type: image, title: 'Page: Header Image', default: '', comment: 'Header image for pages created that use the basic page template' }
     imageBlogHeader: { type: image, title: 'Blog: Header Image', default: '' }
     imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg', comment: 'Callout is used on homepage, and optionally the Blog.' }

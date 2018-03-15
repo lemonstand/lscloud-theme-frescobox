@@ -7,3 +7,4 @@ Thumbs.db
 *.cfg
 node_modules
 lemonsync.json
+.vscode
