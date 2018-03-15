@@ -15685,7 +15685,7 @@ a.link-muted:hover {
 }
 
 #header .navbar .navbar-content .navbar-nav .nav-link {
-  color: #000000;
+  color: #494c50;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
@@ -15702,7 +15702,7 @@ a.link-muted:hover {
 
 .main-nav ul li a {
   padding: .5rem .75rem;
-  color: #000;
+  color: #494c50;
   display: block;
 }
 

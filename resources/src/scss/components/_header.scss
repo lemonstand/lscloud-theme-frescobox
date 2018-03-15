@@ -34,7 +34,7 @@
 
             .navbar-nav {
                 .nav-link {
-                    color: $black;
+                    color: $primary;
                     padding-left: $spacer * 0.75;
                     padding-right: $spacer * 0.75;
                 }
@@ -54,7 +54,7 @@
 
             a {
                 padding: .5rem .75rem;
-                color: #000;
+                color: $primary;
                 display: block;
             }
         }
