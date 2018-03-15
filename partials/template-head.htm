@@ -27,19 +27,19 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ post.title }}" />
     <meta property="og:description" content="{{ post.excerpt | unescape }}" />
-    <meta property="og:image" content="{{ post.featured_image.thumbnail('auto', 'auto') }}" />
+    <meta property="og:image" content="https:{{ post.featured_image.thumbnail(1200, 'auto') }}" />
 {% elseif page_code() == 'product' %}
     <meta property="og:url" content="{{ site_url('/') }}{{ '/product/' ~ product.url_name }}" />
     <meta property="og:type" content="product" />
     <meta property="og:title" content="{{ product.name }}" />
     <meta property="og:description" content="{{ product.short_description }}" />
-    <meta property="og:image" content="{{ item.product.images.first.thumbnail('auto', 'auto') }}" />
+    <meta property="og:image" content="https:{{ product.images.first.thumbnail(1200, 'auto') }}" />
 {% else %}
 		<meta property="og:url" content="{{ site_url('/') }}" />
 		<meta property="og:type" content="page" />
 		<meta property="og:title" content="{{ page.title }}" />
-		<!-- <meta property="og:description" content="{{ product.short_description }}" /> -->
-		<meta property="og:image" content="{{ theme.logo.thumbnail('auto', 'auto') }}" />
+        <meta property="og:title" content="{{ page.description }}" />
+		<meta property="og:image" content="{{ theme.linkPreviewImage.thumbnail(1200, 'auto') }}" />
 {% endif %}
 
 

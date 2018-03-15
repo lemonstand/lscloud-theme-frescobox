@@ -3,17 +3,16 @@ action: 'cmscontent:archive'
 template: master
 protocol: all
 published: true
-name: 'Archive'
-url: /archive/:type/:page?
+name: 'Category Archive'
+url: '/archive/:type/:category'
 ---
-
-{% set title = 'Archive' %}
-{% set type = param('type') %}
 
 {% if 'blog' == type %}
     {% set title = 'Blog' %}
 {% elseif 'page' == type %}
     {% set title = 'Pages' %}
+{% else %}
+    {% set title = 'Archive' %}
 {% endif %}
 
 {{ partial('page-header', { 

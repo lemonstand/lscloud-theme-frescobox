@@ -2,13 +2,13 @@
     
     <div class="block-header">
             
-        {% if theme.enableCategories %}
+        {% if theme.enableCategories and page_code() != 'search' %}
                 
             {{ partial('shop-filters-categories') }}
             
         {% endif %}
 
-        {% if theme.enableManufacturers %}
+        {% if theme.enableManufacturers and page_code() != 'search' %}
 
             {{ partial('shop-filters-manufacturers') }}
 

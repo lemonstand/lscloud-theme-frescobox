@@ -2,13 +2,50 @@
 
     !(function($) {
         $(document).ready(function() {
+
+            // Mirror active customer forms
+            function mirrorFields($mirrorSource, $mirrorTarget, event) {
+                var source = $($mirrorSource);
+
+                source.each(function(idx) {
+                    $(this).on(event, function() {
+                        var field = $(this);
+                        var mirrorVal = field.val();
+                        var targetID = field.attr('data-mirror');
+                        var mirrorState = '';
+
+                        mirrorState = $('#billing-same').data('toggle-mirror');
+
+                        if (mirrorState == 'on') {
+                            var target = $(targetID);
+                            target.val(mirrorVal);
+
+                            if (target.prop('type') == 'select-one') {
+                                target.change();
+                            }
+
+                        }
+                    });
+                });
+            }
+
+            mirrorFields(
+              '#shipping-fields [data-mirror]',
+              '#billing-fields [data-mirror]',
+              'keyup keypress blur change'
+            );
+
             $(document).on('change', '#billing-same', function(e) {
                 var billingFields = $('#billing-fields');
+                    billingSameToggle = $('#billing-same');
+
 
                 if (!$(this).is(':checked')) {
                     billingFields.slideDown();
+                    billingSameToggle.data('toggle-mirror', '');
                 } else {
                     billingFields.slideUp();
+                    billingSameToggle.data('toggle-mirror', 'on');
                 }
             });
 
@@ -19,7 +56,7 @@
                     }
                 });
             });
-        });        
+        });
     })(jQuery);
 
 </script>

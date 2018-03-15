@@ -1,23 +1,14 @@
 $footer-bottom-padding-y:               $spacer * 1.25;
 
-#footer {
-    &.footer-inverse {
-        background-color: $gray-900;
-    }
-}
-
 // Footer Top
 // ***************************************************************************
 
 #footer-top {
     border-bottom: $border-width solid $gray-300;
     padding-top: map-get($spacers, 5);
-    padding-bottom: map-get($spacers, 5);    
+    padding-bottom: map-get($spacers, 5);
 }
 
-#footer.footer-inverse #footer-top {
-    border-bottom-color: $gray-700;
-}
 
 // Footer Bottom
 // ***************************************************************************
@@ -37,16 +28,20 @@ $footer-bottom-padding-y:               $spacer * 1.25;
 
 .widget-footer {
     .widget-title {
-        color: $gray-600;
         font-size: 1rem;
         margin-bottom: map-get($spacers, 4);
     }
 
     .widget-content {
-        color: $gray-500;
+        color: $gray-600;
 
         a {
             color: inherit;
+
+            &:hover,
+            &:hover span.fa {
+                color: $gray-900;
+            }
         }
     }
 }
@@ -55,7 +50,7 @@ $footer-bottom-padding-y:               $spacer * 1.25;
     .nav {
         .nav-link {
             padding-left: 0;
-            padding-right: 0;
+            padding-right: 0;            
         }
     }
 }

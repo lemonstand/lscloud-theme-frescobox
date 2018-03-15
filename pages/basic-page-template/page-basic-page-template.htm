@@ -3,12 +3,12 @@ action: 'cmscontent:page'
 template: master
 protocol: all
 published: true
-name: 'Static Page'
+name: 'Basic Page template'
 url: '/page/:slug'
 ---
 
 {{ partial('page-header', {
-    'background': theme.imagePageHeader,
+    'background': theme.defaultBanner,
     'title': page.title
 }) }}
 
@@ -28,6 +28,12 @@ url: '/page/:slug'
                             <figure class="post-image">
                                 <img class="img-fluid" src="{{ post.featured_image.thumbnail('auto', 'auto') }}" alt="{{ post.title }}">
                             </figure>
+                        {% endif %}
+
+                        {% if post.excerpt %}
+                            <div class="post-excerpt">                                
+                                {{ post.excerpt|unescape }}
+                            </div>
                         {% endif %}
 
                         <div class="post-content">

@@ -64,9 +64,9 @@
 	            </ul>
 	        	</div>
 	        	<div class="col-lg-4 col-md-12">
-			        {% if theme.enableDimensions %}
-
-			        		<h6>Product Dimensions</h6>
+					{% if theme.enableDimensions and product.height or product.width or product.depth or product.weight > 0 %}
+					{# The code above first checks if dimensions are enabled in theme settings, and if so it checks whether the product has any dimensions or weight before displaying the table below #}
+							<h6>Product Dimensions</h6>
 									<table class="mb-4">
 										<tr>
 											<th class="pr-3">Height:</th>
@@ -81,7 +81,7 @@
 											<td>{{ product.weight }}</td>
 										</tr>
 									</table>
-			        {% endif %}
+					{% endif %}
 	        	</div>
 	        	<div class="col-lg-4 col-md-12">
 	        		{% if product.priceTiers.count %}
