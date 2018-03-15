@@ -108,7 +108,7 @@
 
                             {% else %}
 
-                                {{ item.price()|currency }}
+                                {{ item.price() | currency }}
 
                             {% endif %}
 
@@ -121,7 +121,7 @@
 
                         {% else %}
 
-                            {{ 0|currency }}
+                            {{ item.price() | currency }}
 
                         {% endif %}
                     </td>
@@ -129,9 +129,9 @@
 
                     <td class="cart-item-total text-right">
                         {% if not item.is_trial_product %}
-                            {{ item.total|currency }}
+                            {{ item.total | currency }}
                         {% else %}
-                            {{ 0|currency }}
+                            {{ item.total | currency }}
                         {% endif %}
                     </td>
 
