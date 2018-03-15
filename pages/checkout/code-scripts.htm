@@ -17,7 +17,13 @@
                         mirrorState = $('#billing-same').data('toggle-mirror');
 
                         if (mirrorState == 'on') {
-                            $(targetID).val(mirrorVal);
+                            var target = $(targetID);
+                            target.val(mirrorVal);
+
+                            if (target.prop('type') == 'select-one') {
+                                target.change();
+                            }
+
                         }
                     });
                 });
