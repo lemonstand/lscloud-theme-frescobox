@@ -3,14 +3,12 @@ action: 'cmscontent:archive'
 template: master
 protocol: all
 published: true
-name: 'Category Archive'
-url: '/archive/:type/:category'
+name: 'Blog Index'
+url: '/archive/:type'
 ---
 
 {% if 'blog' == type %}
     {% set title = 'Blog' %}
-{% elseif 'page' == type %}
-    {% set title = 'Pages' %}
 {% else %}
     {% set title = 'Archive' %}
 {% endif %}
