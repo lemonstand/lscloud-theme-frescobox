@@ -1,7 +1,15 @@
 {
-  "name": "frescobox",
-  "version": "2.0.0",
-  "description": "A fresh theme made for subscription box businesses.",
+  "name": "FrescoBox",
+  "version": "1.0.0",
+  "description": "FrescoBox is a beautiful, customizable theme built with Bootstrap that is a great starting point for using LemonStand's built in subscriptions feature to offer recurring billing plans to your retail customers. You can sell a mix of one time purchases and subscriptions, and your customers can manage their subscription plans from the My Account area.",
+  "excerpt": "FrescoBox is a great starting point for building a store to sell subscription products on LemonStand.",
+  "keywords": [
+    "subscriptions",
+    "responsive",
+    "customizable",
+    "bootstrap",
+    "sass"
+  ],
   "main": "index.js",
   "scripts": {
     "dev": "npm run development",
