@@ -1,17 +1,39 @@
-{% set column_class = 'col-lg-4' %}
+{% set column_class = 'col-lg-6' %}
+
+{% set hasSocial = theme.socialFacebookUrl or theme.socialTwitterUrl or theme.socialInstagramUrl or theme.socialPinterestUrl %}
 
 {% set footer_partials = [ 
     'master-footer-navigation',
     'master-footer-contact',
-    'master-footer-social'
 ] %}
 
-{% if theme.mailchimpSubscribeUrl %}
+{% if hasSocial and theme.mailchimpSubscribeUrl %}
     
     {% set column_class = 'col-lg-3' %}
     
     {% set footer_partials = footer_partials|merge([ 
+        'master-footer-social',
         'master-footer-subscribe'
+    ]) %}
+
+{% endif %}
+
+{% if theme.mailchimpSubscribeUrl and hasSocial is empty %}
+    
+    {% set column_class = 'col-lg-4' %}
+    
+    {% set footer_partials = footer_partials|merge([ 
+        'master-footer-subscribe'
+    ]) %}
+
+{% endif %}
+
+{% if hasSocial and theme.mailchimpSubscribeUrl is empty %}
+    
+    {% set column_class = 'col-lg-4' %}
+    
+    {% set footer_partials = footer_partials|merge([ 
+        'master-footer-social'
     ]) %}
 
 {% endif %}
