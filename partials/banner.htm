@@ -9,24 +9,29 @@
     {% set banner_classes = banner_classes|merge([ 'block-header-overlay' ]) %}
 {% endif %}
 
-{% if theme.homeBannerAlign == right %} 
+{% if theme.homeBannerAlign == 'right' %} 
 <style>
 	.banner-align .container {
 		text-align: right !important;
 	}
 </style> 
-{% endif %}
-{% if theme.homeBannerAlign == left %} 
+{% elseif theme.homeBannerAlign == 'left' %}
 <style>
 	.banner-align .container {
 		text-align: left !important;
 	}
-</style> 
+</style>
+{% else %}
+<style>
+    .banner-align .container {
+        text-align: center !important;
+    }
+</style>
 {% endif %}
 
 <div class="{{ banner_classes|join(' ') }} banner-align" style="background-color: {{ theme.homeBannerColor }}; background-image: url({{ background.thumbnail('auto', 'auto') }});">
     <div class="block-content">
-        <div class="container text-center text-white">
+        <div class="container text-white">
             <h1>{{ heading|unescape }}</h1>
             <p class="lead">{{ content|unescape }}</p>
             <a class="btn btn-light btn-lg" href="#">{{ theme.homeBannerButtonText }}</a>
