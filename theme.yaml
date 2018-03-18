@@ -13,7 +13,7 @@ customFields:
     homeHeading: { type: text, title: 'Home: How it works section heading', default: 'How FrescoBox Works' }
     homeFeaturedHeader: { type: text, title: 'Home: Featured Products Header', default: 'Our Plans' }
     calloutTitle: { type: text, title: 'Callout: Title', default: 'Ready to subscribe?', comment: 'The callout section can optionally appear on the homepage and blog post pages (see checkboxes to enable/disable)' }
-    calloutContent: { type: text, title: 'Callout: Content', default: 'It takes just a few clicks to start getting fresh artisinal coffee beans delivere straight to your door.' }
+    calloutContent: { type: text, title: 'Callout: Content', default: 'It takes just a few clicks to start getting fresh artisinal coffee beans delivered straight to your door.' }
     calloutButtonText: { type: text, title: 'Callout: Button Text', default: 'Sign Up' }
     calloutButtonUrl: { type: text, title: 'Callout: Button URL', default: '/shop' }
     addToCart: { type: text, title: 'Add To Cart Text', default: 'Add To Cart' }
