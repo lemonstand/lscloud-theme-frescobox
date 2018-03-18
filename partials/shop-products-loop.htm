@@ -13,28 +13,28 @@
     		          <option id="4" value="orderBy=name&order=desc"{% if sortField == 'name' and sortOrder == 'desc'  %} selected="selected"{% endif %}>Name - Descending</option>
     		          <option id="5" value="orderBy=sku&order=asc"{% if sortField == 'sku' and sortOrder == 'asc'  %} selected="selected"{% endif %}>SKU - Ascending</option>
     		          <option id="6" value="orderBy=sku&order=desc"{% if sortField == 'sku' and sortOrder == 'desc'  %} selected="selected"{% endif %}>SKU - Descending</option>
-    		          <option id="7" value="orderBy=created_at&order=asc"{% if sortField == 'created_at' and sortOrder == 'asc'  %} selected="selected"{% endif %}>Date Created - Ascending</option>
-    		          <option id="8" value="orderBy=base_price&order=desc"{% if sortField == 'created_at' and sortOrder == 'desc'  %} selected="selected"{% endif %}>Date Created - Descending</option>
+    		          <option id="7" value="orderBy=created_at&order=asc"{% if sortField == 'created_at' and sortOrder == 'asc'  %} selected="selected"{% endif %}>Date Added - Ascending</option>
+    		          <option id="8" value="orderBy=base_price&order=desc"{% if sortField == 'created_at' and sortOrder == 'desc'  %} selected="selected"{% endif %}>Date Added - Descending</option>
     		</select>
     	</div>
 
         <div class="row">
-            
+
             {% for product in pagination.items %}
-            
+
                 <div class="{{ column_class ? column_class : 'col-lg-4 col-md-6' }}">
-                    
+
                     {{ partial('shop-product-item', {
                         'product': product
                     }) }}
 
-                </div>  
-            
+                </div>
+
             {% endfor %}
 
         </div>
-        
-        {{ partial('pagination', { 
+
+        {{ partial('pagination', {
             'pagination': pagination
         }) }}
 
@@ -45,15 +45,15 @@
     <div class="row">
 
         {% for product in products %}
-            
+
             <div class="{{ column_class ? column_class : 'col-lg-4 col-md-6' }}">
-                
+
                 {{ partial('shop-product-item', { product: product }) }}
 
             </div>
 
         {% endfor %}
-    
+
     </div>
 
 {% endif %}
