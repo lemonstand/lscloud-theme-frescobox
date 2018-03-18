@@ -53,8 +53,14 @@ url: '/account/orders'
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        <!-- Updated: {{ order.status_updated_at|date("m/d/Y") }} -->
-                                                        <div class="active">{{ order.orderStatus.name }}</div>
+                                                        <div class="active {{ order.orderStatus.name }}">{{ order.orderStatus.name }}</div>
+                                                        <div>
+                                                            {% set shippingCodes = order.outputTrackingCodes() %}
+                                                            {% if shippingCodes %}
+                                                                <small>Shipping code: <code>{{ shippingCodes }}</code></small><br>
+                                                            {% endif %}
+                                                            <small>Last updated: {{ order.status_updated_at|date("m/d/Y") }}</small>
+                                                        </div>
                                                     </td>
                                                     <td class="text-right total">{{ order.total|currency }}</td>
                                                     <td class="text-right"><a href="{{ site_url('/account/order/' ~ order.id) }}">View</a></td>
