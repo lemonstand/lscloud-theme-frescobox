@@ -12,8 +12,8 @@ url: '/account/orders'
 }) }}
 
 <div id="content" class="block block-gray">
-    <div class="block-content">           
-        <div class="container">        
+    <div class="block-content">
+        <div class="container">
             <div class="row">
 
                 <div class="col-lg-3">
@@ -21,13 +21,13 @@ url: '/account/orders'
                 </div>
 
                 <div class="col-lg-9">
-                    
+
                     {{ partial('flash') }}
 
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Order History</h4>
-                            
+
                             {% if customer.orders %}
                                 <div class="table-responsive">
                                     <table class="table">
@@ -35,19 +35,19 @@ url: '/account/orders'
                                             <tr>
                                                 <th>Recieved</th>
                                                 <th>Product</th>
-                                                <th>Status</th>	
+                                                <th>Status</th>
                                                 <th class="text-right">Order Total</th>
-                                                <th class="text-right">&nbsp;</th>	
+                                                <th class="text-right">&nbsp;</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            {% for order in customer.orders %}
-                                                
+                                            {% for order in customer.orders | extended_sort('created_at', false) %}
+
                                                 <tr>
                                                     <td>{{ order.created_at.format("m/d/Y") }}</td>
                                                     <td><a href="{{ site_url('/account/order/' ~ order.id) }}">
-                                                    	{% for item in order.orderItems %}   
+                                                    	{% for item in order.orderItems %}
                                                     		<div>{{ item.name }}</div>
                                                     	{% endfor %}
                                                     	</a>
@@ -69,7 +69,7 @@ url: '/account/orders'
                                 <a class="btn btn-primary" href="{{ site_url('/shop') }}">Continue Shopping</a>
                             {% endif %}
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>
