@@ -36,7 +36,7 @@ url: '/account/order/:orderId'
                                 <footer class="row">
 
                                     <div class="active {{ order.orderStatus.name }} col-lg-4">
-                                        <small>Status:
+                                        <small>
                                             <strong {% if order.orderStatus.color %}style="color: {{ order.orderStatus.color }}"{% endif %}>
                                                 {{ order.orderStatus.name | upper }}
                                             </strong>
@@ -51,7 +51,7 @@ url: '/account/order/:orderId'
                                     </div>
 
                                     <div class="col-lg-4 text-right">
-                                        <small>Last updated: {{ order.status_updated_at|date("m/d/Y") }}</small>
+                                        <small>{{ order.status_updated_at|date("m/d/Y") }}</small>
                                     </div>
                                 </footer>
                             {% endfor %}
