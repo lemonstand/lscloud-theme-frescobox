@@ -1,38 +1,38 @@
 <div class="block block-gray">
-	<div class="container">
-		<div class="block-header text-center">
-			<h2>Recent Blog Posts</h2>
-		</div>
-		<div class="row">
+    <div class="container">
+        <div class="block-header text-center">
+            <h2>Recent Blog Posts</h2>
+        </div>
+        <div class="row">
 
-			{% for post in cmsContent('blog') | extended_sort('published_on', false) %}
-				<div class="col-lg-6">
-			    <article class="card article-card" data-match-group="archive-cards">
-
-
-			        {#{% if post.featured_image.thumbnail %}#}
-			            <a class="article-image" href="{{ post.permalink }}">
-			                <img class="card-img-top" src="{{ post.featured_image.thumbnail('auto', 'auto') | default('https://placehold.it/200x220') }}" alt="{{ post.title }}">
-			            </a>
-			        {#{% endif %} #}
+            {% for post in cmsContent('blog') | extended_sort('published_on', false) %}
+                <div class="col-lg-6">
+                <article class="card article-card" data-match-group="archive-cards">
 
 
+                    {#{% if post.featured_image.thumbnail %}#}
+                        <a class="article-image" href="{{ post.permalink }}">
+                            <img class="card-img-top" src="{{ post.featured_image.thumbnail('auto', 'auto') | default('https://placehold.it/200x220') }}" alt="{{ post.title }}">
+                        </a>
+                    {#{% endif %} #}
 
-			        <div class="card-body">
-			        		<h6><a href="{{ content.permalink }}">{{ post.title }}</a></h6>
 
-			            {{ partial('post-meta', { layout: 'vertical', post: post }) }}
 
-			            <h4><a href="{{ post.permalink }}">{{ post.title }}</a></h4>
-			            <p>{{ post.excerpt | unescape }}</p>
+                    <div class="card-body">
+                            <h6><a href="{{ content.permalink }}">{{ post.title }}</a></h6>
 
-			            <a class="font-weight-bold text-uppercase" href="{{ post.permalink }}">Read More</a>
+                        {{ partial('post-meta', { layout: 'vertical', post: post }) }}
 
-			        </div>
-			    </article>
+                        <h4><a href="{{ post.permalink }}">{{ post.title }}</a></h4>
+                        <p>{{ post.excerpt | unescape }}</p>
 
-				</div>
-			{% endfor %}
-		</div>
-	</div>
+                        <a class="font-weight-bold text-uppercase" href="{{ post.permalink }}">Read More</a>
+
+                    </div>
+                </article>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
