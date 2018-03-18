@@ -53,7 +53,10 @@ url: '/account/orders'
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        <div class="active {{ order.orderStatus.name }}">{{ order.orderStatus.name }}</div>
+                                                        <div class="active {{ order.orderStatus.name }}"
+                                                        {% if order.orderStatus.color %}style="color: {{ order.orderStatus.color }}"{% endif %}>
+                                                            {{ order.orderStatus.name }}
+                                                        </div>
                                                         <div>
                                                             {% set shippingCodes = order.outputTrackingCodes() %}
                                                             {% if shippingCodes %}

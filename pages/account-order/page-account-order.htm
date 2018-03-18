@@ -13,8 +13,8 @@ url: '/account/order/:orderId'
 }) }}
 
 <div id="content" class="block block-gray">
-    <div class="block-content">           
-        <div class="container">        
+    <div class="block-content">
+        <div class="container">
             <div class="row">
 
                 <div class="col-lg-3">
@@ -22,21 +22,42 @@ url: '/account/order/:orderId'
                 </div>
 
                 <div class="col-lg-9">
-                    
+
                     {{ partial('flash') }}
 
                     <div class="card">
                         <div class="card-body">
-                            
-                            {% for invoice in order.invoices %}
 
+                            {% for invoice in order.invoices %}
                                 {{ partial('shop-invoice-items', { 'invoice': invoice }) }}
                                 {{ partial('shop-invoice-totals', { 'invoice': invoice }) }}
 
+                                <hr>
+                                <footer class="row">
+
+                                    <div class="active {{ order.orderStatus.name }} col-lg-4">
+                                        <small>Status:
+                                            <strong {% if order.orderStatus.color %}style="color: {{ order.orderStatus.color }}"{% endif %}>
+                                                {{ order.orderStatus.name | upper }}
+                                            </strong>
+                                        </small>
+                                    </div>
+
+                                    {% set shippingCodes = order.outputTrackingCodes() %}
+                                    <div class="col-lg-4  text-center">
+                                        {% if shippingCodes %}
+                                            <small>Shipping code: <code>{{ shippingCodes }}</code></small>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="col-lg-4 text-right">
+                                        <small>Last updated: {{ order.status_updated_at|date("m/d/Y") }}</small>
+                                    </div>
+                                </footer>
                             {% endfor %}
 
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>
