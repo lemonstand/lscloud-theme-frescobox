@@ -47,14 +47,14 @@ url: '/account/orders'
                                                 <tr>
                                                     <td>{{ order.created_at.format("m/d/Y") }}</td>
                                                     <td><a href="{{ site_url('/account/order/' ~ order.id) }}">
-                                                    	{% for item in order.orderItems %}
-                                                    		<div>{{ item.name }}</div>
-                                                    	{% endfor %}
-                                                    	</a>
+                                                        {% for item in order.orderItems %}
+                                                            <div>{{ item.name }}</div>
+                                                        {% endfor %}
+                                                        </a>
                                                     </td>
                                                     <td>
-                                                    	<!-- Updated: {{ order.status_updated_at|date("m/d/Y") }} -->
-                                                    	<div class="active">{{ order.orderStatus.name }}</div>
+                                                        <!-- Updated: {{ order.status_updated_at|date("m/d/Y") }} -->
+                                                        <div class="active">{{ order.orderStatus.name }}</div>
                                                     </td>
                                                     <td class="text-right total">{{ order.total|currency }}</td>
                                                     <td class="text-right"><a href="{{ site_url('/account/order/' ~ order.id) }}">View</a></td>
