@@ -1,0 +1,7 @@
+<div class="owl-carousel mb-4 mb-lg-0">
+
+    {% for image in product.images %}
+        <img class="img-fluid" src="{{ image.thumbnail('auto', 'auto') }}" alt="{{ image.title }}" title="{{ image.description }}">
+    {% endfor %}
+
+</div>
