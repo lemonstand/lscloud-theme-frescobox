@@ -23,9 +23,9 @@
 
         <h3 id="why">{{ product.price|currency }}</h3>
         {% if on_sale %}
-            <small class="previous-price">{{ product.fullPrice|currency }}</small>
+            <small class="previous-price">{{ product.fullPrice | currency }}</small>
         {% endif %}
-        <p>{{product.description|unescape}}</p>
+        <p>{{product.description | unescape}}</p>
     </div>
     {{ partial('shop-product-attributes') }}
     {{ partial('shop-product-extras') }}
