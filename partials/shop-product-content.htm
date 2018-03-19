@@ -10,12 +10,6 @@
 
     <div class="product-description mb-4">
 
-    	{% if theme.descriptionsDropdown[0] %}
-    	1111
-
-    	{% endif %}
-
-
             <p class="small">{{ product.short_description }}</p>
 
     </div>
@@ -105,11 +99,11 @@
 
             </div>
 
-	      		{% if theme.showStockAmount and product.in_stock_amount %}
-		      		<div class="">
-		          	<p><strong>In Stock Amount:</strong> {{ product.in_stock_amount }}</p>
-		      		</div>
-	          {% endif %}
+                {% if theme.showStockAmount and product.in_stock_amount %}
+                    <div class="">
+                    <p><strong>In Stock Amount:</strong> {{ product.in_stock_amount }}</p>
+                    </div>
+              {% endif %}
 
 
         {% else %}
