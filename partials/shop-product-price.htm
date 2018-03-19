@@ -10,7 +10,7 @@
             {% else %}
                 {{ product.discount | currency }}
             {% endif %}
-            off
+            off <br/> (when purchased with <em>{{ product.product_relation.name }}</em>)
         </small></div>
         {% endif %}
     {% else %}
