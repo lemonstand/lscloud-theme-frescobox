@@ -1,8 +1,24 @@
 <div class="product-price">
-    {% if product.onSale() %}
-        <del>{{ product.fullPrice|currency }}</del>
-        <ins>{{ product.price|currency }}</ins>
+    {% if product.type == 'upsell' %}
+
+        {{ product.price | currency }}
+
+        {% if product.discount %}
+        <div class="discount"><small>
+            {% if product.is_percentage_discount %}
+                {{ product.discount | round }}%
+            {% else %}
+                {{ product.discount | currency }}
+            {% endif %}
+            off
+        </small></div>
+        {% endif %}
     {% else %}
-        {{ product.price|currency }}
-    {% endif %} 
+        {% if product.onSale() %}
+            <del>{{ product.fullPrice | currency }}</del>
+            <ins>{{ product.price | currency }}</ins>
+        {% else %}
+            {{ product.price | currency }}
+        {% endif %}
+    {% endif %}
 </div>
