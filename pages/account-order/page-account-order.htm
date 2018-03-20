@@ -33,9 +33,9 @@ url: '/account/order/:orderId'
                                 {{ partial('shop-invoice-totals', { 'invoice': invoice }) }}
 
                                 <hr>
-                                <footer class="row">
+                                <div class="row">
 
-                                    <div class="active {{ order.orderStatus.name }} col-lg-4">
+                                    <div class="active {{ order.orderStatus.name }} col-lg-6">
                                         <small>
                                             <strong {% if order.orderStatus.color %}style="color: {{ order.orderStatus.color }}"{% endif %}>
                                                 {{ order.orderStatus.name | upper }}
@@ -43,17 +43,20 @@ url: '/account/order/:orderId'
                                         </small>
                                     </div>
 
-                                    {% set shippingCodes = order.outputTrackingCodes() %}
-                                    <div class="col-lg-4  text-center">
-                                        {% if shippingCodes %}
-                                            <small>Shipping code: <code>{{ shippingCodes }}</code></small>
-                                        {% endif %}
-                                    </div>
 
-                                    <div class="col-lg-4 text-right">
+                                    <div class="col-lg-6 text-right">
                                         <small>{{ order.status_updated_at|date("m/d/Y") }}</small>
                                     </div>
-                                </footer>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    {% set shippingCodes = order.outputTrackingCodes() %}
+                                    <div class="col-lg-12">
+                                        {% if shippingCodes %}
+                                            <small>Tracking: <code>{{ shippingCodes }}</code></small>
+                                        {% endif %}
+                                    </div>
+                                </div>
                             {% endfor %}
 
                         </div>

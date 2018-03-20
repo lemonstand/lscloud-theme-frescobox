@@ -52,15 +52,15 @@ url: '/account/orders'
                                                         {% endfor %}
                                                         </a>
                                                     </td>
-                                                    <td>
+                                                    <td style="max-width: 300px;">
                                                         <div class="active {{ order.orderStatus.name }}"
                                                         {% if order.orderStatus.color %}style="color: {{ order.orderStatus.color }}"{% endif %}>
                                                             {{ order.orderStatus.name }}
                                                         </div>
-                                                        <div>
+                                                        <div class="field-ellipsis">
                                                             {% set shippingCodes = order.outputTrackingCodes() %}
                                                             {% if shippingCodes %}
-                                                                <small>Shipping code: <code>{{ shippingCodes }}</code></small><br>
+                                                                <small>Tracking: <code>{{ shippingCodes }}</code></small><br>
                                                             {% endif %}
                                                             <small>Last updated: {{ order.status_updated_at|date("m/d/Y") }}</small>
                                                         </div>

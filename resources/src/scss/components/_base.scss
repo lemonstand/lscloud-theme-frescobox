@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 {
     color: $white;
 }
 
-::selection { 
+::selection {
     background-color: $primary;
     color: $white;
 }
@@ -21,6 +21,13 @@ a.link-muted {
     &:hover {
         color: $gray-600;
     }
+}
+
+.field-ellipsis {
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -45,7 +52,7 @@ a.link-muted {
         }
     }
 
-    cite {        
+    cite {
         font-style: normal;
 
         &::before {
@@ -53,7 +60,7 @@ a.link-muted {
         }
 
         span.author {
-            font-weight: $font-weight-bold;            
+            font-weight: $font-weight-bold;
         }
 
         span.title {
