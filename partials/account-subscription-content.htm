@@ -103,7 +103,7 @@
                 {{ close_form() }}
 
                 <div class="subscription_status_block active">
-                        <div class="">
+                        <div class="subscription_status">
                                 Subscription Status:
                                 <strong><span class="{ subscription.status.name | default ('trial') | lower}}">
                                     {{ subscription.status.name }}
@@ -113,32 +113,33 @@
 
                         {% if subscription.status.name != 'Cancelled' %}
 
-                            <button class="btn btn-outline-primary subscription_pause"
+                            <a class="btn btn-outline-primary subscription_pause"
+                                href="#"
                                 data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
                                 data-ajax-update="#subscription-content=account-subscription-content"
                                 data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
                                 data-ajax-extra-fields="subscription_status='paused', subscription_id='{{ subscription.id }}">
-                                <span>Pause Subscription</span>
-                            </button>
+                                Pause Subscription
+                            </a>
                             <a class="subscription_cancel"
                                 href="#"
                                 data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
                                 data-ajax-update="#subscription-content=account-subscription-content"
                                 data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
                                 data-ajax-extra-fields="subscription_status='cancelled', subscription_id='{{ subscription.id }}">
-                                <span>Or, cancel your subscription</span>
+                                Or, cancel your subscription
                             </a>
 
                         {% else %}
 
-                            <button class="btn btn-outline-primary subscription_activate"
+                            <a class="btn btn-outline-primary subscription_activate"
                                 href="#"
                                 data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
                                 data-ajax-update="#subscription-content=account-subscription-content"
                                 data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
-                                data-ajax-extra-fields="subscription_status='active', subscription_id='{{ subscription.id }}">
-                                <span>Activate Subscription</span>
-                            </button>
+                                data-ajax-extra-fields="subscription_status='active',subscription_id='{{ subscription.id }}">
+                                <span>zActivate Subscription</span>
+                            </a>
                         {% endif %}
 
                     </div>
