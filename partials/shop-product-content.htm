@@ -10,7 +10,11 @@
 
     <div class="product-description mb-4">
 
-            <p class="small">{{ product.short_description }}</p>
+        {% if theme.descriptionsDropdown == 'first' %}
+            <p class="small">{{ product.short_description | unescape }}</p>
+        {% else %}
+            <p class="small">{{ product.description | unescape }}</p>
+        {% endif %}
 
     </div>
 

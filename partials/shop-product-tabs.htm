@@ -1,115 +1,120 @@
 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+
+    {% if theme.descriptionsDropdown == 'first' %}
     <li class="nav-item">
         <a id="description-tab" class="nav-link active" data-toggle="tab" href="#description" role="tab" aria-controls="home" aria-selected="true">Description</a>
     </li>
+    {% endif %}
 
     <li class="nav-item">
-        <a id="product-details-tab" class="nav-link" data-toggle="tab" href="#product-details" role="tab" aria-controls="profile" aria-selected="false">Product Details</a>
-    </li> 
+        <a id="product-details-tab" class="nav-link" data-toggle="tab" href="#product-details" role="tab" aria-controls="profile" aria-selected="{% if theme.descriptionsDropdown == 'first' %}false{% else %}true{% endif %}">Product Details</a>
+    </li>
     {% if theme.enableReviews %}
-        
+
         {% set rating = product.rating() %}
 
         <li class="nav-item">
             <a id="reviews-tab" class="nav-link" data-toggle="tab" href="#reviews" role="tab" aria-controls="profile" aria-selected="false">Reviews ({{ rating.total_reviews }})</a>
-        </li> 
+        </li>
 
         <li class="nav-item">
             <a id="write-review-tab" class="nav-link" data-toggle="tab" href="#write-review" role="tab" aria-controls="profile" aria-selected="false">Write a Review</a>
-        </li> 
+        </li>
 
     {% endif %}
 
 
 </ul>
-            
+
 <div class="tab-content">
-    
+
+    {% if theme.descriptionsDropdown == 'first' %}
     <div class="tab-pane active" id="description" role="tabpanel" aria-labelledby="description-tab">
 
-        {{ product.description|unescape }}
+        {{ product.description | unescape }}
 
     </div>
+    {% endif %}
 
     <div class="tab-pane" id="product-details" role="tabpanel" aria-labelledby="product-details-tab">
 
-					<div class="row">
-	        	<div class="col-lg-4 col-md-12">
-	            <ul class="product-attributes list-unstyled mb-4">
+                    <div class="row">
+                <div class="col-lg-4 col-md-12">
+                <ul class="product-attributes list-unstyled mb-4">
 
-	                <h6>Product Attributes</h6>
-	                {% for attribute in product.productAttributes %}
+                    <h6>Product Attributes</h6>
+                    {% for attribute in product.productAttributes %}
 
 
-	                    <li><strong>{{ attribute.name }}:</strong> {{ attribute.value }}</li>
+                        <li><strong>{{ attribute.name }}:</strong> {{ attribute.value }}</li>
 
-	                {% endfor %}
+                    {% endfor %}
 
-	                {% if product.sku %}
-	                    
-	                    <li><strong>SKU:</strong> {{ product.sku }}</li>
+                    {% if product.sku %}
 
-	                {% endif %}
-	        			
+                        <li><strong>SKU:</strong> {{ product.sku }}</li>
 
-	                {% if theme.enableManufacturers and product.manufacturer %}
+                    {% endif %}
 
-	                    <li>
-	                        <strong>Manufacturer:</strong>
-	                        <a href="{{ site_url('/manufacturer/' ~ product.manufacturer.url_name) }}">{{ product.manufacturer.name }}</a>
-	                    </li>
-	                
-	                {% endif %}
 
-	            </ul>
-	        	</div>
-	        	<div class="col-lg-4 col-md-12">
-					{% if theme.enableDimensions and product.height or product.width or product.depth or product.weight > 0 %}
-					{# The code above first checks if dimensions are enabled in theme settings, and if so it checks whether the product has any dimensions or weight before displaying the table below #}
-							<h6>Product Dimensions</h6>
-									<table class="mb-4">
-										<tr>
-											<th class="pr-3">Height:</th>
-											<th class="pr-3">Width:</th>
-											<th class="pr-3">Depth:</th>
-											<th class="pr-3">Weight:</th>
-										</tr>
-										<tr>
-											<td>{{ product.height }}</td>
-											<td>{{ product.width }}</td>
-											<td>{{ product.depth }}</td>
-											<td>{{ product.weight }}</td>
-										</tr>
-									</table>
-					{% endif %}
-	        	</div>
-	        	<div class="col-lg-4 col-md-12">
-	        		{% if product.priceTiers.count %}
-	        		    <div class="">
-	        		      <h6>Bulk Pricing</h6>
-	        		        <div>
-	        		          {{ partial('shop-product-bulk-pricing')}}
-	        		        </div>
-	        		    </div>
-	        		{% endif %}
-	        	</div>
-					</div>
+                    {% if theme.enableManufacturers and product.manufacturer %}
+
+                        <li>
+                            <strong>Manufacturer:</strong>
+                            <a href="{{ site_url('/manufacturer/' ~ product.manufacturer.url_name) }}">{{ product.manufacturer.name }}</a>
+                        </li>
+
+                    {% endif %}
+
+                </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    {% if theme.enableDimensions and product.height or product.width or product.depth or product.weight > 0 %}
+                    {# The code above first checks if dimensions are enabled in theme settings, and if so it checks whether the product has any dimensions or weight before displaying the table below #}
+                            <h6>Product Dimensions</h6>
+                                    <table class="mb-4">
+                                        <tr>
+                                            <th class="pr-3">Height:</th>
+                                            <th class="pr-3">Width:</th>
+                                            <th class="pr-3">Depth:</th>
+                                            <th class="pr-3">Weight:</th>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ product.height }}</td>
+                                            <td>{{ product.width }}</td>
+                                            <td>{{ product.depth }}</td>
+                                            <td>{{ product.weight }}</td>
+                                        </tr>
+                                    </table>
+                    {% endif %}
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    {% if product.priceTiers.count %}
+                        <div class="">
+                          <h6>Bulk Pricing</h6>
+                            <div>
+                              {{ partial('shop-product-bulk-pricing')}}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                    </div>
 
     </div>
 
     {% if theme.enableReviews %}
-        
+
         <div class="tab-pane" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
 
             {% for review in product.reviews() %}
-                
+
                 <div class="review">
                     <div class="review-rating" title="Rated {{ review.rating }} of 5">
                         {% for i in range(1, 5) %}
                             <span class="fa fa-star{{ i <= review.rating  ? ' active' : '' }}"></span>
                         {% endfor %}
                     </div>
-                    
+
                     <div class="review-content">
                         <div class="review-header">
                             <h5>{{ review.title }}</h5>
@@ -125,9 +130,9 @@
 
         </div>
 
-        
+
         <div class="tab-pane" id="write-review" role="tabpanel" aria-labelledby="write-review-tab">
-            
+
             {{ partial('shop-product-review-form') }}
 
         </div>
@@ -135,4 +140,4 @@
     {% endif %}
 
 
-</div>  
+</div>
