@@ -7,7 +7,7 @@
     {% endif %}
 
     <li class="nav-item">
-        <a id="product-details-tab" class="nav-link" data-toggle="tab" href="#product-details" role="tab" aria-controls="profile" aria-selected="{% if theme.descriptionsDropdown == 'first' %}false{% else %}true{% endif %}">Product Details</a>
+        <a id="product-details-tab" class="nav-link{% if theme.descriptionsDropdown == 'first' %}{% else %} active{% endif %}" data-toggle="tab" href="#product-details" role="tab" aria-controls="profile" aria-selected="{% if theme.descriptionsDropdown == 'first' %}false{% else %}true{% endif %}">Product Details</a>
     </li>
     {% if theme.enableReviews %}
 
@@ -36,9 +36,9 @@
     </div>
     {% endif %}
 
-    <div class="tab-pane" id="product-details" role="tabpanel" aria-labelledby="product-details-tab">
+    <div class="tab-pane{% if theme.descriptionsDropdown == 'first' %}{% else %} active{% endif %}" id="product-details" role="tabpanel" aria-labelledby="product-details-tab">
 
-                    <div class="row">
+            <div class="row">
                 <div class="col-lg-4 col-md-12">
                 <ul class="product-attributes list-unstyled mb-4">
 
