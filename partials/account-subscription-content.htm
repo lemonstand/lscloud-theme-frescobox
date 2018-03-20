@@ -11,18 +11,18 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Started:</th>
-                        <th>Next Renewal Date:</th>
-                        <th>Next Renewal Amount: </th>
-                        <th>Number of Items:</th>
+                        <th>Started</th>
+                        <th>Number of Products</th>
+                        <th>Next Renewal Date</th>
+                        <th>Next Renewal Amount</th>
                     </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>{{ subscription.created_at.format("m/d/Y") }}</td>
+                    <td>{{ subscription.products.first.quantity }}</td>
                     <td>{{ subscription.nextRenewalDate() }}</td>
                     <td>{{ subscription.nextRenewalAmount() }}</td>
-                    <td>{{ subscription.products.first.quantity }}</td>
                 </tr>
                 </tbody>
             </table>
