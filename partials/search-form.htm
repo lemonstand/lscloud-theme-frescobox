@@ -1,7 +1,7 @@
 {{ open_form({'class': 'form form-search', 'method': 'get', 'action': site_url('/search')}) }}
 
     <div class="input-group">
-        <input class="form-control" name="query" placeholder="Search {{ theme.storeTitle }}" type="text" value="{{ query|unescape }}">
+        <input class="form-control query" name="query" placeholder="Search {{ theme.storeTitle }}" type="text" value="{{ query|unescape }}">
         <div class="input-group-append">
             <button class="btn" type="submit"><span class="fa fa-search"></span></button>
         </div>
