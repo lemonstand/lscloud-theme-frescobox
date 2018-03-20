@@ -60,7 +60,8 @@
 	font-size: 12px;
 }
 
-.subscription_status_block.active h6 span {
+.subscription_status_block.active h6 span,
+.subscription_status_block.trial h6 span {
 	color: #28a745;
 }
 

@@ -13,8 +13,8 @@ url: '/account/subscriptions'
 }) }}
 
 <div id="content" class="block block-gray">
-    <div class="block-content">           
-        <div class="container">        
+    <div class="block-content">
+        <div class="container">
             <div class="row">
 
                 <div class="col-lg-3">
@@ -43,32 +43,21 @@ url: '/account/subscriptions'
                                         </thead>
                                         <tbody>
 
-                                            {% for subscription in subscriptions %}
+                                            {% for subscription in subscriptions | extended_sort('created_at', false) %}
                                               <a href="{{ site_url('/account/subscription/' ~ subscription.id) }}">
                                                 <tr>
                                                     <td>{{ subscription.created_at.format("m/d/Y") }}</td>
                                                     <td class="quantity">
-                                                    	<a href="{{ site_url('/account/subscription/' ~ subscription.id) }}">
-                                                    		{{ subscription.products.first.quantity }}
-                                                    	</a>
+                                                        <a href="{{ site_url('/account/subscription/' ~ subscription.id) }}">
+                                                            {{ subscription.products.first.quantity }}
+                                                        </a>
                                                     </td>
                                                     <td>
-                                                    	{{ subscription.billing_plan.name }}
-                                                    	{% if (subscription.status.name == 'Active') %}
-                                                    		<div class="active">
-                                                    			{{ subscription.status.name }}
-                                                    		</div>
-                                                    	{% endif %}
-                                                    	{% if (subscription.status.name == 'Paused') %}
-                                                    		<div class="paused">
-                                                    			{{ subscription.status.name }}
-                                                    		</div>
-                                                    	{% endif %}
-                                                    	{% if (subscription.status.name == 'Cancelled') %}
-                                                    		<div class="cancelled">
-                                                    			{{ subscription.status.name }}
-                                                    		</div>
-                                                    	{% endif %}
+                                                        {{ subscription.billing_plan.name }}
+
+                                                        <div class="{{ subscription.status.name | default ('trial') | lower}}">
+                                                            {{ subscription.status.name | default ('trial') | upper }}
+                                                        </div>
                                                     </td>
                                                     <td><strong>{{ subscription.nextRenewalDate() }}</strong><div class="total">{{ subscription.nextRenewalAmount() }}<br>
                                                     </div>
@@ -87,7 +76,7 @@ url: '/account/subscriptions'
                             {% endif %}
 
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

@@ -7,26 +7,26 @@
 <div class="card mb-4">
     <div class="card-body">
 
-    	<div class="table-responsive">
-    	    <table class="table">
-    	        <thead>
-    	            <tr>
-    	                <th>Started:</th>
-    	                <th>Next Renewal Date:</th>
-    	                <th>Next Renewal Amount: </th>
-    	                <th>Number of Items:</th>
-    	            </tr>
-    	        </thead>
-    	        <tbody>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Started:</th>
+                        <th>Next Renewal Date:</th>
+                        <th>Next Renewal Amount: </th>
+                        <th>Number of Items:</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>{{ subscription.created_at.format("m/d/Y") }}</td>
                     <td>{{ subscription.nextRenewalDate() }}</td>
                     <td>{{ subscription.nextRenewalAmount() }}</td>
                     <td>{{ subscription.products.first.quantity }}</td>
                 </tr>
-    	        </tbody>
-    	    </table>
-    	</div>
+                </tbody>
+            </table>
+        </div>
 
         {% set has_options = false %}
 
@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col-lg-7">
 
-				{{ flash() }}
+                {{ flash() }}
                 {{ open_form({
                     'class': 'custom',
                     'data-ajax-handler': 'subscriptions:onUpdateSubscriptionStatus',
@@ -94,82 +94,51 @@
                 }) }}
 
                 <div class="form-group">
-                	<label class="control-label" for="billing-plan">Update Subscription</label>
+                    <label class="control-label" for="billing-plan">
+                        Subscription Status:
+                            <strong><span class="{ subscription.status.name | default ('trial') | lower}}">
+                                {{ subscription.status.name }}
+                            </span></strong>
+                    </label>
                     <input name="subscription_id" type="hidden" value="{{ subscription.id }}">
 
 
                 {{ close_form() }}
 
+                <div class="subscription_status_block active">
 
-	                {% if subscription.status.name in 'Active' %}
-	                	<div class="subscription_status_block active">
-	                    {% for status in subscriptionStatuses if (status.code == 'active') %}
-	                				<h6>Current Status: <span>{{ status.name }}</span></h6>
-	                        <a class="btn subscription_pause"
-	                        href="#"
-	                        data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
-	                        data-ajax-update="#subscription-content=account-subscription-content"
-	                        data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
-	                        data-ajax-extra-fields="subscription_status='paused', subscription_id='{{ subscription.id }}"
-	                        >
-	                        	<span>Pause Subscription</span>
-	                        </a>
-	                        <a class="btn subscription_cancel"
-	                        href="#"
-	                        data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
-	                        data-ajax-update="#subscription-content=account-subscription-content"
-	                        data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
-	                        data-ajax-extra-fields="subscription_status='cancelled', subscription_id='{{ subscription.id }}"
-	                        >
-	                        	<span>Or, cancel your subscription</span>
-	                        </a>
-	                    {% endfor %}
-	                	</div>
-	                {% endif %}
+                        {% if subscription.status.name != 'Cancelled' %}
 
+                            <a class="btn subscription_pause"
+                                data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
+                                data-ajax-update="#subscription-content=account-subscription-content"
+                                data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
+                                data-ajax-extra-fields="subscription_status='paused', subscription_id='{{ subscription.id }}">
+                                <span>Pause Subscription</span>
+                            </a>
+                            <a class="btn subscription_cancel"
+                                href="#"
+                                data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
+                                data-ajax-update="#subscription-content=account-subscription-content"
+                                data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
+                                data-ajax-extra-fields="subscription_status='cancelled', subscription_id='{{ subscription.id }}">
+                                <span>Or, cancel your subscription</span>
+                            </a>
 
-	                {% if subscription.status.name in 'Paused' %}
-                   	<div class="subscription_status_block paused">
-                      {% for status in subscriptionStatuses if (status.code == 'paused') %}
-                      	<h6>Current Status: <span>{{ status.name }}</span></h6>
-      	                  <a class="btn subscription_activate"
-      	                  href="#"
-      	                  data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
-      	                  data-ajax-update="#subscription-content=account-subscription-content"
-      	                  data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
-      	                  data-ajax-extra-fields="subscription_status='active', subscription_id='{{ subscription.id }}"
-      	                  >
-      	                  	<span>Activate Subscription</span>
-      	                  </a>
-      	                  <a class="btn subscription_cancel"
-      	                  href="#"
-      	                  data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
-      	                  data-ajax-update="#subscription-content=account-subscription-content"
-      	                  data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
-      	                  data-ajax-extra-fields="subscription_status='cancelled', subscription_id='{{ subscription.id }}"
-      	                  >
-      	                  	<span>Or, cancel your subscription</span>
-      	                  </a>
-                      {% endfor %}
-                   	</div>
-	                {% endif %}
+                        {% else %}
 
-	                {% if subscription.status.name in 'Cancelled' %}
-                    <div class="subscription_status_block cancelled">
-                      {% for status in subscriptionStatuses if (status.code == 'cancelled') %}
-                      	<h6>Current Status: <span>{{ status.name }}</span></h6>
-      	                  <a class="btn subscription_activate"
-      	                  href="#"
-      	                  data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
-      	                  data-ajax-update="#subscription-content=account-subscription-content"
-      	                  data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
-      	                  data-ajax-extra-fields="subscription_status='active', subscription_id='{{ subscription.id }}"
-      	                  >
-      	                  	<span>Activate Subscription</span>
-      	                  </a>
-                      {% endfor %}
+                            <a class="btn subscription_activate"
+                                href="#"
+                                data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
+                                data-ajax-update="#subscription-content=account-subscription-content"
+                                data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
+                                data-ajax-extra-fields="subscription_status='active', subscription_id='{{ subscription.id }}">
+                                <span>Activate Subscription</span>
+                            </a>
+                        {% endif %}
+
                     </div>
-	                {% endif %}
+
                 </div>
 
 
@@ -196,7 +165,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-primary" type="submit">Update Billing Plan</button>
+                        <button class="btn btn-primary" type="submit">Update Subscription</button>
                     </div>
 
                 {{ close_form() }}
@@ -210,58 +179,58 @@
 
 <div class="card">
     <div class="card-body">
-    	<label class="control-label" for="billing-plan">Subscription payment details</label>
-    	{% if card %}
-    	  <!-- Render card details -->
-    	    {{ subscriptionCardForm('update',
-    	        {
-    	            card: card,
-    	            options: {
-    	                number: {
-							class: 'disabled',
-    	                    placeholder: 'Card number',
-    	                    style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 32px; color: #555; line-height: 42px; width: 100%;"
-    	                },
-    	                cvv: {
-    	                    placeholder: 'CVV',
-    	                    style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 16px; color: #555; line-height: 42px; width: 100%;"
-    	                }
-    	            }
-    	        },
-    	    { 'data-ajax-redirect': root_url('/account/subscription/' ~ subscription.id) }) }}
-    	{% else %}
-    	  <!-- Example - Drop-In Twig Helper on Subscription Page - Add card form from subscriptions page. -->
-    	    <p>Add Payment Method</p>
-    	    {{ subscriptionCardForm('add',
-    	        {
-    	            options: {
-    	                number: {
-    	                    placeholder: 'Card number',
-    	                    style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 16px; color: #555; line-height: 42px; width: 100%;"
-    	                },
-    	                cvv: {
-    	                    placeholder: 'CVV',
-    	                    style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 16px; color: #555; line-height: 42px; width: 100%;"
-    	                }
-    	            }
-    	        },
-    	    { 'data-ajax-redirect': root_url('/account/subscription/' ~ subscription.id) }) }}
-		{% endif %}
+        <label class="control-label" for="billing-plan">Subscription payment details</label>
+        {% if card %}
+          <!-- Render card details -->
+            {{ subscriptionCardForm('update',
+                {
+                    card: card,
+                    options: {
+                        number: {
+                            class: 'disabled',
+                            placeholder: 'Card number',
+                            style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 32px; color: #555; line-height: 42px; width: 100%;"
+                        },
+                        cvv: {
+                            placeholder: 'CVV',
+                            style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 16px; color: #555; line-height: 42px; width: 100%;"
+                        }
+                    }
+                },
+            { 'data-ajax-redirect': root_url('/account/subscription/' ~ subscription.id) }) }}
+        {% else %}
+          <!-- Example - Drop-In Twig Helper on Subscription Page - Add card form from subscriptions page. -->
+            <p>Add Payment Method</p>
+            {{ subscriptionCardForm('add',
+                {
+                    options: {
+                        number: {
+                            placeholder: 'Card number',
+                            style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 16px; color: #555; line-height: 42px; width: 100%;"
+                        },
+                        cvv: {
+                            placeholder: 'CVV',
+                            style: "font-family: Helvetica Neue, Courier New, Courier Monospace, monospace; letter-spacing: 1.5px; font-weight: bold; font-size: 16px; color: #555; line-height: 42px; width: 100%;"
+                        }
+                    }
+                },
+            { 'data-ajax-redirect': root_url('/account/subscription/' ~ subscription.id) }) }}
+        {% endif %}
 
-		<style>
+        <style>
 
-		/* Some extra form styles */
+        /* Some extra form styles */
 
-		/* Hide the card # border to make it look less editable (as it's not) */
-		.number.card-form-input.disabled {
-			border: 0;
-			padding-left: 0;
-			padding-top: .25em;
-		}
-		/* Hide the card # label as we'll just make the # bigger */
-		.card-form-row:first-of-type .card-form-label {
-			display: none;
-		}
-		</style>
+        /* Hide the card # border to make it look less editable (as it's not) */
+        .number.card-form-input.disabled {
+            border: 0;
+            padding-left: 0;
+            padding-top: .25em;
+        }
+        /* Hide the card # label as we'll just make the # bigger */
+        .card-form-row:first-of-type .card-form-label {
+            display: none;
+        }
+        </style>
     </div>
 </div>
