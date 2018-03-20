@@ -95,10 +95,7 @@
 
                 <div class="form-group">
                     <label class="control-label" for="billing-plan">
-                        Subscription Status:
-                            <strong><span class="{ subscription.status.name | default ('trial') | lower}}">
-                                {{ subscription.status.name }}
-                            </span></strong>
+                        Update subscription
                     </label>
                     <input name="subscription_id" type="hidden" value="{{ subscription.id }}">
 
@@ -106,17 +103,24 @@
                 {{ close_form() }}
 
                 <div class="subscription_status_block active">
+                        <div class="">
+                                Subscription Status:
+                                <strong><span class="{ subscription.status.name | default ('trial') | lower}}">
+                                    {{ subscription.status.name }}
+                                </span></strong>
+                        </div>
+                        <br/>
 
                         {% if subscription.status.name != 'Cancelled' %}
 
-                            <a class="btn subscription_pause"
+                            <button class="btn btn-outline-primary subscription_pause"
                                 data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
                                 data-ajax-update="#subscription-content=account-subscription-content"
                                 data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
                                 data-ajax-extra-fields="subscription_status='paused', subscription_id='{{ subscription.id }}">
                                 <span>Pause Subscription</span>
-                            </a>
-                            <a class="btn subscription_cancel"
+                            </button>
+                            <a class="subscription_cancel"
                                 href="#"
                                 data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
                                 data-ajax-update="#subscription-content=account-subscription-content"
@@ -127,14 +131,14 @@
 
                         {% else %}
 
-                            <a class="btn subscription_activate"
+                            <button class="btn btn-outline-primary subscription_activate"
                                 href="#"
                                 data-ajax-handler="subscriptions:onUpdateSubscriptionStatus"
                                 data-ajax-update="#subscription-content=account-subscription-content"
                                 data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
                                 data-ajax-extra-fields="subscription_status='active', subscription_id='{{ subscription.id }}">
                                 <span>Activate Subscription</span>
-                            </a>
+                            </button>
                         {% endif %}
 
                     </div>
