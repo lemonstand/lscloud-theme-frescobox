@@ -5,13 +5,34 @@
             <div class="minicart-item-details">
                 <span class="minicart-item-name"><a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a></span>
                 <span class="minicart-item-info">{{ item.quantity }} x {{ item.price|currency }}</span>
+
+                {% if item.x_billing_plan_id  %}
+                    {% for plan in item.product.subscriptionPlans | extended_sort('name', true)  %}
+                        {% if plan.id == item.x_billing_plan_id %}
+                        <span class="minicart-item-info">{{ plan.name }}</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if item.is_trial_product %}
+                    {% if item.price > 0 %}
+                        <span class="minicart-item-info">
+                            * Trial item
+                        </span>
+                        {% else %}
+                        <span class="minicart-item-info">
+                            * Free trial item
+                        </span>
+                    {% endif %}
+                {% endif %}
+
             </div>
             {% if edit_cart %}
                 <a class="btn link-muted" href="#" title="Remove Item"
                     data-ajax-handler="shop:cart"
                     data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart-content, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content"
                     data-ajax-extra-fields="delete_item='{{ item.key }}'">
-                    <span class="fa fa-trash"></span>                    
+                    <span class="fa fa-trash"></span>
                 </a>
             {% endif %}
         </li>
