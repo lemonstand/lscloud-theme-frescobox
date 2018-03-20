@@ -14,8 +14,14 @@
 
     /* product dropdown: sort */
     $(document).on("change", "select[data-sort-redirect]", function() {
-      (path = window.location.pathname + "?" + $(this).val()),
-        (baseUrl = window.location.protocol + "//" + window.location.host);
+      var terms = $(this)
+        .data("search-terms")
+        .replace(/[\s]+/g, "+"); // grab search terms
+
+      path =
+        window.location.pathname + "?" + "query=" + terms + "&" + $(this).val();
+      baseUrl = window.location.protocol + "//" + window.location.host;
+
       window.location = baseUrl + path;
     });
 
