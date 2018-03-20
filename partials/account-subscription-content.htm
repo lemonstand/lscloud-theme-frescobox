@@ -111,7 +111,7 @@
                         </div>
                         <br/>
 
-                        {% if subscription.status.name != 'Cancelled' %}
+                        {% if subscription.status.name not in ['Cancelled', 'Paused'] %}
 
                             <a class="btn btn-outline-primary subscription_pause"
                                 href="#"
@@ -138,7 +138,7 @@
                                 data-ajax-update="#subscription-content=account-subscription-content"
                                 data-ajax-redirect="{{ root_url('/account/subscription/' ~ subscription.id) }}"
                                 data-ajax-extra-fields="subscription_status='active',subscription_id='{{ subscription.id }}">
-                                <span>zActivate Subscription</span>
+                                <span>Activate Subscription</span>
                             </a>
                         {% endif %}
 
