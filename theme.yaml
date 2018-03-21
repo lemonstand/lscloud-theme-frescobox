@@ -65,7 +65,7 @@ customFields:
     enableBlogCallout: { type: checkbox, title: 'Blog: Enable Callout', default: '1' }
     blogEnableAuthor: { type: checkbox, title: 'Blog: Enable Author', default: '1' }
     enableProductOverlay: { type: checkbox, title: 'Store: Enable Product Overlay', default: '1' }
-    descriptionsDropdown: { type: dropdown, title: 'Store: Product Description', default: first, options: { first: 'Enable Short Description and Long Description Tab', second: 'Enable Long Description and Disable Short Description and Description Tab' } }
+    descriptionsDropdown: { type: dropdown, title: 'Store: Product Description', default: second, options: { first: 'Short + Long Description', second: 'Only Long Description' } }
     enableQuantity: { type: checkbox, title: 'Store: Enable Product Quantity', default: '1' }
     allowOptionChanges: { type: checkbox, title: 'Subscriptions: Allow Product Option Changes', default: '1', comment: 'Select this to allow customers to change the product options of their active subscriptions from the My Account area' }
     footerMinimalMode: { type: checkbox, title: 'Footer: Minimal Mode', default: '0', comment: 'Do not show navigation, contact info, social links or newsletter' }
