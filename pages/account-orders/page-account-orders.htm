@@ -45,22 +45,32 @@ url: '/account/orders'
                                             {% for order in customer.orders | extended_sort('created_at', false) %}
 
                                                 <tr>
-                                                    <td>{{ order.created_at.format("m/d/Y") }}</td>
-                                                    <td><a href="{{ site_url('/account/order/' ~ order.id) }}">
+                                                    <td>
+                                                        {{ order.created_at.format("m/d/Y") }}<br>
+                                                        <small>{{ order.created_at.format("g:i A") }}</small>
+                                                    </td>
+                                                    <td style="max-width: 200px;">
+                                                        <a href="{{ site_url('/account/order/' ~ order.id) }}">
                                                         {% for item in order.orderItems %}
                                                             <div>{{ item.name }}</div>
+                                                            {# Bug: subscription details not available here #}
                                                         {% endfor %}
                                                         </a>
                                                     </td>
-                                                    <td style="max-width: 300px;">
-                                                        <div class="active {{ order.orderStatus.name }}"
+                                                    <td style="max-width: 350px;">
+                                                        {% set status = order.orderStatus.name %}
+                                                            {% if status == "Quote" %}
+                                                                {% set status = "Pending" %}
+                                                            {% endif %}
+                                                        <div class="active {{ status }}"
                                                         {% if order.orderStatus.color %}style="color: {{ order.orderStatus.color }}"{% endif %}>
-                                                            {{ order.orderStatus.name }}
+                                                            {{ status }}
                                                         </div>
                                                         <div class="field-ellipsis">
-                                                            {% set shippingCodes = order.outputTrackingCodes() %}
-                                                            {% if shippingCodes %}
-                                                                <small>Tracking: <code>{{ shippingCodes }}</code></small><br>
+                                                            {% set trackingCodes = order.outputTrackingCodes() %}
+
+                                                            {% if trackingCodes %}
+                                                                <small>Tracking: <code>{{ trackingCodes }}</code></small><br>
                                                             {% endif %}
                                                             <small>Last updated: {{ order.status_updated_at|date("m/d/Y") }}</small>
                                                         </div>
