@@ -190,7 +190,8 @@
                 <label class="control-label" for="billing-state">State</label>
                 <select id="billing-state" class="form-control custom-select" name="billingInfo[stateId]">
                     <option value="" disabled="disabled" selected="selected">State</option>
-                    {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billingInfo.stateId}) }}
+                    {% set billingState = billingInfo.stateId ? billingInfo.stateId : shippingInfo.stateId %}
+                    {{ partial('shop-stateoptions', {'states': billingStates, 'selected':billingState}) }}
                 </select>
                 <span class="error small text-danger"></span>
             </div>
