@@ -35,6 +35,7 @@
               'keyup keypress blur change'
             );
 
+            // toggle billing/shipping copy for "use one address" feature
             $(document).on('change', '#billing-same', function(e) {
                 var billingFields = $('#billing-fields');
                     billingSameToggle = $('#billing-same');
@@ -47,6 +48,26 @@
                     billingFields.slideUp();
                     billingSameToggle.data('toggle-mirror', 'on');
                 }
+            });
+
+            // make sure error field is shown
+            $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+                var errors = $('.error');
+                if (!errors.length) {
+                    return;
+                }
+
+                var billingFields = $('#billing-fields');
+                if (billingFields.css('display') == 'none') {
+                    billingFields.slideDown();
+                }
+
+                var scrollTo = errors.first();
+                var container = $("html,body");
+                container.animate({
+                    scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop(),
+                    scrollLeft: 0
+                }, 250);
             });
 
             $(document).on('change', '[name="paymentMethodId"]', function(e) {
