@@ -45,17 +45,30 @@ url: '/account/order/:orderId'
 
 
                                     <div class="col-lg-6 text-right">
-                                        <small>{{ order.status_updated_at|date("m/d/Y") }}</small>
+                                        <small>{{ order.status_updated_at | date("m/d/Y") }}</small>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
+
                                     {% set shippingCodes = order.outputTrackingCodes() %}
+                                    {% if order.trackingCodes %}
                                     <div class="col-lg-12">
-                                        {% if shippingCodes %}
-                                            <small>Tracking: <code>{{ shippingCodes }}</code></small>
-                                        {% endif %}
+                                        <small><h5>Track your order:</h5>
+                                        {% for tracker in order.trackingCodes %}
+                                            <dt>{{ tracker.updated_at| date("m/d/Y") }}</dt>
+                                            {% if tracker.tracking_code starts with 'http' %}
+                                                <dl><a href="{{ tracker.tracking_code }}">
+                                                    <code>{{ tracker.tracking_code | split('/') | last | split('?') | last | default('Link') }}</code>
+                                                </a></dl>
+                                            {% else %}
+                                                <dl><code>{{ tracker.tracking_code }}</code></dl>
+                                            {% endif %}
+
+                                        {% endfor %}
+                                        </small>
                                     </div>
+                                    {% endif %}
                                 </div>
                             {% endfor %}
 
