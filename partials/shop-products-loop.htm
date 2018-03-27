@@ -1,10 +1,10 @@
 {% if enable_pagination %}
 
     {% set shop_items = 9 %}
-
     {% paginate products by shop_items %}
 
         <div class="mb-lg-5">
+            {% if page.code != 'search' %}
             <h6>Sort By:</h6>
             <select data-sort-redirect
                     data-search-terms="{{ query }}">
@@ -17,6 +17,7 @@
                       <option id="7" value="orderBy=created_at&order=asc"{% if sortField == 'created_at' and sortOrder == 'asc'  %} selected="selected"{% endif %}>Date Added - Ascending</option>
                       <option id="8" value="orderBy=base_price&order=desc"{% if sortField == 'created_at' and sortOrder == 'desc'  %} selected="selected"{% endif %}>Date Added - Descending</option>
             </select>
+            {% endif %}
         </div>
 
         <div class="row">
