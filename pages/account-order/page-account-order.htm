@@ -50,8 +50,6 @@ url: '/account/order/:orderId'
                                 </div>
                                 <hr>
                                 <div class="row">
-
-                                    {% set shippingCodes = order.outputTrackingCodes() %}
                                     {% if order.trackingCodes %}
                                     <div class="col-lg-12">
                                         <small><h5>Track your order:</h5>

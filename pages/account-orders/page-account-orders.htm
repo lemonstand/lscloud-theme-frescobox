@@ -67,11 +67,22 @@ url: '/account/orders'
                                                             {{ status }}
                                                         </div>
                                                         <div class="field-ellipsis">
-                                                            {% set trackingCodes = order.outputTrackingCodes() %}
 
-                                                            {% if trackingCodes %}
-                                                                <small>Tracking: <code>{{ trackingCodes }}</code></small><br>
+                                                            {% if order.trackingCodes | length %}
+                                                                <small>Tracking:
+                                                                {% for tracker in order.trackingCodes %}
+                                                                    {% if tracker.tracking_code starts with 'http' %}
+                                                                        <a href="{{ tracker.tracking_code }}">
+                                                                            <code>{{ tracker.tracking_code | split('/') | last | split('?') | last | default('Link') }}</code>
+                                                                        </a>
+                                                                    {% else %}
+                                                                        <code>{{ tracker.tracking_code }}</code>
+                                                                    {% endif %}
+
+                                                                {% endfor %}
+                                                                </small>
                                                             {% endif %}
+
                                                             <small>Last updated: {{ order.status_updated_at|date("m/d/Y") }}</small>
                                                         </div>
                                                     </td>
