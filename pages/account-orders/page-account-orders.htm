@@ -73,7 +73,7 @@ url: '/account/orders'
                                                                 {% for tracker in order.trackingCodes %}
                                                                     {% if tracker.tracking_code starts with 'http' %}
                                                                         <a href="{{ tracker.tracking_code }}">
-                                                                            <code>{{ tracker.tracking_code | split('/') | last | split('?') | last | default('Link') }}</code>
+                                                                            <code>{{ tracker.tracking_code | split('/') | last | split('?') | last |  split('=') | last | default('Link') }}</code>
                                                                         </a>
                                                                     {% else %}
                                                                         <code>{{ tracker.tracking_code }}</code>

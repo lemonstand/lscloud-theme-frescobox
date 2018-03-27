@@ -57,7 +57,7 @@ url: '/account/order/:orderId'
                                             <dt>{{ tracker.updated_at| date("m/d/Y") }}</dt>
                                             {% if tracker.tracking_code starts with 'http' %}
                                                 <dl><a href="{{ tracker.tracking_code }}">
-                                                    <code>{{ tracker.tracking_code | split('/') | last | split('?') | last | default('Link') }}</code>
+                                                    <code>{{ tracker.tracking_code | split('/') | last | split('?') | last | split('=') | last | default('Link') }}</code>
                                                 </a></dl>
                                             {% else %}
                                                 <dl><code>{{ tracker.tracking_code }}</code></dl>
