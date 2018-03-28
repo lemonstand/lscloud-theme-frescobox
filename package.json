@@ -10,6 +10,17 @@
     "bootstrap",
     "sass"
   ],
+  "lemonstand" : {
+    "code":"frescobox",
+    "type": "theme",
+    "options": "options.json",
+    "demo": "https://frescobox.lemonstand.com",
+    "screenshots" : {
+      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/tiny-square.png",
+      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/large-square.png",
+      "full": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/full-size.png"
+    }
+  },  
   "main": "index.js",
   "scripts": {
     "dev": "npm run development",
