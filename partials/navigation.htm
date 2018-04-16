@@ -1,1 +1,4 @@
-{{ content_block('navigation') }} 
+<ul>
+    {{ content_block('navigation') }} 
+    <li><a href="{{site_url(customer ? '/account/profile' : '/login')}}">My Account</a>
+</ul>
