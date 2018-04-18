@@ -21,7 +21,7 @@
       "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/large-square.png",
       "full": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/full-size.png"
     }
-  },  
+  },
   "main": "index.js",
   "scripts": {
     "dev": "npm run development",
@@ -32,7 +32,7 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "author": "LemonStand",
+  "author": "LemonStand <support@lemonstand.com> (http://docs.lemonstand.com)",
   "license": "MPL-2.0",
   "dependencies": {
     "block-ui": "^2.70.1",
