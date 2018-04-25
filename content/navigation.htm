@@ -2,10 +2,8 @@
 name: Navigation (header and mobile off canvas)
 content_type: html 
 ---
-<ul>
-    <li><a href="{{ site_url('/shop') }}">Shop</a></li>
-    <li><a href="{{ site_url('/about') }}">About</a></li>
-    <li><a href="{{ site_url('archive/blog') }}">Blog</a></li>
-    <li><a href="{{ site_url('/contact') }}">Contact</a>
-    <li><a href="{{ site_url(customer ? '/account/profile' : '/login') }}">My Account</a>
-</ul>
+<li><a href="{{site_url('/shop')}}">Shop</a></li>
+<li><a href="{{site_url('/about')}}">About</a></li>
+<li><a href="{{site_url('archive/blog')}}">Blog</a></li>
+<li><a href="{{site_url('/contact')}}">Contact</a>
+    
