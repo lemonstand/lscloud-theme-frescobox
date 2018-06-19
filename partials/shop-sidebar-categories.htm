@@ -1,12 +1,14 @@
 <div class="card card-transparent">
 
-    <div class="card-body">
+    <div id="accordion" class="card-body">
 
-        <h5 class="card-title">Categories</h5>
+        <div role="button">
+            <h5 class="card-title accordion-title">Categories <span class="plus">&#43;</span><span class="minus">&#8722;</span></h5>
+        </div>
 
         {% tree categories %}
 
-            <ul class="nav flex-column">
+            <ul class="nav flex-column slide">
 
                 {% for category in tree.items %}                                    
 
@@ -15,6 +17,7 @@
                     {% if category.parent %}
                         {% set prefix = prefix ~ category.parent.url_name ~ '/' %}
                     {% endif %}
+                    
 
                     <li class="nav-item">
                     
@@ -34,3 +37,4 @@
     </div>
 
 </div>
+
