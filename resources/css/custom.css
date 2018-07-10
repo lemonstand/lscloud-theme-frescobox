@@ -1,0 +1,22 @@
+/*Shop Category Accordion*/
+
+.plus, .minus {
+    visibility: hidden;
+}
+@media only screen and (max-width: 991px) {
+    .plus, .minus {
+        visibility: initial;
+    }
+    .shop-sidebar .nav-item {
+        width: 100%;
+    }
+    .accordion-title {
+        cursor: pointer;
+    }
+    #accordion .minus {
+        display: none;
+    }
+    #accordion {
+    	padding: 1.875rem 0;
+    }
+}
