@@ -16,4 +16,7 @@
     #accordion .minus {
         display: none;
     }
+    #accordion {
+    	padding: 1.875rem 0;
+    }
 }
