@@ -101,7 +101,8 @@
 
 
                 {{ close_form() }}
-
+								
+								{% if theme.subscriptionStatusChange %}
                 <div class="subscription_status_block active">
                         <div class="subscription_status">
                                 Subscription Status:
@@ -143,43 +144,94 @@
                         {% endif %}
 
                     </div>
+                    {% endif %}
 
                 </div>
 
 
             </div>
 
-            <div class="col-lg-5">
+						{% if theme.subscriptionBillingPlan %}
+	            <div class="col-lg-5">
 
-                {{ open_form({
-                    'class': 'custom',
-                    'data-ajax-handler': 'subscriptions:onUpdateBillingPlan',
-                    'data-ajax-redirect': root_url('/account/subscription/' ~ subscription.id),
-                    'data-validation-message' : ''
-                }) }}
+	                {{ open_form({
+	                    'class': 'custom',
+	                    'data-ajax-handler': 'subscriptions:onUpdateBillingPlan',
+	                    'data-ajax-redirect': root_url('/account/subscription/' ~ subscription.id),
+	                    'data-validation-message' : ''
+	                }) }}
 
-                    <input name="subscription_id" type="hidden" value="{{ subscription.id }}">
+	                    <input name="subscription_id" type="hidden" value="{{ subscription.id }}">
 
-                    <div class="form-group">
-                        <label class="control-label" for="billing-plan">Change Billing Plan</label>
-                        <select id="billing-plan" class="form-control custom-select" name="billing_plan">
-                            {% for plan in billingPlans %}
-                                <option value="{{ plan.id }}" {{ option_state(plan.id, subscription.billingPlan.id) }}>{{ plan.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label" for="billing-plan">Change Billing Plan</label>
+	                        <select id="billing-plan" class="form-control custom-select" name="billing_plan">
+	                            {% for plan in billingPlans %}
+	                                <option value="{{ plan.id }}" {{ option_state(plan.id, subscription.billingPlan.id) }}>{{ plan.name }}</option>
+	                            {% endfor %}
+	                        </select>
+	                    </div>
 
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="submit">Update Subscription</button>
-                    </div>
+	                    <div class="form-group">
+	                        <button class="btn btn-primary" type="submit">Update Subscription</button>
+	                    </div>
 
-                {{ close_form() }}
+	                {{ close_form() }}
 
-            </div>
+	            </div>
+            {% endif %}
 
         </div>
 
     </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <label class="control-label mb-4">Edit Subscription</label>
+        <div class="row">
+						<div class="col-lg-6 mb-4">
+			      {% if subscription.canReschedule() %}
+			        {{ open_form() }}
+								<label class="control-label" for="billing-plan">Skip billing cycles:</label>
+			          <input type="hidden" name="subscription_id" value="{{ subscription.id }}"/>
+			          <input style='width:3em;' type="number" name="skip_billing_cycles" value="3"/>
+			          <a href="#" class="btn btn-primary"
+			            data-ajax-handler="subscriptions:onSkipBillingCycles"
+			            data-ajax-redirect="{{ root_url('account/subscription/' ~ subscription.id) }}"
+			          >Skip</a>
+			        {{ close_form() }}
+			      {% endif %}
+			    	</div>
+
+			      <div class="col-lg-6">
+			      {% if subscription.canGenerateOrder() %}
+			        {{ open_form() }}
+			        	<label class="control-label" for="billing-plan">Create an extra paid order:</label>
+			          <input type="hidden" name="subscription_id" value="{{ subscription.id }}"/>
+			          <a href="#" class="btn btn-primary"
+			            data-ajax-handler="subscriptions:onGenerateOrder"
+			            data-ajax-redirect="{{ root_url('account/subscription/' ~ subscription.id) }}"
+			          >Go</a>
+			        {{ close_form() }}
+			      {% endif %}
+			    	</div>
+
+			      <div class="col-lg-6 mb-4">
+			      {% if subscription.canReschedule() %}
+			        {{ open_form({
+			          'data-ajax-handler': 'subscriptions:subscription',
+			          'data-ajax-redirect' : root_url('account/subscription/' ~ subscription.id)
+			        }) }}
+			        	<label class="control-label" for="billing-plan">Update Next Renewal Date:</label>
+			          <input type="hidden" name="subscription_id" value="{{ subscription.id }}"/>
+			          <input type="text" style="width:6em;" value="04/06/2018" name="next_invoice_date"/>
+			          <input type="submit" class="btn btn-primary" value="Update"/>
+			        {{ close_form() }}
+			      {% endif %}
+			    	</div>
+			</div>
+	</div>
 </div>
 
 <div class="card">
@@ -239,3 +291,5 @@
         </style>
     </div>
 </div>
+
+

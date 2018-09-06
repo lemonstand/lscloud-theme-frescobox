@@ -4,7 +4,7 @@
     {% paginate products by shop_items %}
 
         <div class="mb-lg-5">
-            {% if page.code != 'search' %}
+            {% if page.code != 'search' and theme.sortToggle %}
             <h6>Sort By:</h6>
             <select data-sort-redirect
                     data-search-terms="{{ query }}">
@@ -46,7 +46,7 @@
 
     <div class="row">
 
-        {% for product in products %}
+        {% for product in products|extended_sort('sort_order', true) %}
 
             <div class="{{ column_class ? column_class : 'col-lg-4 col-md-6' }}">
 
