@@ -5,3 +5,14 @@
     {% endfor %}
 
 </div>
+
+{% if theme.socialToggle %}
+<div class="social-buttons">
+  <span>Share with your friends:</span>
+    <ul class="inline list-inline square-icons">
+     <li class="facebook list-inline-item"><a href="http://www.facebook.com/sharer/sharer.php?u=http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+     <li class="twitter list-inline-item"><a href="https://twitter.com/intent/tweet?text={{ product.name }} http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+     <li class="pinterest list-inline-item"><a href="http://pinterest.com/pin/create/button/?url=http:{{ site_url('/') }}product/{{ product.url_name}}&media={{ product.images.first.thumbnail(746, 'auto') }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+    </ul>
+ </div>
+{% endif %}
