@@ -32,7 +32,7 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "author": "LemonStand <support@lemonstand.com> (http://docs.lemonstand.com)",
+  "author": "LemonStand",
   "license": "MPL-2.0",
   "dependencies": {
     "block-ui": "^2.70.1",
