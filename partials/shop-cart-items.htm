@@ -23,6 +23,7 @@
                             </a>
                             <div class="cart-item-info">
                                 <h4 class="cart-item-title"><a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a></h4>
+				<p>{{ item.options_string }}</p>
 
                                 {% if not item.options is empty %}
                                     <ul class="cart-item-options">
