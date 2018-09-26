@@ -15,14 +15,13 @@
         </div>
 
         <div class="col-md-4 align-self-center">
-        		{% if cart.getTotal() > 0 %}
-        		    {% set itemTotalNoTax = cart.getTotal() - cart.getTotalTax() %}
+        		{% if totals.subtotal > 0 %}
         		    <div class="cart-total text-center text-md-right">
-        		    	<strong>Item Total:</strong> {{ itemTotalNoTax|currency }}
+        		    	<strong>Item Total:</strong> {{ totals.subtotal | currency }}
         		    </div>
         		{% endif %}
             <div class="cart-total text-center text-md-right">
-            		{% if cart.getTotal() > 0 %}
+            		{% if totals.subtotal > 0 %}
             		    {% for plan in billingPlans %}
             		        {% if cart_billing_plan == plan.id %}
             		            {% if totals.setupFee > 0 %}
@@ -71,6 +70,3 @@
         <a class="btn btn-primary" href="{{ site_url('/checkout') }}">Checkout</a>
     </div>
 </div>
-
-
-
