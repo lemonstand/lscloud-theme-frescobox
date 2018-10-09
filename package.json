@@ -11,14 +11,14 @@
     "bootstrap",
     "sass"
   ],
-  "lemonstand" : {
-    "code":"frescobox",
+  "lemonstand": {
+    "code": "frescobox",
     "type": "theme",
     "options": "options.json",
     "demo": "https://frescobox.lemonstand.com",
-    "screenshots" : {
-      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/tiny-square.png",
-      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/large-square.png",
+    "screenshots": {
+      "small": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/tiny-square.png",
+      "large": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/large-square.png",
       "full": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-frescobox/master/resources/screenshots/full-size.png"
     }
   },
@@ -34,32 +34,19 @@
   },
   "author": "LemonStand <support@lemonstand.com> (http://docs.lemonstand.com)",
   "license": "MPL-2.0",
-  "dependencies": {
-    "block-ui": "^2.70.1",
-    "bootstrap": "^4.0.0-beta.3",
-    "cross-env": "^5.1.3",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
-    "jquery-match-height": "^0.7.2",
-    "jquery-sticky": "^1.0.4",
-    "laravel-mix": "^1.7.2",
-    "malihu-custom-scrollbar-plugin": "^3.1.5",
-    "owl.carousel": "^2.2.0",
-    "popper": "^1.0.1",
-    "popper.js": "^1.12.9"
-  },
+  "dependencies": {},
   "devDependencies": {
     "block-ui": "^2.70.1",
-    "bootstrap": "^4.0.0-beta.3",
-    "cross-env": "^5.1.3",
+    "bootstrap": "^4.1.3",
+    "cross-env": "^5.2.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.3.1",
     "jquery-match-height": "^0.7.2",
     "jquery-sticky": "^1.0.4",
     "laravel-mix": "^1.7.2",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
-    "owl.carousel": "^2.2.0",
+    "owl.carousel": "^2.3.4",
     "popper": "^1.0.1",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.14.4"
   }
 }
