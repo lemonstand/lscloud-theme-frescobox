@@ -5,7 +5,7 @@
     <div class="minicart-body">
 
         {% if cart.items | length %}
-            {{ partial('shop-minicart-items', { 'items': items, 'edit_cart': true }) }}
+            {{ partial('shop-minicart-items', { 'items': cart.listitems, 'edit_cart': true }) }}
         {% endif %}
 
         {% if cart.upcomingItems | length %}
