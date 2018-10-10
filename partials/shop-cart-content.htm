@@ -13,7 +13,7 @@
             {% if hasItems %}
                 <h2>Shipping now</h2>
 
-                {{ partial('shop-cart-items', { 'items': cart.items, 'edit_cart': true }) }}
+                {{ partial('shop-cart-items', { 'items': cart.listitems, 'edit_cart': true }) }}
 
                 <div class="cart-footer">
                     {{ partial('shop-cart-totals', {'totals': totals}) }}
