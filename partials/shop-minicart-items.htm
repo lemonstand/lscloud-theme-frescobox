@@ -1,5 +1,5 @@
 <ul class="minicart-items">
-    {% for item in cart.listitems %}
+    {% for item in items %}
         <li class="minicart-item">
             <img src="{{ item.product.images.first.thumbnail(40, 40) }}" alt="{{ item.product.name }}">
             <div class="minicart-item-details">
@@ -9,7 +9,7 @@
                 {% if item.x_billing_plan_id  %}
                     {% for plan in item.product.subscriptionPlans | extended_sort('name', true)  %}
                         {% if plan.id == item.x_billing_plan_id %}
-                        <span class="minicart-item-info">{{ plan.name }}</span>
+                        <span class="minicart-item-info minicart-plan-name">{{ plan.name }}</span>
                         {% endif %}
                     {% endfor %}
                 {% endif %}
@@ -30,7 +30,7 @@
             {% if edit_cart %}
                 <a class="btn link-muted" href="#" title="Remove Item"
                     data-ajax-handler="shop:cart"
-                    data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart-content, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content"
+                    data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content"
                     data-ajax-extra-fields="delete_item='{{ item.key }}'">
                     <span class="fa fa-trash"></span>
                 </a>
