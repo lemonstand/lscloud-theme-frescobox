@@ -1,3 +1,11 @@
-<h4 class="mb-3">Order Summary</h4>                
-{{ partial('shop-minicart-items') }}                     
+<h4 class="mb-3">Order Summary</h4>
+
+{% if cart.items | length %}
+{{ partial('shop-minicart-items', { 'items': cart.items, 'edit_cart': false }) }}
+{% endif %}
+{% if cart.upcomingItems | length %}
+<hr/><h5>Shipping soon:</h5>
+{{ partial('shop-minicart-items', { 'items': cart.upcomingItems, 'edit_cart': false }) }}
+{%endif %}
+
 {{ partial('shop-checkout-totals') }}

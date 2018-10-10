@@ -9,6 +9,7 @@
         {% endif %}
 
         {% if cart.upcomingItems | length %}
+        <hr/><h5>Shipping soon:</h5>
             {{ partial('shop-minicart-items', { 'items': cart.upcomingItems, 'edit_cart': true }) }}
         {%endif %}
 
