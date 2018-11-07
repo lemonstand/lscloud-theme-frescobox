@@ -28,6 +28,22 @@ url: '/receipt/:paymenthash'
                 {{ partial('shop-invoice-items', { 'invoice': invoice }) }}
                 {{ partial('shop-invoice-totals', { 'invoice': invoice }) }}
 
+                {% if order.hasUpcomingOrders() %}
+                    <hr>
+                    <h4>Upcoming order:</h4>
+
+                    {% for upcomingOrder in order.upcomingOrders %}
+
+                        {{ partial('shop-cart-items', {
+                            'edit_cart': false,
+                            'items': upcomingOrder.items
+                        }) }}
+
+                        {{ partial('shop-invoice-totals', { 'invoice': upcomingOrder }) }}
+
+                    {% endfor %}
+                {% endif %}
+
             </div>
         </div>
     </div>

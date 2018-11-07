@@ -21,6 +21,9 @@
                 display: block;
                 font-size: $font-size-sm;
             }
+            span.minicart-plan-name {
+                font-size: $font-size-sm * .75;
+            }
 
             span.minicart-item-info {
                 color: $gray-600;

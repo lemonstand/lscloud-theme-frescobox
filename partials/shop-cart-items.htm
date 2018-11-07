@@ -2,6 +2,7 @@
 
 <div class="table-responsive">
     <table class="table cart-table">
+        {% if not hide_header %}
         <thead>
             <tr>
                 <th>Product Name</th>
@@ -11,6 +12,7 @@
                 {% if edit_cart %}<th>&nbsp;</th>{% endif %}
             </tr>
         </thead>
+        {% endif %}
 
 
         <tbody>
@@ -139,7 +141,7 @@
                         <td class="cart-item-actions">
                             <a class="link-muted" href="#" data-toggle="tooltip" title="Remove Item"
                                 data-ajax-handler="shop:cart"
-                                data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart-content, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content"
+                                data-ajax-update=".minicart=shop-minicart, .minicart-content=shop-minicart, .minicart-counter=shop-minicart-counter, #cart-content=shop-cart-content"
                                 data-ajax-extra-fields="delete_item='{{ item.key }}'">
                                 <span class="fa fa-trash"></span>
                             </a>
