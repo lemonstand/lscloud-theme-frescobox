@@ -1,5 +1,32 @@
 {{ partial('shop-minicart-counter') }}
 
 <div class="minicart-content">
-    {{ partial('shop-minicart-content', { 'edit_cart': true }) }}
+
+    <div class="minicart-body">
+
+        {% if cart.items | length %}
+            {{ partial('shop-minicart-items', { 'items': cart.listitems, 'edit_cart': true }) }}
+        {% endif %}
+
+        {% if cart.upcomingItems | length %}
+        <hr/><h5>Shipping soon:</h5>
+            {{ partial('shop-minicart-items', { 'items': cart.upcomingItems, 'edit_cart': true }) }}
+        {%endif %}
+
+        {% if not cart.hasItems %}
+            <p>There are currently no items in the cart.</p>
+        {% endif %}
+
+    </div>
+
+    {% if cart.hasItems %}
+    <div class="minicart-footer">
+        <div class="minicart-footer-group">
+            <span class="total">Subtotal: {{ cart.getSubtotal() | currency }}</span>
+            <a class="btn btn-outline-dark btn-sm" href="{{ site_url('cart') }}">View Cart</a>
+        </div>
+        <a class="btn btn-primary btn-block" href="{{ site_url('/checkout') }}">Checkout</a>
+    </div>
+    {%endif %}
+
 </div>
