@@ -2,3 +2,16 @@
     {{ content_block('navigation') }} 
     <li><a href="{{site_url(customer ? '/account/profile' : '/login')}}">My Account</a>
 </ul>
+
+<select name="paymentMethodId" id="payment_method">
+  <option value=''> - </option>
+    {% if cart.hasPlan() %} {# check if the cart has a subscription #}
+      {% for method in paymentMethods if (method.supportsStoredCards() or method.name == 'SUBSCRIPTION PAYMENT METHOD NAME') %}
+         <option value="{{ method.id }}">{{ method.name }}</option>
+      {% endfor %}
+      {% else %}
+      {% for method in paymentMethods if not (method.supportsStoredCards() or method.name == 'ONE TIME PAYMENT METHOD NAME') %}
+           <option value="{{ method.id }}">{{ method.name }}</option>
+      {% endfor %}
+     {% endif %}
+</select>
