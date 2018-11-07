@@ -65,47 +65,39 @@
              * @return a promise to be resolved after all requests have been completed
              */
             function updateSubscription() {
-              var promise = $.Deferred();
-              var requests = [];
+                var promise = $.Deferred();
+                var requests = [];
 
-              $('.subscription-product-form').each(function(index, element) {
-                  var product = $(element).find('[name="product_id"]').val();
-                  var quantity = $(element).find('[name="quantity"]').val();
-                  var options = {};
-                  var data = {};
+                $('.subscription-product-form').each(function(index, element) {
+                    var product = $(element).find('[name="product_id"]').val();
+                    var quantity = $(element).find('[name="quantity"]').val();
+                    var options = {};
 
-                  if (!product || !quantity) {
-                      return;
-                  }
+                    if (!product || !quantity) {
+                        return;
+                    }
 
-                  // Add custom fields to the request
-                  $(element).find('.form-control .custom-fields').each(function(index, element) {
-                      var name    = $(element).attr('name');
-                      var value = $(element).val();
-                      data[name] = value;
-                  });
+                    // Add all option values to the request:
+                    $(element).find('.form-control').each(function(index, element) {
+                        var id    = $(element).attr('name').replace(/^options\[(\d+)\]$/, '$1');
+                        var value = $(element).val();
+                        options[id] = value;
+                    });
 
-                  // Add all option values to the request:
-                  $(element).find('.form-control').each(function(index, element) {
-                      var id    = $(element).attr('name').replace(/^options\[(\d+)\]$/, '$1');
-                      var value = $(element).val();
-                      options[id] = value;
-                  });
-                  
-                  data[productID] = product;
-                  data[quantity] = quantity;
-                  data[options] = options;
-
-                  // Push the request to the queue.
-                  requests.push($.ajax({
-                      type: 'post',
-                      data: data,
-                      headers: { 
-                          'X-Event-Handler': 'subscriptions:subscription',
-                          'X-Partials':      'flash'
-                      }
-                  }));
-              });
+                    // Push the request to the queue.
+                    requests.push($.ajax({
+                        type: 'post',
+                        data: { 
+                            productId: product,
+                            quantity: quantity,
+                            options: options
+                        },
+                        headers: { 
+                            'X-Event-Handler': 'subscriptions:subscription',
+                            'X-Partials':      'flash'
+                        }
+                    }));
+                });
 
                 // Resolve the promise after all requests have been completed.
                 $.when.apply($, requests).then(function() {
