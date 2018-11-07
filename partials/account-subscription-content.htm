@@ -45,16 +45,6 @@
                     <input name="quantity" type="hidden" value="{{ item.quantity }}">
 
                     <div class="row">
-                       <div class="form-group col-md-4 custom-fields">
-                          {% for cf in item.getCustomFields() %}
-                            {% if not cf.displayOnly %}
-                               <input type="hidden" class="form-control custom-field" style="width: 100%;" name="{{ cf.name }}" value="{{ cf.value }}" />
-                            {% endif %}
-                          {% endfor %}                                
-                      </div>
-                    </div>
-
-                    <div class="row">
 
                         {% for index, option in item.product.options %}
 
