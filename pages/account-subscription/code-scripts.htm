@@ -79,22 +79,22 @@
                   }
 
                   // Add custom fields to the request
-                  $(element).find('.form-control .custom-fields').each(function(index, element) {
+                  $(element).find('.form-control.custom-field').each(function(index, element) {
                       var name    = $(element).attr('name');
                       var value = $(element).val();
                       data[name] = value;
                   });
 
                   // Add all option values to the request:
-                  $(element).find('.form-control').each(function(index, element) {
+                  $(element).find('.form-control.options').each(function(index, element) {
                       var id    = $(element).attr('name').replace(/^options\[(\d+)\]$/, '$1');
                       var value = $(element).val();
                       options[id] = value;
                   });
                   
-                  data[productID] = product;
-                  data[quantity] = quantity;
-                  data[options] = options;
+                  data['productId'] = product;
+                  data['quantity'] = quantity;
+                  data['options'] = options;
 
                   // Push the request to the queue.
                   requests.push($.ajax({
