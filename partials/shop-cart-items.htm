@@ -41,6 +41,17 @@
 	                                  </ul>
                                 {% endif %}
 
+                                <span class="cart-item-options">
+                                {% for field in item.getCustomFields() %}
+                                    {% if not field.displayOnly and edit_cart%}
+                                        <label class="control-label" for="{{ field.name }}">{{ field.label }}</label>
+                                        <input class="form-control custom-field" style="width: 100%;" name="{{ field.name }}" value="{{ field.value }}" />
+                                    {% else %}
+                                        <span class="small">{{ field.label }}: {{ field.value | default('(blank)') }}</span><br/>
+                                    {% endif %}
+                                {% endfor %}
+                                </span>
+
                                 {% if cart_billing_plan and (item.product.subscriptionPlans.count > 0) %}
 
                                     <div style="margin-top: 10px;">
@@ -77,9 +88,6 @@
                                     {% set discount = billingPlan.first_order_discount %}
                                     <p class="small">* The first order will be discounted by {{ discount matches '/%$/' ? discount : discount|currency }}.</p>
                                 {% endif %}
-
-
-
 
 
                             </div>

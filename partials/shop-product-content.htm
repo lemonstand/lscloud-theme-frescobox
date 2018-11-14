@@ -59,6 +59,22 @@
 
             <input name="productId" type="hidden" value="{{ product.id }}">
 
+            {% if item.getCustomFields() %}
+            <div class="row">
+                <div class="form-group col-lg-6">
+                   {% for cf in item.getCustomFields() %}
+                     {% if not cf.displayOnly %}
+                       <label class="control-label" for="{{ cf.name }}">{{ cf.label }}</label>
+                        <input type="text" class="form-control custom-field" style="width: 100%;" name="{{ cf.name }}" value="{{ cf.value }}" />
+                      {% else %}
+                        <p>{{ cf.label }}: {{ cf.value }}</p>
+                      {% endif %}
+                   {% endfor %}
+               </div>
+             </div>
+            {% endif %}
+
+
             {% if product.subscriptionPlans | length %}
                 <div class="row">
                     <div class="form-group col-lg-6">
