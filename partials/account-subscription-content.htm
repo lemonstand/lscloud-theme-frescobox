@@ -43,6 +43,16 @@
                     <input name="item_id" type="hidden" value="{{ item.id }}">
                     <input name="product_id" type="hidden" value="{{ item.product.id }}">
                     <input name="quantity" type="hidden" value="{{ item.quantity }}">
+                    <div class="row">
+	                     <div class="form-group col-md-4 custom-fields">
+	                        {% for cf in item.getCustomFields() %}
+                              {% if not cf.displayOnly %}
+                                <label class="control-label" for="{{ cf.name }}">{{ cf.label }}</label>
+	                             <input type="text" class="form-control custom-field" style="width: 100%;" name="{{ cf.name }}" value="{{ cf.value }}" />
+	                          {% endif %}
+	                        {% endfor %}
+	                    </div>
+	                  </div>
 
                     <div class="row">
 
@@ -52,7 +62,7 @@
                                 <label class="control-label" for="option-{{ loop.index }}">{{ option.name }}</label>
 
 
-                                <select id="option-{{ loop.index }}" class="form-control custom-select" name="options[{{ option.id }}]">
+                                <select id="option-{{ loop.index }}" class="form-control options custom-select" name="options[{{ option.id }}]">
 
                                     {% for key, value in option.values %}
                                         <option value="{{ key }}" {{ option_state(item.options[option.id]['valueId'], key) }}>{{ value }}</option>
@@ -101,7 +111,7 @@
 
 
                 {{ close_form() }}
-								
+
 								{% if theme.subscriptionStatusChange %}
                 <div class="subscription_status_block active">
                         <div class="subscription_status">
@@ -291,5 +301,3 @@
         </style>
     </div>
 </div>
-
-
