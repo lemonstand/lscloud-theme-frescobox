@@ -18,10 +18,12 @@
                 <thead>                
                     <th>Shipping Method</th>
                     <th>Quote</th>
+                    {# Enable Delivery Date for methods other than UPS
                     {% if option.deliveryDate  %}
                     	<th>Date</th>
                     {% endif %}
-                    <th>&nbsp;</th>
+                    <th>&nbsp;</th> 
+                    #}
                 </thead>
                 <tbody>
 
@@ -42,11 +44,13 @@
                                     {{ not option.is_free ? option.quote|currency : 'free' }}
                                 {% endif %}
                             </td>
+                            {# Enable Delivery Date for methods other than UPS
                             {% if option.deliveryDate  %}
 	                            <td>
 	                            	{{ option.deliveryDate }}
 	                            </td>
-                            {% endif %}
+                            {% endif %} 
+                            #}
                             <td class="text-right">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input id="shipping-method-{{ index }}" 
