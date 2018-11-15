@@ -43,12 +43,7 @@
 
                                 <span class="cart-item-options">
                                 {% for field in item.getCustomFields() %}
-                                    {% if not field.displayOnly and edit_cart%}
-                                        <label class="control-label" for="{{ field.name }}">{{ field.label }}</label>
-                                        <input class="form-control custom-field" style="width: 100%;" name="{{ field.name }}" value="{{ field.value }}" />
-                                    {% else %}
-                                        <span class="small">{{ field.label }}: {{ field.value | default('(blank)') }}</span><br/>
-                                    {% endif %}
+                                    <span class="small">{{ field.label }}: {{ field.value | default('(blank)') }}</span><br/>
                                 {% endfor %}
                                 </span>
 
