@@ -10,7 +10,7 @@ customFields:
     textHomeBannerHeading: { type: text, title: 'Home: Banner Heading', default: 'THE BEST COFFEE BLENDS DELIVERED MONTHLY' }
     textHomeBannerContent: { type: text, title: 'Home: Banner Content', default: 'Fresh and better tasting coffee roasted and personalized for you. Order today to get 30% off your first month.' }
     homeBannerButtonText: { type: text, title: 'Home: Banner Button Text', default: 'Get Started' }
-    homeBannerButtonUrl: { type: text, title: 'Home: Banner Button URL', default: '' }
+    homeBannerButtonLink: { type: text, title: 'Home: Banner Button URL', default: '' }
     homeHeading: { type: text, title: 'Home: How it works section heading', default: 'How FrescoBox Works' }
     homeFeaturedHeader: { type: text, title: 'Home: Featured Products Header', default: 'Our Plans' }
     calloutTitle: { type: text, title: 'Callout: Title', default: 'Ready to subscribe?', comment: 'The callout section can optionally appear on the homepage and blog post pages (see checkboxes to enable/disable)' }
