@@ -41,6 +41,7 @@ customFields:
     imageCheckoutHeader: { type: image, title: 'Checkout: Header Image', default: '' }
     imageContactHeader: { type: image, title: 'Contact: Header Image', default: '@/images/contact-header.jpg' }
     imagePageHeader: { type: image, title: 'Page: Header Image', default: '', comment: 'Header image for pages created that use the basic page template' }
+    imageCategoriesHeader: { type: image, title: 'Product Category Page: Header Image', default: '', comment: 'Header image for product category pages' }
     imageBlogHeader: { type: image, title: 'Blog: Header Image', default: '@/images/blog-header.jpg' }
     imageCalloutBackground: { type: image, title: 'Callout: Background Image', default: '@/images/callout.jpg', comment: 'Callout is used on homepage, and optionally the Blog.' }
     enableFeaturedProducts: { type: checkbox, title: 'Home: Enable Featured Products', default: '1' }
