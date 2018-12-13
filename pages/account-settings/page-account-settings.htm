@@ -1,50 +1,63 @@
 ---
 action: 'shop:customerProfile'
 description: 'Allows a logged in user to edit their account.'
-template: default
+template: master
 protocol: all
 published: true
 name: 'Account Settings'
 url: /account
 ---
-<section class="account grid-container">
-  <header>
-    <h1>Account</h1>
-  </header>
-  {% if customer %}
-    <section class="account-settings-addresses">
-    {% if customer.hasBillingAddresses() and customer.hasShippingAddresses() %}
-        <header>
-            <h3>Customer Info</h3>
-        </header>
 
-        <section class="grid-x grid-padding-x">
-            <section class="cell">
-                {{
-                    partial('customer-details', {
-                        'customer' : customer
-                    })
-                }}
-            </section>
-        </section>
-        {{
-            partial('account-address-selectors', {
-                'customer' : customer
-            })
-        }}
-    {% else %}
-        {{
-            partial('account-settings-addresses', {
-                'customer': customer,
-                'countries': countries
-            })
-        }}
-    {% endif %}
-    </section>
-    <section class="account-settings-password">
-        {{ partial('account-settings-password') }}
-    </section>
-  {% else %}
-    You must be logged in to use this page.
-  {% endif %}
-</section>
+{{ partial('page-header', {
+    'background': theme.defaultBanner,
+    'title': page.title
+}) }}
+
+<div id="content" class="container">
+	<div class="block-content">
+		<div class="row">
+			<div class="col-lg-9 card">
+			  <header>
+			    <h1>Account</h1>
+			  </header>
+			  {% if customer %}
+			    <div class="account-settings-addresses">
+			    {% if customer.hasBillingAddresses() and customer.hasShippingAddresses() %}
+			        <header>
+			            <h4 class="card-title">Customer Info</h4>
+			        </header>
+
+			        <div class="grid-x grid-padding-x">
+			            <div class="cell">
+			                {{
+			                    partial('customer-details', {
+			                        'customer' : customer
+			                    })
+			                }}
+			            </div>
+			        </div>
+			        <hr>
+			        {{
+			            partial('account-address-selectors', {
+			                'customer' : customer
+			            })
+			        }}
+			    {% else %}
+			        {{
+			            partial('account-settings-addresses', {
+			                'customer': customer,
+			                'countries': countries
+			            })
+			        }}
+			    {% endif %}
+			    </div>
+			    <div class="account-settings-password">
+			        {{ partial('account-settings-password') }}
+			    </div>
+			  {% else %}
+			    You must be logged in to use this page.
+			  {% endif %}	
+			</div>
+		</div>
+	</div>
+</div>

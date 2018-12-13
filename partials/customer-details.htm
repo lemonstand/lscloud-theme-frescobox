@@ -12,6 +12,7 @@
   <label class="cell medium-6">
     First Name*
     <input
+    		class="form-control"
         type="text"
         name="first_name"
         value="{{ customer.first_name }}"
@@ -22,6 +23,7 @@
   <label class="cell medium-6">
     Last Name*
     <input
+    		class="form-control"
         type="text"
         name="last_name"
         value="{{ customer.last_name }}"
@@ -32,6 +34,7 @@
   <label class="cell">
     Email*
     <input
+    		class="form-control"
         type="email"
         name="email"
         value="{{ customer.email }}"
@@ -40,7 +43,7 @@
     <span class="form-error">Email must be a valid email address.</span>
   </label>
 </section>
-<button type="submit" class="button">
+<button type="submit" class="btn btn-outline-dark">
   Save Customer Info
 </button>
 {{ close_form() }}
