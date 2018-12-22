@@ -1,19 +1,19 @@
 <header>
-    <h3>Addresses</h3>
+	<h4 class="card-title">Addresses</h4>
 </header>
 
-<section class="grid-x grid-padding-x">
-    <section class="cell medium-6">
+<div class="grid-x grid-padding-x">
+    <div class="form-group">
         {{
             open_form({
                 'method': 'get',
                 'class':'address-form'
             })
         }}
-        <label>
+        <label class="control-label">
             Billing Addresses
             <select
-                class="address-selector"
+                class="control-label custom-select"
                 data-current-state="{{ address.id }}"
                 data-state-selector="#billing-state">
               {% for address in customer.billingAddresses %}
@@ -31,24 +31,23 @@
               {% endif %}
 
             </select>
-            <span class="error"></span>
-            <span class="form-error">Error.</span>
+            <span class="error small text-danger"></span>
         </label>
-        <button type="submit" class="btn btn-outline-dark">Edit Billing Address</button>
+        <button type="submit" class="btn btn-sm btn-outline-dark">Edit Billing Address</button>
         {{ close_form() }}
-    </section>
+    </div>
 
-    <section class="cell medium-6">
+    <div class="cell medium-6">
         {{
             open_form({
                 'method': 'get',
                 'class':'address-form'
             })
         }}
-        <label>
+        <label class="control-label">
             Shpping Addresses
             <select
-                class="address-selector"
+                class="control-label custom-select"
                 data-current-state="{{ address.id }}"
                 data-state-selector="#billing-state">
               {% for address in customer.shippingAddresses %}
@@ -65,10 +64,9 @@
                 {% endfor %}
               {% endif %}
             </select>
-            <span class="error"></span>
-            <span class="form-error">Error.</span>
+            <span class="error small text-danger"></span>
         </label>
-        <button type="submit" class="btn btn-outline-dark">Edit Shipping Address</button>
+        <button type="submit" class="btn btn-sm btn-outline-dark">Edit Shipping Address</button>
         {{ close_form() }}
     </section>
 </section>

@@ -17,8 +17,7 @@
         name="first_name"
         value="{{ customer.first_name }}"
         required>
-    <span class="error"></span>
-    <span class="form-error">First name is required.</span>
+    <span class="error small text-danger"></span>
   </label>
   <label class="cell medium-6">
     Last Name*
@@ -28,8 +27,7 @@
         name="last_name"
         value="{{ customer.last_name }}"
         required>
-    <span class="error"></span>
-    <span class="form-error">Last name is required.</span>
+    <span class="error small text-danger"></span>
   </label>
   <label class="cell">
     Email*
@@ -39,8 +37,7 @@
         name="email"
         value="{{ customer.email }}"
         required>
-    <span class="error"></span>
-    <span class="form-error">Email must be a valid email address.</span>
+    <span class="error small text-danger"></span>
   </label>
 </section>
 <button type="submit" class="btn btn-outline-dark">
