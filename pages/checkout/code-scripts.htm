@@ -6,7 +6,6 @@
             // Mirror active customer forms
             function mirrorFields($mirrorSource, $mirrorTarget, event) {
                 var source = $($mirrorSource);
-
                 source.each(function(idx) {
                     $(this).on(event, function() {
                         var field = $(this);
@@ -14,7 +13,7 @@
                         var targetID = field.attr('data-mirror');
                         var mirrorState = '';
 
-                        mirrorState = $('#billing-same').data('toggle-mirror');
+                        mirrorState = $('#shipping-same').data('toggle-mirror');
 
                         if (mirrorState == 'on') {
                             var target = $(targetID);
@@ -30,23 +29,23 @@
             }
 
             mirrorFields(
-              '#shipping-fields [data-mirror]',
               '#billing-fields [data-mirror]',
+              '#shipping-fields [data-mirror]',
               'keyup keypress blur change'
             );
 
             // toggle billing/shipping copy for "use one address" feature
-            $(document).on('change', '#billing-same', function(e) {
-                var billingFields = $('#billing-fields');
-                    billingSameToggle = $('#billing-same');
-
+            $(document).on('change', '#shipping-same', function(e) {
+            
+                var shippingFields = $('#shipping-fields'),
+                    shippingSameToggle = $('#shipping-same');
 
                 if (!$(this).is(':checked')) {
-                    billingFields.slideDown();
-                    billingSameToggle.data('toggle-mirror', '');
+                    shippingFields.slideDown();
+                    shippingSameToggle.data('toggle-mirror', '');
                 } else {
-                    billingFields.slideUp();
-                    billingSameToggle.data('toggle-mirror', 'on');
+                    shippingFields.slideUp();
+                    shippingSameToggle.data('toggle-mirror', 'on');
                 }
             });
 

@@ -1,4 +1,3 @@
-
 {# Get states for the USA #}
 {% set states = [] %}
 {% for country in countries %}
@@ -20,41 +19,40 @@
     <input id="billing_country_id" type="hidden" name="billingInfo[countryId]" value="1">
     <input id="shipping_country_id" type="hidden" name="shippingInfo[countryId]" value="1">
 
-    <div id="shipping-fields">
-
+    <div id="billing-fields" class="mb-4">
         <div class="row mb-4">
             <div class="form-group col-sm-12">
                 <h4>Customer Information</h4>
             </div>
 
             <div class="form-group col-sm-6">
-                <label class="control-label" for="shipping-first-name">First Name</label>
-                <input class="form-control" id="shipping-first-name" name="shippingInfo[firstName]" type="text" value="{{ shippingInfo.firstName }}" data-mirror="#billing-first-name">
+                <label class="control-label" for="billing-first-name">First Name</label>
+                <input class="form-control" id="billing-first-name" name="billingInfo[firstName]" type="text" value="{{ billingInfo.firstName }}" data-mirror="#shipping-first-name">
                 <span class="error small text-danger"></span>
             </div>
 
             <div class="form-group col-sm-6">
-                <label class="control-label" for="shipping-last-name">Last Name</label>
-                <input class="form-control" id="shipping-last-name" name="shippingInfo[lastName]" type="text" value="{{ shippingInfo.lastName }}" data-mirror="#billing-last-name">
+                <label class="control-label" for="billing-last-name">Last Name</label>
+                <input class="form-control" id="billing-last-name" name="billingInfo[lastName]" type="text" value="{{ billingInfo.lastName }}" data-mirror="#shipping-last-name">
                 <span class="error small text-danger"></span>
             </div>
 
             <div class="form-group col-sm-12">
-                <label class="control-label" for="shipping-email">Email</label>
-                <input class="form-control" id="shipping-email" name="billingInfo[email]" type="email" value="{{ billingInfo.email }}">
+                <label class="control-label" for="billing-email">Email</label>
+                <input class="form-control" id="billing-email" name="billingInfo[email]" type="email" value="{{ billingInfo.email }}">
                 <span class="error small text-danger"></span>
             </div>
 
             {% if not customer %}
                 <div class="form-group col-sm-6">
-                    <label class="control-label" for="shipping-password">Password</label>
-                    <input class="form-control" id="shipping-password" name="billingInfo[password]" type="password">
+                    <label class="control-label" for="billing-password">Password</label>
+                    <input class="form-control" id="billing-password" name="billingInfo[password]" type="password">
                     <span class="error small text-danger"></span>
                 </div>
 
                 <div class="form-group col-sm-6">
-                    <label class="control-label" for="shipping-password-confirmation">Password (Confirmation)</label>
-                    <input class="form-control" id="shipping-password-confirmation" name="billingInfo[password_confirmation]" type="password">
+                    <label class="control-label" for="billing-password-confirmation">Password (Confirmation)</label>
+                    <input class="form-control" id="billing-password-confirmation" name="billingInfo[password_confirmation]" type="password">
                     <span class="error small text-danger"></span>
                 </div>
 
@@ -64,121 +62,38 @@
             {% endif %}
 
         </div>
-
-        <div class="row mb-4">
-
-            <div class="form-group col-sm-12">
-                <h4>Where should we ship your order?</h4>
-            </div>
-
-            <div class="form-group col-sm-9">
-                <label class="control-label" for="shipping-address-1">Street Address</label>
-                <input class="form-control" id="shipping-address-1" name="shippingInfo[streetAddressLine1]" type="text" value="{{ shippingInfo.streetAddressLine1 }}" data-mirror="#billing-address-1">
-                <span class="error small text-danger"></span>
-            </div>
-
-            <div class="form-group col-sm-3">
-                <label class="control-label" for="shipping-address-2">Apt/Suite #</label>
-                <input class="form-control" id="shipping-address-2" name="shippingInfo[streetAddressLine2]" type="text" value="{{ shippingInfo.streetAddressLine2 }}" data-mirror="#billing-address-2">
-                <span class="error small text-danger"></span>
-            </div>
-
-            <div class="form-group col-sm-6">
-                <label class="control-label" for="shipping-postal-code">Postal/Zip Code</label>
-                <input class="form-control" id="shipping-postal-code" name="shippingInfo[postalCode]" type="text" value="{{ shippingInfo.postalCode }}"  data-mirror="#billing-postal-code">
-                <span class="error small text-danger"></span>
-            </div>
-
-            <div class="form-group col-sm-6">
-                <label class="control-label" for="shipping-city">City</label>
-                <input class="form-control" id="shipping-city" name="shippingInfo[city]" type="text" value="{{ shippingInfo.city }}" data-mirror="#billing-city">
-                <span class="error small text-danger"></span>
-            </div>
-
-            <div class="form-group col-sm-6">
-            		<label class="control-label" for="shipping-state">Country</label>
-                <select class="form-control custom-select" id="shipping-country" name="shippingInfo[countryId]" data-state-selector="#shipping-state" data-current-state="{{ shippingInfo.stateId }}" data-mirror='#billing-country'>
-                    {% for country in countries %}
-                    <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
-                    {% endfor %}
-                </select>
-                <span class="error"></span>
-            </div>
-            <div class="form-group col-sm-6">
-            		<label class="control-label" for="shipping-state">State</label>
-                <select class="form-control custom-select" id="shipping-state" name="shippingInfo[stateId]" data-ajax-refresh data-mirror='#billing-state'>
-                    {{ partial('shop-stateoptions', {'states': billingStates, 'selected': shippingInfo.stateId}) }}
-                </select>
-                <span class="error"></span>
-            </div>
-
-            <div class="form-group col-sm-12">
-                <label class="control-label" for="shipping-phone">Phone Number (optional)</label>
-                <input class="form-control" id="shipping-phone" name="shippingInfo[phone]" type="text" value="{{ shippingInfo.phone }}"  data-mirror="#billing-phone">
-                <span class="error small text-danger"></span>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="row mb-4">
-        <div class="col-sm-12">
-            <div class="custom-control custom-checkbox">
-                <input id="billing-same"
-                    data-toggle-mirror="on"
-                    class="custom-control-input btn-form-mirror"
-                    type="checkbox" checked>
-                <label class="custom-control-label" for="billing-same">My billing address and shipping address are the same.</label>
-            </div>
-        </div>
-    </div>
-
-    <div id="billing-fields" class="mb-4" style="display: none;">
         <div class="row">
             <div class="form-group col-sm-12">
                 <h4>What's your billing address?</h4>
             </div>
 
-            <div class="form-group col-sm-6">
-                <label class="control-label" for="billing-first-name">First Name</label>
-                <input class="form-control" id="billing-first-name" name="billingInfo[firstName]" type="text" value="{{ billingInfo.firstName }}">
-                <span class="error small text-danger"></span>
-            </div>
-
-            <div class="form-group col-sm-6">
-                <label class="control-label" for="billing-last-name">Last Name</label>
-                <input class="form-control" id="billing-last-name" name="billingInfo[lastName]" type="text" value="{{ billingInfo.lastName }}">
-                <span class="error small text-danger"></span>
-            </div>
-
             <div class="form-group col-sm-9">
                 <label class="control-label" for="billing-address-1">Street Address</label>
-                <input class="form-control" id="billing-address-1" name="billingInfo[streetAddressLine1]" type="text" value="{{ billingInfo.streetAddressLine1 }}">
+                <input class="form-control" id="billing-address-1" name="billingInfo[streetAddressLine1]" type="text" value="{{ billingInfo.streetAddressLine1 }}" data-mirror="#shipping-address-1">
                 <span class="error small text-danger"></span>
             </div>
 
             <div class="form-group col-sm-3">
                 <label class="control-label" for="billing-address-2">Apt/Suite #</label>
-                <input class="form-control" id="billing-address-2" name="billingInfo[streetAddressLine2]" type="text" value="{{ billingInfo.streetAddressLine2 }}">
+                <input class="form-control" id="billing-address-2" name="billingInfo[streetAddressLine2]" type="text" value="{{ billingInfo.streetAddressLine2 }}"  data-mirror="#shipping-address-2">
                 <span class="error small text-danger"></span>
             </div>
 
             <div class="form-group col-sm-6">
                 <label class="control-label" for="billing-postal-code">Postal/Zip Code</label>
-                <input class="form-control" id="billing-postal-code" name="billingInfo[postalCode]" type="text" value="{{ billingInfo.postalCode }}">
+                <input class="form-control" id="billing-postal-code" name="billingInfo[postalCode]" type="text" value="{{ billingInfo.postalCode }}" data-mirror="#shipping-postal-code">
                 <span class="error small text-danger"></span>
             </div>
 
             <div class="form-group col-sm-6">
                 <label class="control-label" for="billing-city">City</label>
-                <input class="form-control" id="billing-city" name="billingInfo[city]" type="text" value="{{ billingInfo.city }}">
+                <input class="form-control" id="billing-city" name="billingInfo[city]" type="text" value="{{ billingInfo.city }}" data-mirror="#shipping-city">
                 <span class="error small text-danger"></span>
             </div>
 
             <div class="form-group col-sm-6">
-            		<label class="control-label" for="billing-country">Country</label>
-                <select class="form-control custom-select" id="billing-country" name="billingInfo[countryId]" data-ajax-refresh data-state-selector="#billing-state">
+                    <label class="control-label" for="billing-country">Country</label>
+                <select class="form-control custom-select" id="billing-country" name="billingInfo[countryId]" data-ajax-refresh data-state-selector="#billing-state"  data-mirror='#shipping-country'>
                     {% for country in countries %}
                     <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                     {% endfor %}
@@ -188,7 +103,7 @@
 
             <div class="form-group col-sm-6">
                 <label class="control-label" for="billing-state">State</label>
-                <select id="billing-state" class="form-control custom-select" name="billingInfo[stateId]">
+                <select id="billing-state" class="form-control custom-select" name="billingInfo[stateId]" data-mirror='#shipping-state'>
                     <option value="" disabled="disabled" selected="selected">State</option>
                     {% set billingState = billingInfo.stateId ? billingInfo.stateId : shippingInfo.stateId %}
                     {{ partial('shop-stateoptions', {'states': billingStates, 'selected':billingState}) }}
@@ -198,10 +113,92 @@
 
             <div class="form-group col-sm-12">
                 <label class="control-label" for="billing-phone">Phone Number (optional)</label>
-                <input class="form-control" id="billing-phone" name="billingInfo[phone]" type="text" value="{{ billingInfo.phone }}">
+                <input class="form-control" id="billing-phone" name="billingInfo[phone]" type="text" value="{{ billingInfo.phone }}" data-mirror="#shipping-phone">
                 <span class="error small text-danger"></span>
             </div>
         </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="custom-control custom-checkbox">
+                <input id="shipping-same"
+                    data-toggle-mirror="on"
+                    class="custom-control-input btn-form-mirror"
+                    type="checkbox" checked>
+                <label class="custom-control-label" for="shipping-same">My billing address and shipping address are the same.</label>
+            </div>
+        </div>
+    </div>
+
+    <div id="shipping-fields" style="display: none;">
+        <div class="row mb-4">
+
+            <div class="form-group col-sm-12">
+                <h4>Where should we ship your order?</h4>
+            </div>
+            
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="shipping-first-name">First Name</label>
+                <input class="form-control" id="shipping-first-name" name="shippingInfo[firstName]" type="text" value="{{ shippingInfo.firstName }}">
+                <span class="error small text-danger"></span>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="billing-last-name">Last Name</label>
+                <input class="form-control" id="shipping-last-name" name="shippingInfo[lastName]" type="text" value="{{ shippingInfo.lastName }}">
+                <span class="error small text-danger"></span>
+            </div>
+
+            <div class="form-group col-sm-9">
+                <label class="control-label" for="shipping-address-1">Street Address</label>
+                <input class="form-control" id="shipping-address-1" name="shippingInfo[streetAddressLine1]" type="text" value="{{ shippingInfo.streetAddressLine1 }}">
+                <span class="error small text-danger"></span>
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label class="control-label" for="shipping-address-2">Apt/Suite #</label>
+                <input class="form-control" id="shipping-address-2" name="shippingInfo[streetAddressLine2]" type="text" value="{{ shippingInfo.streetAddressLine2 }}">
+                <span class="error small text-danger"></span>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="shipping-postal-code">Postal/Zip Code</label>
+                <input class="form-control" id="shipping-postal-code" name="shippingInfo[postalCode]" type="text" value="{{ shippingInfo.postalCode }}">
+                <span class="error small text-danger"></span>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="shipping-city">City</label>
+                <input class="form-control" id="shipping-city" name="shippingInfo[city]" type="text" value="{{ shippingInfo.city }}">
+                <span class="error small text-danger"></span>
+            </div>
+
+            <div class="form-group col-sm-6">
+                    <label class="control-label" for="shipping-state">Country</label>
+                <select class="form-control custom-select" id="shipping-country" name="shippingInfo[countryId]" data-state-selector="#shipping-state" data-current-state="{{ shippingInfo.stateId }}">
+                    {% for country in countries %}
+                    <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                    {% endfor %}
+                </select>
+                <span class="error"></span>
+            </div>
+            <div class="form-group col-sm-6">
+                    <label class="control-label" for="shipping-state">State</label>
+                <select class="form-control custom-select" id="shipping-state" name="shippingInfo[stateId]" data-ajax-refresh>
+                    {{ partial('shop-stateoptions', {'states': billingStates, 'selected': shippingInfo.stateId}) }}
+                </select>
+                <span class="error"></span>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label class="control-label" for="shipping-phone">Phone Number (optional)</label>
+                <input class="form-control" id="shipping-phone" name="shippingInfo[phone]" type="text" value="{{ shippingInfo.phone }}">
+                <span class="error small text-danger"></span>
+            </div>
+
+        </div>
+
     </div>
 
     <div class="checkout-footer">
