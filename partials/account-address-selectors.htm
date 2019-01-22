@@ -13,7 +13,7 @@
         <label class="control-label">
             Billing Addresses
             <select
-                class="control-label custom-select"
+                class="control-label custom-select address-selector"
                 data-current-state="{{ address.id }}"
                 data-state-selector="#billing-state">
               {% for address in customer.billingAddresses %}
@@ -31,7 +31,7 @@
               {% endif %}
 
             </select>
-            <span class="error small text-danger"></span>
+            <!-- <span class="error small text-danger"></span> -->
         </label>
         <button type="submit" class="btn btn-sm btn-outline-dark">Edit Billing Address</button>
         {{ close_form() }}
@@ -47,7 +47,7 @@
         <label class="control-label">
             Shpping Addresses
             <select
-                class="control-label custom-select"
+                class="control-label custom-select address-selector"
                 data-current-state="{{ address.id }}"
                 data-state-selector="#billing-state">
               {% for address in customer.shippingAddresses %}
@@ -64,7 +64,7 @@
                 {% endfor %}
               {% endif %}
             </select>
-            <span class="error small text-danger"></span>
+            <!-- <span class="error small text-danger"></span> -->
         </label>
         <button type="submit" class="btn btn-sm btn-outline-dark">Edit Shipping Address</button>
         {{ close_form() }}

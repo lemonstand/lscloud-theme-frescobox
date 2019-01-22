@@ -6,7 +6,7 @@
    })
 }}
 {{ flash() }}
-<input type="hidden" name="redirect" value="/account">
+<input type="hidden" name="redirect" value="/account/profile">
 <section class="account-billing-address grid-x grid-padding-x">
   <input type="hidden" name="address[id]" value="{{ address.id }}">
   <label class="cell medium-6">
@@ -41,6 +41,6 @@
   </label>
 </section>
 <button type="submit" class="btn btn-outline-dark">
-  Save Customer Info
+  Save Profile Information
 </button>
 {{ close_form() }}
