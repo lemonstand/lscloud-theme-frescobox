@@ -1,13 +1,11 @@
 {{ open_form({
      'method': 'post',
-     'class': 'custom',
      'data-ajax-handler': 'shop:onUpdateCustomer',
-     'data-ajax-update': '#customer-detail=customer-detail',
      'data-abide': null,
-     'novalidate': null,
-     'data-validation-message' : ''
+     'novalidate': null
    })
 }}
+
 {{ flash() }}
 <input type="hidden" name="redirect" value="/account/profile">
 <section id="customer-detail" class="account-billing-address grid-x grid-padding-x">
@@ -20,7 +18,6 @@
         name="first_name"
         value="{{ customer.first_name }}"
         required>
-    <!-- <span class="error"></span> -->
         <span class="error small text-danger form-error">First name is required.</span>
   </label>
   <label class="cell medium-6">
@@ -31,7 +28,6 @@
         name="last_name"
         value="{{ customer.last_name }}"
         required>
-    <!-- <span class="error"></span> -->
         <span class="error small text-danger form-error">First name is required.</span>
   </label>
   <label class="cell">
@@ -42,17 +38,10 @@
         name="email"
         value="{{ customer.email }}"
         required>
-    <!-- <span class="error"></span> -->
         <span class="error small text-danger form-error">First name is required.</span>
   </label>
 </section>
-<!-- <button type="submit" class="btn btn-outline-dark">
+<button type="submit" class="btn btn-outline-dark">
   Save Profile Information
-</button> -->
-<a id="save_profile_button" class="btn btn-outline-dark btn-sm" href="#"
-  data-ajax-handler="shop:onUpdateCustomerProfile"
-  data-ajax-update="#profile-addresses=account-profile-edit-form"
-  data-validation-message="">
-  Save address information
-</a>
+</button>
 {{ close_form() }}
