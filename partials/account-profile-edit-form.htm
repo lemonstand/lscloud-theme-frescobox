@@ -1,4 +1,8 @@
-{{ partial('flash', { max_alerts: 1 }) }}
+{% if param('updated') %}
+    <p class="alert alert-success">Your profile was updated successfully!</p>
+{% else %}
+    {{ partial('flash', { max_alerts: 1 }) }}
+{% endif %}
 
 {{ open_form({
     'class': 'custom',

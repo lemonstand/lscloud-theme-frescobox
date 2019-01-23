@@ -20,7 +20,11 @@
                 			<div class="card sidebar-card mb-9 col-md-10">
                 				<div class="card-body">
                 					<div class="row">
-														{{ flash() }}
+														{% if param('updated') %}
+														    <p class="alert alert-success">Your address was updated successfully!</p>
+														{% else %}
+														    {{ partial('flash') }}
+														{% endif %}
 														<input type="hidden" name="redirect" value="/address/{{ address.id }}">
 														<section class="account-billing-address grid-x grid-padding-x">
 														  <input type="hidden" name="address[id]" value="{{ address.id }}">
@@ -33,7 +37,7 @@
 														        value="{{ address.first_name }}"
 														        required>
 														    <span class="error"></span>
-														    <!-- <span class="form-error">First name is required.</span> -->
+														    <span class="error small text-danger">First name is required.</span>
 														  </label>
 														  <label class="cell medium-6">
 														    Last Name*
@@ -44,7 +48,7 @@
 														        value="{{ address.last_name }}"
 														        required>
 														    <span class="error"></span>
-														    <!-- <span class="form-error">Last name is required.</span> -->
+														    <span class="error small text-danger">Last name is required.</span>
 														  </label>
 														  <label class="cell">
 														    Phone Number
@@ -54,7 +58,7 @@
 														        name="address[phone]"
 														        value="{{ address.phone }}">
 														    <span class="error"></span>
-														    <!-- <span class="form-error">Error.</span> -->
+														    <span class="error small text-danger">Error.</span>
 														  </label>
 
 														  <label class="cell">
@@ -66,7 +70,7 @@
 														        value="{{ address.street_address }}"
 														        required>
 														    <span class="error"></span>
-														    <!-- <span class="form-error">Address is required.</span> -->
+														    <span class="error small text-danger">Address is required.</span>
 														  </label>
 														  <label class="cell">
 														    Address (line 2)
@@ -76,7 +80,7 @@
 														        name="address[street_address_line2]"
 														        value="{{ address.street_address_line2 }}">
 														    <span class="error"></span>
-														    <!-- <span class="form-error">Error.</span> -->
+														    <span class="error small text-danger">Error.</span>
 														  </label>
 														  <label class="cell medium-6">
 														    City*
@@ -87,7 +91,7 @@
 														        value="{{ address.city }}"
 														        required>
 														    <span class="error"></span>
-														    <!-- <span class="form-error">City is required.</span> -->
+														    <span class="error small text-danger">City is required.</span>
 														  </label>
 														  <label class="cell medium-6">
 														    Postal Code*
@@ -98,7 +102,7 @@
 														        value="{{ address.postal_code }}"
 														        required>
 														    <span class="error"></span>
-														    <!-- <span class="form-error">Postal code is required.</span> -->
+														    <span class="error small text-danger">Postal code is required.</span>
 														  </label>
 														  <label class="cell medium-6">
 														    Country
@@ -116,7 +120,7 @@
 														      {% endfor %}
 														    </select>
 														    <span class="error"></span>
-														    <!-- <span class="form-error">Error.</span> -->
+														    <span class="error small text-danger">Error.</span>
 														  </label>
 														  <label class="cell medium-6">
 														    State
@@ -125,7 +129,7 @@
 														      {'states': states, 'selected': address.state.id}) }}
 														    </select>
 														    <span class="error"></span>
-														    <!-- <span class="form-error">Error.</span> -->
+														    <span class="form-error">Error.</span>
 														  </label>
 														</section>
 														<label class="cell">
