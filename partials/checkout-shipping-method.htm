@@ -58,6 +58,7 @@
                                         name="shippingMethod"
                                         type="radio"
                                         value="{{ index }}"
+                                        data-ajax-handler="shop:onCheckoutShippingMethod" data-ajax-update=".checkout-totals=shop-checkout-totals"
                                         {{ not option.error_hint and 1 == loop.index ? ' checked' : '' }}
                                         {{ option.error_hint ? 'disabled' : null }}>
                                     <label class="custom-control-label" for="shipping-method-{{ index }}"></label>
