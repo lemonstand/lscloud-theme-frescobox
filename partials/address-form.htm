@@ -36,8 +36,7 @@
 														        name="address[first_name]"
 														        value="{{ address.first_name }}"
 														        required>
-														    <span class="error"></span>
-														    <span class="error small text-danger">First name is required.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 														  <label class="cell medium-6">
 														    Last Name*
@@ -47,8 +46,7 @@
 														        name="address[last_name]"
 														        value="{{ address.last_name }}"
 														        required>
-														    <span class="error"></span>
-														    <span class="error small text-danger">Last name is required.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 														  <label class="cell">
 														    Phone Number
@@ -57,8 +55,7 @@
 														        class="form-control"
 														        name="address[phone]"
 														        value="{{ address.phone }}">
-														    <span class="error"></span>
-														    <span class="error small text-danger">Error.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 
 														  <label class="cell">
@@ -69,8 +66,7 @@
 														        name="address[street_address]"
 														        value="{{ address.street_address }}"
 														        required>
-														    <span class="error"></span>
-														    <span class="error small text-danger">Address is required.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 														  <label class="cell">
 														    Address (line 2)
@@ -79,8 +75,7 @@
 														        class="form-control"
 														        name="address[street_address_line2]"
 														        value="{{ address.street_address_line2 }}">
-														    <span class="error"></span>
-														    <span class="error small text-danger">Error.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 														  <label class="cell medium-6">
 														    City*
@@ -90,8 +85,7 @@
 														        name="address[city]"
 														        value="{{ address.city }}"
 														        required>
-														    <span class="error"></span>
-														    <span class="error small text-danger">City is required.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 														  <label class="cell medium-6">
 														    Postal Code*
@@ -101,8 +95,7 @@
 														        name="address[postal_code]"
 														        value="{{ address.postal_code }}"
 														        required>
-														    <span class="error"></span>
-														    <span class="error small text-danger">Postal code is required.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 														  <label class="cell medium-6">
 														    Country
@@ -119,8 +112,7 @@
 														      </option>
 														      {% endfor %}
 														    </select>
-														    <span class="error"></span>
-														    <span class="error small text-danger">Error.</span>
+														    <span class="error small text-danger"></span>
 														  </label>
 														  <label class="cell medium-6">
 														    State
@@ -128,8 +120,6 @@
 														      {{ partial('shop-stateoptions',
 														      {'states': states, 'selected': address.state.id}) }}
 														    </select>
-														    <span class="error"></span>
-														    <span class="form-error">Error.</span>
 														  </label>
 														</section>
 														<label class="cell">

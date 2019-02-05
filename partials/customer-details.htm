@@ -7,39 +7,26 @@
 }}
 
 {{ flash() }}
+
 <input type="hidden" name="redirect" value="/account/profile">
 <section id="customer-detail" class="account-billing-address grid-x grid-padding-x">
   <input type="hidden" name="address[id]" value="{{ address.id }}">
-  <label class="cell medium-6">
-    First Name*
-    <input
-    		class="form-control"
-        type="text"
-        name="first_name"
-        value="{{ customer.first_name }}"
-        required>
-        <span class="error small text-danger form-error">First name is required.</span>
-  </label>
-  <label class="cell medium-6">
-    Last Name*
-    <input
-    		class="form-control"
-        type="text"
-        name="last_name"
-        value="{{ customer.last_name }}"
-        required>
-        <span class="error small text-danger form-error">First name is required.</span>
-  </label>
-  <label class="cell">
-    Email*
-    <input
-    		class="form-control"
-        type="email"
-        name="email"
-        value="{{ customer.email }}"
-        required>
-        <span class="error small text-danger form-error">First name is required.</span>
-  </label>
+
+	<div class="form-group">
+	  <label class="control-label" for="billing-first-name">First Name</label>
+	  <input id="billing-first-name" class="form-control" name="billing[first_name]" type="text" value="{{ billing.first_name }}">
+	</div>
+
+	<div class="form-group">
+		<label class="control-label" for="billing-last-name">Last Name</label>
+	  <input id="billing-last-name" class="form-control" name="billing[last_name]" type="text" value="{{ billing.last_name }}">
+	</div>
+	
+	<div class="form-group">
+		<label class="control-label" for="billing-email">Email</label>
+	  <input id="billing-email" class="form-control" name="billing[email]" type="email" value="{{ customer.email }}">
+	</div>
+
 </section>
 <button type="submit" class="btn btn-outline-dark">
   Save Profile Information
