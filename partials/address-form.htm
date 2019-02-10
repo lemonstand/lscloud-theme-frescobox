@@ -5,152 +5,141 @@
      'novalidate': null
    })
 }}
-<div id="content" class="block block-gray">
-    <div class="block-content">           
-        <div class="container">        
-            <div class="row">
 
-                <div class="col-lg-3">                
-                    {{ partial('account-sidebar') }}
+<div class="col-lg-12">
+  <div class="row">
+    <div class="card sidebar-card mb-9 col-md-10">
+      <div class="card-body">
+        <div class="row">
+          <header>
+            <h4 class="card-title">Update Address</h4>
+          </header>
+          <div class="grid-x grid-padding-x">
+            <div class="cell">
+              {{ flash() }}
+
+              <input type="hidden" name="redirect" value="/address/{{ address.id }}">
+              <section class="account-billing-address grid-x grid-padding-x">
+                <input type="hidden" name="address[id]" value="{{ address.id }}">
+                <label class="cell medium-6">
+                  First Name*
+                  <input
+                      type="text"
+                      class="form-control"
+                      name="address[first_name]"
+                      value="{{ address.first_name }}"
+                      required>
+                  <span class="error small text-danger"></span>
+                </label>
+                <label class="cell medium-6">
+                  Last Name*
+                  <input
+                      type="text"
+                      class="form-control"
+                      name="address[last_name]"
+                      value="{{ address.last_name }}"
+                      required>
+                  <span class="error small text-danger"></span>
+                </label>
+                <label class="cell">
+                  Phone Number
+                  <input
+                      type="tel"
+                      class="form-control"
+                      name="address[phone]"
+                      value="{{ address.phone }}">
+                  <span class="error small text-danger"></span>
+                </label>
+
+                <label class="cell">
+                  Address*
+                  <input
+                      type="text"
+                      class="form-control"
+                      name="address[street_address]"
+                      value="{{ address.street_address }}"
+                      required>
+                  <span class="error small text-danger"></span>
+                </label>
+                <label class="cell">
+                  Address (line 2)
+                  <input
+                      type="text"
+                      class="form-control"
+                      name="address[street_address_line2]"
+                      value="{{ address.street_address_line2 }}">
+                  <span class="error small text-danger"></span>
+                </label>
+                <label class="cell medium-6">
+                  City*
+                  <input
+                      type="text"
+                      class="form-control"
+                      name="address[city]"
+                      value="{{ address.city }}"
+                      required>
+                  <span class="error small text-danger"></span>
+                </label>
+                <label class="cell medium-6">
+                  Postal Code*
+                  <input
+                      type="text"
+                      class="form-control"
+                      name="address[postal_code]"
+                      value="{{ address.postal_code }}"
+                      required>
+                  <span class="error small text-danger"></span>
+                </label>
+                <label class="cell medium-6">
+                  Country
+                  <select
+                      name="address[shop_country_id]"
+                      class="control-label custom-select"
+                      data-current-state="{{ address.country.id }}"
+                      data-state-selector="#billing-state">
+                    {% for country in countries %}
+                    <option
+                        value="{{ country.id }}"
+                        {{ option_state(address.country.id, country.id) }}>
+                      {{ country.name }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                  <span class="error small text-danger"></span>
+                </label>
+                <label class="cell medium-6">
+                  State
+                  <select name="address[shop_state_id]" id="billing-state" class="control-label custom-select">
+                    {{ partial('shop-stateoptions',
+                    {'states': states, 'selected': address.state.id}) }}
+                  </select>
+                </label>
+              </section>
+              <label class="cell">
+                  <div class="switch">
+                    <input
+                      id="default_address"
+                      class="switch-input"
+                      type="checkbox"
+                      name="is_default"
+                      {{ address.is_default ? 'checked' : '' }}>
+                    <label class="switch-paddle" for="default_address">
+                      <span class="show-for-sr">Is this your default address?</span>
+                    </label>
+                  </div>
+              </label>
+              <div class="col-md-12">
+                <div class="row">
+                  <button type="submit" class="btn btn-outline-dark">
+                    Save address information
+                  </button>
                 </div>
-                <div class="col-lg-9">
-                	<div class="col-lg-12">
-                		<div class="row">
-
-                			<div class="card sidebar-card mb-9 col-md-10">
-                				<div class="card-body">
-                					<div class="row">
-														{% if param('updated') %}
-														    <p class="alert alert-success">Your address was updated successfully!</p>
-														{% else %}
-														    {{ partial('flash') }}
-														{% endif %}
-														<input type="hidden" name="redirect" value="/address/{{ address.id }}">
-														<section class="account-billing-address grid-x grid-padding-x">
-														  <input type="hidden" name="address[id]" value="{{ address.id }}">
-														  <label class="cell medium-6">
-														    First Name*
-														    <input
-														        type="text"
-														        class="form-control"
-														        name="address[first_name]"
-														        value="{{ address.first_name }}"
-														        required>
-														    <span class="error small text-danger"></span>
-														  </label>
-														  <label class="cell medium-6">
-														    Last Name*
-														    <input
-														        type="text"
-														        class="form-control"
-														        name="address[last_name]"
-														        value="{{ address.last_name }}"
-														        required>
-														    <span class="error small text-danger"></span>
-														  </label>
-														  <label class="cell">
-														    Phone Number
-														    <input
-														        type="tel"
-														        class="form-control"
-														        name="address[phone]"
-														        value="{{ address.phone }}">
-														    <span class="error small text-danger"></span>
-														  </label>
-
-														  <label class="cell">
-														    Address*
-														    <input
-														        type="text"
-														        class="form-control"
-														        name="address[street_address]"
-														        value="{{ address.street_address }}"
-														        required>
-														    <span class="error small text-danger"></span>
-														  </label>
-														  <label class="cell">
-														    Address (line 2)
-														    <input
-														        type="text"
-														        class="form-control"
-														        name="address[street_address_line2]"
-														        value="{{ address.street_address_line2 }}">
-														    <span class="error small text-danger"></span>
-														  </label>
-														  <label class="cell medium-6">
-														    City*
-														    <input
-														        type="text"
-														        class="form-control"
-														        name="address[city]"
-														        value="{{ address.city }}"
-														        required>
-														    <span class="error small text-danger"></span>
-														  </label>
-														  <label class="cell medium-6">
-														    Postal Code*
-														    <input
-														        type="text"
-														        class="form-control"
-														        name="address[postal_code]"
-														        value="{{ address.postal_code }}"
-														        required>
-														    <span class="error small text-danger"></span>
-														  </label>
-														  <label class="cell medium-6">
-														    Country
-														    <select
-														        name="address[shop_country_id]"
-														        class="control-label custom-select"
-														        data-current-state="{{ address.country.id }}"
-														        data-state-selector="#billing-state">
-														      {% for country in countries %}
-														      <option
-														          value="{{ country.id }}"
-														          {{ option_state(address.country.id, country.id) }}>
-														        {{ country.name }}
-														      </option>
-														      {% endfor %}
-														    </select>
-														    <span class="error small text-danger"></span>
-														  </label>
-														  <label class="cell medium-6">
-														    State
-														    <select name="address[shop_state_id]" id="billing-state" class="control-label custom-select">
-														      {{ partial('shop-stateoptions',
-														      {'states': states, 'selected': address.state.id}) }}
-														    </select>
-														  </label>
-														</section>
-														<label class="cell">
-														    <div class="switch">
-														      <input
-														        id="default_address"
-														        class="switch-input"
-														        type="checkbox"
-														        name="is_default"
-														        {{ address.is_default ? 'checked' : '' }}>
-														      <label class="switch-paddle" for="default_address">
-														        <span class="show-for-sr">Is this your default address?</span>
-														      </label>
-														    </div>
-														</label>
-														<div class="col-md-12">
-															<div class="row">
-																<button type="submit" class="btn btn-outline-dark">
-																  Save address information
-																</button>
-															</div>
-														</div>
-														{{ close_form() }}
-                					</div>
-                				</div>
-                			</div>
-
-                		</div>
-                	</div>
-                </div>
-            </div>
-        </div>        
-    </div>    
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+{{ close_form() }}

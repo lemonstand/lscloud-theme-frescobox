@@ -1,59 +1,36 @@
-{% if param('updated') %}
-    <p class="alert alert-success">Your profile was updated successfully!</p>
-{% else %}
-    {{ partial('flash', { max_alerts: 1 }) }}
-{% endif %}
+<div id="profile-edit-form">
+  <input name="billing[id]" type="hidden" value="{{ billing.id }}">
 
-{{ open_form({
-    'class': 'custom',
-    'data-ajax-handler': 'shop:onUpdateCustomerProfile',
-    'data-ajax-update': '#profile-edit-form=account-profile-edit-form',
-    'data-validation-message' : ''
-}) }}
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="card sidebar-card mb-9 col-md-10">
+        <div class="card-body">
+          <div class="row">
+            <div class="account-settings-addresses">
+              {% if customer.hasBillingAddresses() and customer.hasShippingAddresses() %}
+              <header>
+                <h4 class="card-title">Customer Info</h4>
+              </header>
 
-<div id="profile-addresses profile-edit-form">
-	<input name="billing[id]" type="hidden" value="{{ billing.id }}">
-
-	<div class="col-lg-12">
-		<div class="row">
-
-			<div class="card sidebar-card mb-9 col-md-10">
-				<div class="card-body">
-					<div class="row">
-						<div class="account-settings-addresses">
-							{% if customer.hasBillingAddresses() and customer.hasShippingAddresses() %}
-							<header>
-								<h4 class="card-title">Customer Info</h4>
-							</header>
-
-							<div class="grid-x grid-padding-x">
-								<div class="cell">
-								{{
-								partial('customer-details', {
-								'customer' : customer
-									})
-								}}
-								</div>
-							</div>
-							<hr>
-							{{
-								partial('account-address-selectors', {
-								'customer' : customer
-								})
-							}}
-							{% else %}
-							{{
-							partial('account-settings-addresses', {
-								'customer': customer,
-								'countries': countries
-								})
-							}}
-							{% endif %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+              <div class="grid-x grid-padding-x">
+                <div class="cell">
+                {{ partial('customer-details', { 'customer' : customer }) }}
+                </div>
+              </div>
+              <hr>
+              {{ partial('account-address-selectors', { 'customer' : customer }) }}
+              {% else %}
+              {{
+              partial('account-settings-addresses', {
+                'customer': customer,
+                'countries': countries
+                })
+              }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{{ close_form() }}
