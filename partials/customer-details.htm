@@ -1,0 +1,34 @@
+{{ open_form({
+    'class': 'custom',
+    'data-ajax-handler': 'shop:onUpdateCustomerProfile',
+    'data-abide': null,
+    'novalidate': null
+}) }}
+
+{{ flash() }}
+
+<input type="hidden" name="redirect" value="/account/profile">
+<section id="customer-detail" class="account-billing-address grid-x grid-padding-x">
+  <input type="hidden" name="address[id]" value="{{ address.id }}">
+
+  <div class="form-group">
+    <label class="control-label" for="customer-first-name">First Name</label>
+    <input id="customer-first-name" class="form-control" name="first_name" type="text" value="{{ customer.first_name }}" required>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="customer-last-name">Last Name</label>
+    <input id="customer-last-name" class="form-control" name="last_name" type="text" value="{{ customer.last_name }}" required>
+    <span class="error text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="customer-email">Email</label>
+    <input id="customer-email" class="form-control" name="email" type="email" value="{{ customer.email }}" required>
+  </div>
+
+</section>
+<button type="submit" class="btn btn-outline-dark">
+  Save Profile Information
+</button>
+{{ close_form() }}

@@ -1,0 +1,46 @@
+---
+action: 'shop:customerAddress'
+template: master
+protocol: all
+published: true
+name: Address
+url: '/address/:addressId'
+---
+
+{{ partial('page-header', {
+    'background': theme.defaultBanner,
+    'title': page.title
+}) }}
+
+<div id="content" class="block block-gray">
+    <div class="block-content">
+        <div class="container">
+          <div class="row">
+
+                <div class="col-lg-3">                
+                    {{ partial('account-sidebar') }}
+                </div>
+
+                {% if address %}
+                    {% if address.is_billing %}
+                        {% set parameterPrefix = 'billing' %}
+                    {% else %}
+                        {% set parameterPrefix = 'shipping' %}
+                    {% endif %}
+                    <div class="col-lg-9">
+                      {{ partial('address-form', { addressParameterPrefix : parameterPrefix }) }}
+                    </div>
+                {% else %}
+                  <div class="grid-x grid-padding-x">
+                    <div class="cell">
+                      <p>
+                        The address you're asking for doesn't exist.
+                      </p>
+                    </div>
+                  </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+

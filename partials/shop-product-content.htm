@@ -37,7 +37,7 @@
                                 data-ajax-update="#product-content=shop-product-content,#product-images=shop-product-images,#product-information=shop-product-tabs">
 
                             {% for key, value in option.values %}
-
+																
                                 <option value="{{ key }}" {{ option_state(postedOptions[option.id], key) }}>{{ value }}</option>
 
                             {% endfor %}

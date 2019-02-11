@@ -7,7 +7,7 @@
         <dd class="col-6 text-right">{{ itemTotalNoTax|currency }}</dd>
 
         {% for plan in billingPlans %}
-            {% if cart_billing_plan == plan.id and totals.setupFee > 0%}
+            {% if cart_billing_plan == plan.id and totals.setupFee > 0 %}
 
                 <dt class="col-6">Subscription Setup:</dt>
                 <dd class="col-6 text-right">{{ totals.setupFee|currency }}</dd>
@@ -15,10 +15,8 @@
         {% endfor %}
     {% endif %}
 
-    {% if totals.totalShippingQuote > 0 %}
-        <dt class="col-6">Shipping:</dt>
-        <dd class="col-6 text-right">{{ totals.totalShippingQuote|currency }}</dd>
-    {% endif %}
+    <dt class="col-6">Shipping:</dt>
+    <dd class="col-6 text-right">{{ totals.totalShippingQuote|currency }}</dd>
 
     {% if totals.totalTax > 0 %}
         <dt class="col-6">Tax:</dt>
